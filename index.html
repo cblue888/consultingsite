@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Pixel Consulting | AI Operations Consulting for Established Businesses</title>
+  <meta name="description" content="Blue Pixel Consulting helps established businesses modernize operations with practical AI solutions. Free assessment — no jargon, just results.">
+  <meta name="keywords" content="AI consulting, business automation, AI operations consulting, workflow automation, AI integration">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bluepixelconsulting.com">
+  <meta property="og:title" content="Blue Pixel Consulting | AI Operations for Established Businesses">
+  <meta property="og:description" content="Practical AI solutions for established businesses. Free assessment — no jargon, just results.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluepixelconsulting.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #060d1b;
+      --navy-mid: #0a1628;
+      --navy-light: #0f1d32;
+      --blue-deep: #1a3a5c;
+      --blue-mid: #2563eb;
+      --blue-accent: #60a5fa;
+      --blue-bright: #3b82f6;
+      --blue-pale: #dbeafe;
+      --blue-wash: rgba(37,99,235,0.08);
+      --cyan: #22d3ee;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --glow-blue: rgba(37,99,235,0.4);
+      --glow-cyan: rgba(34,211,238,0.3);
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --glass: rgba(15,29,50,0.6);
+      --glass-solid: rgba(15,29,50,0.85);
+      --font-heading: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      line-height: 1.6;
+      background: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ---- Utility ---- */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---- Animations ---- */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger > .fade-up:nth-child(1) { transition-delay: 0s; }
+    .stagger > .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .stagger > .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .stagger > .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.97); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.7; }
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+      background-size: 200% 200%;
+      color: var(--white);
+      box-shadow: 0 0 20px rgba(37,99,235,0.3), 0 4px 16px rgba(37,99,235,0.2);
+    }
+
+    .btn-primary:hover {
+      background-size: 200% 200%;
+      animation: gradient-shift 3s ease infinite;
+      box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 8px 32px rgba(37,99,235,0.3);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gray-300);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav.scrolled {
+      background: rgba(6, 13, 27, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .nav-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-logo span {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      font-size: 0.8125rem;
+      padding: 10px 20px;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    /* animated gradient orbs */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .hero-orb-1 {
+      width: 600px;
+      height: 600px;
+      top: -10%;
+      right: -5%;
+      background: radial-gradient(circle, rgba(37,99,235,0.2) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-orb-2 {
+      width: 400px;
+      height: 400px;
+      bottom: 10%;
+      left: -10%;
+      background: radial-gradient(circle, rgba(34,211,238,0.1) 0%, transparent 70%);
+      animation: float 25s ease-in-out infinite reverse;
+    }
+
+    .hero-orb-3 {
+      width: 300px;
+      height: 300px;
+      top: 40%;
+      right: 30%;
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+      animation: float 18s ease-in-out infinite 3s;
+    }
+
+    /* grid overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 740px;
+      padding: 140px 0 100px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--blue-accent);
+      margin-bottom: 28px;
+      padding: 6px 16px 6px 12px;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: 100px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue-accent);
+      box-shadow: 0 0 8px var(--glow-blue);
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      margin-top: 24px;
+    }
+
+    /* ---- Section Divider ---- */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--border-subtle) 20%, rgba(37,99,235,0.15) 50%, var(--border-subtle) 80%, transparent 100%);
+    }
+
+    /* ---- Problem / Empathy ---- */
+    .problem {
+      padding: 100px 0;
+      background: var(--navy-mid);
+      position: relative;
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .problem-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .problem-text p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .problem-text p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .problem-text strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .pain-points {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pain-point {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--glass);
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+
+    .pain-point:hover {
+      border-color: var(--border-hover);
+      background: rgba(15,29,50,0.7);
+    }
+
+    .pain-point-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pain-point-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--blue-accent);
+    }
+
+    .pain-point h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .pain-point p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ---- Services ---- */
+    .services {
+      padding: 100px 0;
+      background: var(--navy);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--blue-accent);
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 36px 28px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(96,165,250,0.3) 50%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(37,99,235,0.08);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-icon.icon-audit {
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.15);
+      color: var(--blue-accent);
+    }
+
+    .service-icon.icon-build {
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.15);
+      color: var(--cyan);
+    }
+
+    .service-icon.icon-partner {
+      background: rgba(168,85,247,0.1);
+      border: 1px solid rgba(168,85,247,0.15);
+      color: #c084fc;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+
+    .tag-audit {
+      background: rgba(37,99,235,0.12);
+      color: var(--blue-accent);
+      border: 1px solid rgba(37,99,235,0.15);
+    }
+
+    .tag-build {
+      background: rgba(34,211,238,0.12);
+      color: var(--cyan);
+      border: 1px solid rgba(34,211,238,0.15);
+    }
+
+    .tag-partner {
+      background: rgba(168,85,247,0.12);
+      color: #c084fc;
+      border: 1px solid rgba(168,85,247,0.15);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-details li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.8125rem;
+      color: var(--gray-400);
+      line-height: 1.5;
+    }
+
+    .service-details li svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--blue-accent);
+      margin-top: 2px;
+    }
+
+    /* ---- How It Works ---- */
+    .process {
+      padding: 100px 0;
+      background: var(--navy-mid);
+      position: relative;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    /* connector line */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(16.67% + 36px);
+      right: calc(16.67% + 36px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(37,99,235,0.3) 0%, rgba(34,211,238,0.3) 50%, rgba(168,85,247,0.3) 100%);
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1px solid rgba(37,99,235,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(37,99,235,0.1);
+    }
+
+    .step h3 {
+      font-family: var(--font-heading);
+      font-size: 1.125rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 0.9375rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ---- Trust ---- */
+    .trust {
+      padding: 100px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 60% at 80% 50%, rgba(37,99,235,0.06) 0%, transparent 60%);
+    }
+
+    .trust-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .trust-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-text p {
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .trust-features {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .trust-feature {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .trust-feature:hover {
+      border-color: var(--border-hover);
+    }
+
+    .trust-feature-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trust-feature-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--blue-accent);
+    }
+
+    .trust-feature h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .trust-feature p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* ---- Canadian Badge ---- */
+    .canadian-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.12);
+      border-radius: 100px;
+      margin-top: 20px;
+    }
+    .canadian-badge svg { width: 16px; height: 16px; }
+    .canadian-badge span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fca5a5;
+    }
+
+    /* ---- Testimonials ---- */
+    .testimonials {
+      padding: 100px 0;
+      background: var(--navy-mid);
+      overflow: hidden;
+    }
+
+    .carousel-wrap { position: relative; }
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .testimonial-card {
+      flex: 0 0 calc(33.333% - 14px);
+      padding: 32px 28px;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-card:hover { border-color: var(--border-hover); }
+    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 16px; }
+    .testimonial-stars svg { width: 16px; height: 16px; color: #fbbf24; fill: #fbbf24; }
+    .testimonial-quote {
+      font-size: 0.9375rem;
+      color: var(--gray-300);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(34,211,238,0.2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--blue-accent);
+    }
+    .testimonial-name { font-size: 0.8125rem; font-weight: 600; color: var(--white); }
+    .testimonial-role { font-size: 0.75rem; color: var(--gray-500); }
+
+    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--gray-400);
+    }
+    .carousel-btn:hover { border-color: var(--border-hover); color: var(--white); }
+    .carousel-btn svg { width: 18px; height: 18px; }
+    .carousel-dots { display: flex; align-items: center; gap: 8px; }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gray-600);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+    .carousel-dot.active { background: var(--blue-accent); box-shadow: 0 0 8px rgba(96,165,250,0.4); }
+
+    /* ---- Final CTA ---- */
+    .cta {
+      padding: 120px 0;
+      background: var(--navy-mid);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 60%);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .cta p {
+      font-size: 1.0625rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cta-note {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+    }
+
+    /* ---- Footer ---- */
+    .footer {
+      padding: 40px 0;
+      background: var(--navy);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-500);
+      font-size: 0.875rem;
+    }
+
+    .footer-brand img {
+      height: 24px;
+      width: auto;
+      opacity: 0.6;
+    }
+
+    .footer-info {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-info a,
+    .footer-info span {
+      font-size: 0.8125rem;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-info a:hover {
+      color: var(--blue-accent);
+    }
+
+    .footer-divider {
+      color: var(--gray-600);
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 1024px) {
+      .testimonial-card { flex: 0 0 calc(50% - 10px); }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        padding: 120px 0 80px;
+      }
+
+      .problem-grid,
+      .trust-content {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .problem,
+      .services,
+      .process,
+      .trust {
+        padding: 80px 0;
+      }
+
+      .cta {
+        padding: 80px 0;
+      }
+
+      .testimonial-card { flex: 0 0 calc(100% - 0px); }
+
+      .testimonials { padding: 80px 0; }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        justify-content: center;
+      }
+
+      .nav-logo span {
+        display: none;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-info {
+        justify-content: center;
+      }
+
+      .hero-orb-1 { width: 300px; height: 300px; }
+      .hero-orb-2 { width: 200px; height: 200px; }
+      .hero-orb-3 { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Blue Pixel Consulting — Home">
+        <img src="logo.png" alt="Blue Pixel Consulting logo" width="36" height="36">
+        <span>Blue Pixel</span>
+      </a>
+      <div class="nav-right">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta">Book Free Assessment</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">AI Operations Consulting</div>
+        <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
+        <p class="hero-sub fade-up">Blue Pixel helps established businesses cut through the AI noise. We find where automation actually saves you time and money — then we build it.</p>
+        <div class="hero-actions fade-up">
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary">
+            Book Your Free Assessment
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <a href="#services" class="btn btn-outline">See How It Works</a>
+        </div>
+        <p class="hero-note fade-up">30 minutes. No jargon. No commitment.</p>
+        <div class="canadian-badge fade-up">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2L13.09 8.26L18 6L14.74 10.91L21 12L14.74 13.09L18 18L13.09 15.74L12 22L10.91 15.74L6 18L9.26 13.09L3 12L9.26 10.91L6 6L10.91 8.26L12 2Z" fill="#ef4444"/></svg>
+          <span>Proudly Canadian</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Problem / Empathy -->
+  <section class="problem" id="problem" aria-labelledby="problem-heading">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-text fade-up">
+          <h2 id="problem-heading">You Built a Great Business. AI Shouldn't Feel This Confusing.</h2>
+          <p>Everyone's talking about AI. Your competitors are making moves. But most of what you hear sounds like hype — and nobody's explaining how it applies to <strong>your</strong> business.</p>
+          <p>You don't need a chatbot. You need the 40 hours a week your team spends on manual data entry, scheduling conflicts, and chasing approvals — back.</p>
+        </div>
+        <div class="pain-points stagger">
+          <div class="pain-point fade-up">
+            <div class="pain-point-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            </div>
+            <div>
+              <h3>Drowning in Manual Work</h3>
+              <p>Your team re-enters the same data across three systems. Invoices, reports, and scheduling eat up entire days.</p>
+            </div>
+          </div>
+          <div class="pain-point fade-up">
+            <div class="pain-point-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
+            </div>
+            <div>
+              <h3>Competitors Moving Faster</h3>
+              <p>Other firms in your industry are automating quotes, follow-ups, and reporting. The gap is growing every quarter.</p>
+            </div>
+          </div>
+          <div class="pain-point fade-up">
+            <div class="pain-point-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
+            </div>
+            <div>
+              <h3>Not Sure Where to Start</h3>
+              <p>You know AI could help — but you've been burned by tech projects before. You need someone who speaks business, not buzzwords.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Services -->
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">What We Do</div>
+        <h2 id="services-heading">Practical AI That Fits Your Business</h2>
+        <p>Not theory. Not demos. Real automation that your team can use starting week one.</p>
+      </div>
+      <div class="services-grid stagger">
+        <article class="service-card fade-up">
+          <div class="service-icon icon-audit">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+          </div>
+          <span class="service-tag tag-audit">1–2 Weeks</span>
+          <h3>Operations Audit &amp; Quick Wins</h3>
+          <p>We map your workflows and identify the highest-impact automation opportunities — fast.</p>
+          <ul class="service-details">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Deep workflow analysis
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Immediate quick-win implementations
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Prioritized automation roadmap
+            </li>
+          </ul>
+        </article>
+        <article class="service-card fade-up">
+          <div class="service-icon icon-build">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
+          </div>
+          <span class="service-tag tag-build">Project-Based</span>
+          <h3>Workflow Automation &amp; AI Integration</h3>
+          <p>Custom AI workflows built around your existing tools. No rip-and-replace — we work with what you have.</p>
+          <ul class="service-details">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Custom AI-powered automations
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Integrates with your current systems
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Team training included
+            </li>
+          </ul>
+        </article>
+        <article class="service-card fade-up">
+          <div class="service-icon icon-partner">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
+          </div>
+          <span class="service-tag tag-partner">Monthly Retainer</span>
+          <h3>Ongoing AI Operations Partner</h3>
+          <p>A dedicated partner who continuously finds new efficiencies and keeps your automation running smoothly.</p>
+          <ul class="service-details">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Continuous process optimization
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Monthly performance reviews
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              Priority support and new automations
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- How It Works -->
+  <section class="process" id="process" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">How It Works</div>
+        <h2 id="process-heading">Three Steps to Smarter Operations</h2>
+        <p>No 12-month rollout. No enterprise sales cycle. Just a clear path from conversation to results.</p>
+      </div>
+      <div class="process-steps stagger">
+        <div class="step fade-up">
+          <div class="step-number">1</div>
+          <h3>Free Assessment</h3>
+          <p>A 30-minute conversation about your business. We identify where AI makes the biggest difference — no pitch, no pressure.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">2</div>
+          <h3>Custom Roadmap</h3>
+          <p>A clear plan: what to automate first, expected impact, timeline, and cost. Yours to keep — even if you don't hire us.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">3</div>
+          <h3>Implementation</h3>
+          <p>We build, test, and train your team. Results in weeks, not months. And we stick around to make sure it works.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Trust -->
+  <section class="trust" id="trust" aria-labelledby="trust-heading">
+    <div class="container">
+      <div class="trust-content">
+        <div class="trust-text fade-up">
+          <h2 id="trust-heading">We Embed With Your Team. Not Send Playbooks From Afar.</h2>
+          <p>We sit down with your team, walk your floor, and understand your business the way it actually operates — not how it looks on a slide deck.</p>
+          <p>Blue Pixel was built for businesses that make the real world run. Construction firms, law offices, accounting practices, property managers, trades — the companies that can't afford to get this wrong.</p>
+        </div>
+        <div class="trust-features stagger">
+          <div class="trust-feature fade-up">
+            <div class="trust-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+            </div>
+            <div>
+              <h3>Hands-On, Embedded</h3>
+              <p>We learn your workflows by watching them happen — not from a Zoom screen or a survey form.</p>
+            </div>
+          </div>
+          <div class="trust-feature fade-up">
+            <div class="trust-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
+            </div>
+            <div>
+              <h3>Plain Language, Always</h3>
+              <p>No jargon. No acronym soup. We explain what we're doing and why — in terms that make sense to you.</p>
+            </div>
+          </div>
+          <div class="trust-feature fade-up">
+            <div class="trust-feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+            </div>
+            <div>
+              <h3>Results Before Retainers</h3>
+              <p>We prove value before asking for a long-term commitment. Start with the audit — decide from there.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Testimonials -->
+  <section class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">What People Say</div>
+        <h2 id="testimonials-heading">Trusted by Operators Who Ship</h2>
+        <p>Real results from real engagements.</p>
+      </div>
+      <div class="carousel-wrap fade-up">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"We were drowning in manual processes and had no idea where to start with AI. Casey came in, mapped everything in a week, and had automations running within the month. Our ops team got 15 hours a week back."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JM</div>
+              <div><div class="testimonial-name">Operations Director</div><div class="testimonial-role">Construction &amp; Development Firm</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"What sets Casey apart is he actually understands operations. Most AI consultants give you a demo and a slide deck. He gave us systems that our team uses every single day."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SK</div>
+              <div><div class="testimonial-name">CEO</div><div class="testimonial-role">SaaS Company, Series A</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"Casey automated our entire client onboarding pipeline. What used to take 3 people and 2 days now runs itself. The ROI was obvious within the first month."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RL</div>
+              <div><div class="testimonial-name">Managing Partner</div><div class="testimonial-role">Professional Services Firm</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"I was skeptical about AI consulting. Casey's approach is refreshingly different — no buzzwords, no overselling. He found $200K+ in annual savings we didn't know we were leaving on the table."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">DW</div>
+              <div><div class="testimonial-name">VP Operations</div><div class="testimonial-role">Property Management Company</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"We brought Casey in to figure out our AI strategy. Within 6 weeks he had three automations live. Our sales team now spends 40% less time on admin and more time closing."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AT</div>
+              <div><div class="testimonial-name">Founder &amp; CEO</div><div class="testimonial-role">B2B Tech Startup</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
+            <p class="testimonial-quote">"The difference between Casey and other consultants is he actually builds the thing. Not a roadmap to maybe build the thing. He shipped in our environment, with our tools, in weeks."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">MH</div>
+              <div><div class="testimonial-name">Head of Operations</div><div class="testimonial-role">Financial Services</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonials">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+          </button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="nextBtn" aria-label="Next testimonials">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Final CTA -->
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-header fade-up" style="margin-bottom: 0;">
+          <h2 id="cta-heading">Ready to See What AI Can Do for Your Business?</h2>
+          <p>Book a free 30-minute assessment. We'll show you the three highest-impact automation opportunities in your operation — no strings attached.</p>
+        </div>
+        <div class="cta-actions fade-up">
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary">
+            Book Your Free Assessment
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+          </a>
+          <p class="cta-note">30 minutes &middot; No cost &middot; No commitment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="" width="24" height="24" aria-hidden="true">
+        <span>Blue Pixel Consulting</span>
+      </div>
+      <div class="footer-info">
+        <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>&copy; 2026 Blue Pixel Consulting</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // Scroll-triggered animations
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      document.querySelectorAll('.fade-up').forEach(function(el) {
+        observer.observe(el);
+      });
+
+      // Carousel
+      var track = document.getElementById('carouselTrack');
+      var dotsWrap = document.getElementById('carouselDots');
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      if (track && dotsWrap && prevBtn && nextBtn) {
+        var current = 0;
+        function getPerView() {
+          if (window.innerWidth <= 768) return 1;
+          if (window.innerWidth <= 1024) return 2;
+          return 3;
+        }
+        var cards = track.children.length;
+
+        function getMaxSlide() { return Math.max(0, cards - getPerView()); }
+
+        function buildDots() {
+          dotsWrap.innerHTML = '';
+          var max = getMaxSlide();
+          for (var i = 0; i <= max; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            dot.dataset.index = i;
+            dotsWrap.appendChild(dot);
+          }
+        }
+
+        function slideTo(index) {
+          var max = getMaxSlide();
+          current = Math.max(0, Math.min(index, max));
+          var card = track.children[0];
+          var gap = 20;
+          var cardWidth = card.offsetWidth + gap;
+          track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
+          var dots = dotsWrap.querySelectorAll('.carousel-dot');
+          dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+        }
+
+        prevBtn.addEventListener('click', function() { slideTo(current - 1); });
+        nextBtn.addEventListener('click', function() { slideTo(current + 1); });
+        dotsWrap.addEventListener('click', function(e) {
+          if (e.target.classList.contains('carousel-dot')) {
+            slideTo(parseInt(e.target.dataset.index));
+          }
+        });
+
+        buildDots();
+        window.addEventListener('resize', function() {
+          buildDots();
+          slideTo(Math.min(current, getMaxSlide()));
+        });
+      }
+
+      // Nav glass effect on scroll
+      var nav = document.querySelector('.nav');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 40 && !scrolled) {
+          nav.classList.add('scrolled');
+          scrolled = true;
+        } else if (window.scrollY <= 40 && scrolled) {
+          nav.classList.remove('scrolled');
+          scrolled = false;
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
