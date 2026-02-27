@@ -820,6 +820,64 @@
       margin-bottom: 0;
     }
 
+    /* ---- Industries ---- */
+    .industries {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .industry-card {
+      padding: 28px 24px;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .industry-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .industry-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .industry-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--blue-accent);
+    }
+
+    .industry-card h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .industry-card p {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
     /* ---- Canadian Badge ---- */
     .canadian-badge {
       display: inline-flex;
@@ -1028,6 +1086,10 @@
     @media (max-width: 1024px) {
       .testimonial-card { flex: 0 0 calc(50% - 10px); }
 
+      .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .services-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
@@ -1070,7 +1132,9 @@
 
       .testimonial-card { flex: 0 0 calc(100% - 0px); }
 
-      .testimonials { padding: 80px 0; }
+      .testimonials, .industries { padding: 80px 0; }
+
+      .industries-grid { grid-template-columns: 1fr; }
 
       .hero-actions {
         flex-direction: column;
@@ -1335,6 +1399,63 @@
               <p>We prove value before asking for a long-term commitment. Start with the audit.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Industries -->
+  <section class="industries" id="industries" aria-labelledby="industries-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Industries</div>
+        <h2 id="industries-heading">Built for Vancouver &amp; BC Businesses</h2>
+        <p>Established companies where operational complexity and manual processes limit growth.</p>
+      </div>
+      <div class="industries-grid stagger">
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"/></svg>
+          </div>
+          <h3>Law &amp; Accounting Firms</h3>
+          <p>AI-powered document processing and workflow automation that reduce administrative burden.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
+          </div>
+          <h3>Construction &amp; Trades</h3>
+          <p>Scheduling optimization, dispatch coordination, and process automation for field operations.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64"/></svg>
+          </div>
+          <h3>Forestry &amp; Logging</h3>
+          <p>Equipment scheduling, maintenance coordination, compliance reporting, and production tracking.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+          </div>
+          <h3>Agriculture &amp; Agri-Business</h3>
+          <p>AI-driven reporting, labour coordination, inventory management, and workflow automation.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m-2.6 16.243.107-1.488m2.385-14.596.107-1.488"/></svg>
+          </div>
+          <h3>Manufacturing &amp; Sawmills</h3>
+          <p>Process optimization, workflow automation, and AI-assisted reporting to reduce manual overhead.</p>
+        </div>
+        <div class="industry-card fade-up">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"/></svg>
+          </div>
+          <h3>Property Management &amp; Real Estate</h3>
+          <p>Automation of communication, document handling, and operational coordination.</p>
         </div>
       </div>
     </div>
