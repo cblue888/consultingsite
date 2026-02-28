@@ -400,6 +400,12 @@
       margin-top: 24px;
     }
 
+    .hero-region {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      margin-top: 14px;
+    }
+
     /* ---- Section Divider ---- */
     .section-divider {
       height: 1px;
@@ -925,85 +931,111 @@
       color: #fca5a5;
     }
 
-    /* ---- Testimonials ---- */
-    .testimonials {
+    /* ---- About Casey ---- */
+    .about-casey {
       padding: 100px 0;
-      background: var(--navy-mid);
-      overflow: hidden;
+      background: var(--navy);
     }
 
-    .carousel-wrap { position: relative; }
-    .carousel-track {
-      display: flex;
-      gap: 20px;
-      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    .about-casey-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
     }
-    .testimonial-card {
-      flex: 0 0 calc(33.333% - 14px);
-      padding: 32px 28px;
-      background: var(--glass);
+
+    .about-casey-card {
+      padding: 28px 24px;
+      border-radius: 14px;
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      transition: border-color 0.3s;
+      background: var(--glass);
+    }
+
+    .about-casey-points {
+      list-style: none;
       display: flex;
       flex-direction: column;
+      gap: 10px;
     }
-    .testimonial-card:hover { border-color: var(--border-hover); }
-    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 16px; }
-    .testimonial-stars svg { width: 16px; height: 16px; color: #fbbf24; fill: #fbbf24; }
-    .testimonial-quote {
-      font-size: 0.9375rem;
-      color: var(--gray-300);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .testimonial-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(34,211,238,0.2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-heading);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--blue-accent);
-    }
-    .testimonial-name { font-size: 0.8125rem; font-weight: 600; color: var(--white); }
-    .testimonial-role { font-size: 0.75rem; color: var(--gray-500); }
 
-    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
+    .about-casey-points li::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: var(--glass);
+      background: var(--blue-accent);
+      margin-right: 10px;
+    }
+
+    /* ---- Qualification ---- */
+    .qualification {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+
+    .qualification-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px;
+      border-radius: 16px;
       border: 1px solid var(--border-subtle);
+      background: var(--glass);
+    }
+
+    .qualification-list {
+      list-style: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: var(--gray-400);
+      flex-direction: column;
+      gap: 12px;
+      margin: 18px 0 0;
     }
-    .carousel-btn:hover { border-color: var(--border-hover); color: var(--white); }
-    .carousel-btn svg { width: 18px; height: 18px; }
-    .carousel-dots { display: flex; align-items: center; gap: 8px; }
-    .carousel-dot {
-      width: 8px;
-      height: 8px;
+
+    .qualification-list li {
+      font-size: 0.95rem;
+      color: var(--gray-300);
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .qualification-list li::before {
+      content: "";
+      margin-top: 8px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
-      background: var(--gray-600);
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-      padding: 0;
+      background: var(--blue-accent);
+      flex-shrink: 0;
     }
-    .carousel-dot.active { background: var(--blue-accent); box-shadow: 0 0 8px rgba(96,165,250,0.4); }
+
+    .qualification-note {
+      margin-top: 18px;
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+
+    /* ---- Calendly ---- */
+    .calendly-section {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+
+    .calendly-shell {
+      padding: 28px;
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+    }
+
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 760px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
 
     /* ---- Final CTA ---- */
     .cta {
@@ -1111,8 +1143,6 @@
 
     /* ---- Responsive ---- */
     @media (max-width: 1024px) {
-      .testimonial-card { flex: 0 0 calc(50% - 10px); }
-
       .industries-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1132,6 +1162,10 @@
 
       .process-steps::before {
         display: none;
+      }
+
+      .about-casey-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1157,9 +1191,10 @@
         padding: 80px 0;
       }
 
-      .testimonial-card { flex: 0 0 calc(100% - 0px); }
-
-      .testimonials, .industries { padding: 80px 0; }
+      .industries,
+      .about-casey,
+      .qualification,
+      .calendly-section { padding: 80px 0; }
 
       .industries-grid { grid-template-columns: 1fr; }
 
@@ -1201,7 +1236,7 @@
       </a>
       <div class="nav-right">
         <a href="about.html" class="nav-link">About</a>
-        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-assessment">Book Free Assessment</a>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-readiness-call">Book Your AI Readiness Call</a>
       </div>
     </div>
   </nav>
@@ -1213,21 +1248,18 @@
     <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-eyebrow fade-up">AI Operations Consulting</div>
-        <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
-        <p class="hero-sub fade-up">We find where automation saves you time and money. Then we build it.</p>
+        <div class="hero-eyebrow fade-up">AI Implementation</div>
+        <h1 class="fade-up">AI Implementation for Established Businesses.</h1>
+        <p class="hero-sub fade-up">Led by a 2x exited COO. We design and deploy practical AI systems that reduce manual workload and unlock operating leverage.</p>
+        <p class="hero-region fade-up">Serving established businesses across the Pacific Northwest.</p>
         <div class="hero-actions fade-up">
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-assessment">
-            Book Your Free Assessment
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-readiness-call">
+            Book Your AI Readiness Call
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
           <a href="#services" class="btn btn-outline">See How It Works</a>
         </div>
-        <p class="hero-note fade-up">30 minutes. No jargon. No commitment.</p>
-        <div class="canadian-badge fade-up">
-          <span class="flag">🇨🇦</span>
-          <span>Proudly Canadian</span>
-        </div>
+        <p class="hero-note fade-up">Operator-focused delivery. Implementation first.</p>
       </div>
     </div>
   </header>
@@ -1239,9 +1271,9 @@
     <div class="container">
       <div class="problem-grid">
         <div class="problem-text fade-up">
-          <h2 id="problem-heading">You Built a Great Business. AI Shouldn't Feel This Confusing.</h2>
-          <p>Everyone's talking about AI. Your competitors are making moves. But nobody's explaining how it applies to <strong>your</strong> business.</p>
-          <p>You don't need a chatbot. You need the 40 hours a week your team wastes on data entry, scheduling, and chasing approvals back.</p>
+          <h2 id="problem-heading">Most Teams Know They Need AI. Few Have It Running in Daily Operations.</h2>
+          <p>Established companies are carrying too much manual coordination across systems, teams, and approval loops.</p>
+          <p>You need implementation that reduces admin load, shortens decision cycles, and produces measurable operational lift.</p>
         </div>
         <div class="pain-points stagger">
           <div class="pain-point fade-up">
@@ -1250,7 +1282,7 @@
             </div>
             <div>
               <h3>Drowning in Manual Work</h3>
-              <p>Your team re-enters the same data across three systems. Invoices, reports, and scheduling eat up entire days.</p>
+              <p>Your team re-enters data across tools. Reporting, scheduling, and handoffs absorb hours every week.</p>
             </div>
           </div>
           <div class="pain-point fade-up">
@@ -1259,7 +1291,7 @@
             </div>
             <div>
               <h3>Competitors Moving Faster</h3>
-              <p>Other firms in your industry are automating quotes, follow-ups, and reporting. The gap is growing every quarter.</p>
+              <p>Peers are already automating quoting, follow-up, and reporting. Execution speed compounds quickly.</p>
             </div>
           </div>
           <div class="pain-point fade-up">
@@ -1268,7 +1300,7 @@
             </div>
             <div>
               <h3>Not Sure Where to Start</h3>
-              <p>You know AI could help, but you've been burned by tech projects before. You need someone who speaks business, not buzzwords.</p>
+              <p>You do not need theory. You need a partner who can map workflows and ship working systems in production.</p>
             </div>
           </div>
         </div>
@@ -1283,8 +1315,8 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="section-eyebrow">What We Do</div>
-        <h2 id="services-heading">Practical AI That Fits Your Business</h2>
-        <p>Not theory. Not demos. Real automation that your team can use starting week one.</p>
+        <h2 id="services-heading">Embed AI Into Daily Operations</h2>
+        <p>Reduce admin work 30 to 50 percent. Shorten decision cycles. Deploy systems your team uses every day.</p>
       </div>
       <div class="services-grid stagger">
         <article class="service-card fade-up">
@@ -1292,8 +1324,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
           </div>
           <span class="service-tag tag-audit">1 to 2 Weeks</span>
-          <h3>Operations Audit &amp; Quick Wins</h3>
-          <p>We map your workflows and find the highest-impact automation opportunities. Fast.</p>
+          <h3>Operations Audit and Quick Wins</h3>
+          <p>We identify bottlenecks and prioritize fast implementations with measurable impact.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
@@ -1314,8 +1346,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
           </div>
           <span class="service-tag tag-build">Project-Based</span>
-          <h3>Workflow Automation &amp; AI Integration</h3>
-          <p>Custom AI workflows built around your existing tools. No rip-and-replace.</p>
+          <h3>Workflow Automation and AI Integration</h3>
+          <p>Deploy AI workflows inside your existing stack without rebuilding your operating model.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
@@ -1336,8 +1368,8 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
           </div>
           <span class="service-tag tag-partner">Monthly Retainer</span>
-          <h3>Ongoing AI Operations Partner</h3>
-          <p>A dedicated partner who continuously finds new efficiencies and keeps your automation running smoothly.</p>
+          <h3>Ongoing AI Operations Support</h3>
+          <p>Keep systems performing, expand into new workflows, and drive continuous operational gains.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
@@ -1359,130 +1391,26 @@
 
   <div class="section-divider" aria-hidden="true"></div>
 
-  <!-- How It Works -->
-  <section class="process" id="process" aria-labelledby="process-heading">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="section-eyebrow">How It Works</div>
-        <h2 id="process-heading">Three Steps to Smarter Operations</h2>
-        <p>No 12-month rollout. No enterprise sales cycle. Just a clear path from conversation to results.</p>
-      </div>
-      <div class="process-steps stagger">
-        <div class="step fade-up">
-          <div class="step-number">1</div>
-          <h3>Free Assessment</h3>
-          <p>A 30-minute conversation about your business. We identify where AI makes the biggest difference.</p>
-        </div>
-        <div class="step fade-up">
-          <div class="step-number">2</div>
-          <h3>Custom Roadmap</h3>
-          <p>What to automate first, expected impact, timeline, and cost. Yours to keep even if you don't hire us.</p>
-        </div>
-        <div class="step fade-up">
-          <div class="step-number">3</div>
-          <h3>Implementation</h3>
-          <p>We build, test, and train your team. Results in weeks, not months. And we stick around to make sure it works.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true"></div>
-
-  <!-- Trust -->
-  <section class="trust" id="trust" aria-labelledby="trust-heading">
-    <div class="container">
-      <div class="trust-content">
-        <div class="trust-text fade-up">
-          <h2 id="trust-heading">We Embed With Your Team. Not Send Playbooks From Afar.</h2>
-          <p>We sit with your team, walk your floor, and learn how your business actually operates.</p>
-          <p>Built for businesses that make the real world run: construction, law, accounting, property management, trades.</p>
-        </div>
-        <div class="trust-features stagger">
-          <div class="trust-feature fade-up">
-            <div class="trust-feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
-            </div>
-            <div>
-              <h3>Hands-On, Embedded</h3>
-              <p>We learn your workflows by watching them happen. Not from a Zoom screen.</p>
-            </div>
-          </div>
-          <div class="trust-feature fade-up">
-            <div class="trust-feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/></svg>
-            </div>
-            <div>
-              <h3>Plain Language, Always</h3>
-              <p>No jargon. No acronym soup. We explain what we're doing and why.</p>
-            </div>
-          </div>
-          <div class="trust-feature fade-up">
-            <div class="trust-feature-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
-            </div>
-            <div>
-              <h3>Results Before Retainers</h3>
-              <p>We prove value before asking for a long-term commitment. Start with the audit.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true"></div>
-
-  <!-- Industries -->
+  <!-- Selected Engagement Outcomes -->
   <section class="industries" id="industries" aria-labelledby="industries-heading">
     <div class="container">
       <div class="section-header fade-up">
-        <div class="section-eyebrow">Industries</div>
-        <h2 id="industries-heading">Built for Businesses That Build Things</h2>
-        <p>We work with established companies in resource-rich, operationally complex industries across the coast-to-mountain corridor, on Pacific time.</p>
+        <div class="section-eyebrow">Outcomes</div>
+        <h2 id="industries-heading">Selected Engagement Outcomes</h2>
+        <p>Execution results from practical implementations in live operating environments.</p>
       </div>
       <div class="industries-grid stagger">
         <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"/></svg>
-          </div>
-          <h3>Law &amp; Accounting Firms</h3>
-          <p>AI-powered document processing and workflow automation that reduce administrative burden.</p>
+          <h3>Cross-Team Coordination</h3>
+          <p>Replaced manual coordination workflows across 3 teams within 6 weeks.</p>
         </div>
         <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
-          </div>
-          <h3>Construction &amp; Trades</h3>
-          <p>Scheduling optimization, dispatch coordination, and process automation for field operations.</p>
+          <h3>Internal AI Copilots</h3>
+          <p>Built internal AI copilots used daily by operations and revenue teams.</p>
         </div>
         <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64"/></svg>
-          </div>
-          <h3>Forestry &amp; Logging</h3>
-          <p>Equipment scheduling, maintenance coordination, compliance reporting, and production tracking.</p>
-        </div>
-        <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
-          </div>
-          <h3>Agriculture &amp; Agri-Business</h3>
-          <p>AI-driven reporting, labour coordination, inventory management, and workflow automation.</p>
-        </div>
-        <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m-2.6 16.243.107-1.488m2.385-14.596.107-1.488"/></svg>
-          </div>
-          <h3>Manufacturing &amp; Sawmills</h3>
-          <p>Process optimization, workflow automation, and AI-assisted reporting to reduce manual overhead.</p>
-        </div>
-        <div class="industry-card fade-up">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"/></svg>
-          </div>
-          <h3>Property Management &amp; Real Estate</h3>
-          <p>Automation of communication, document handling, and operational coordination.</p>
+          <h3>Workload Reduction</h3>
+          <p>Reduced operator workload by 30 to 50 percent in targeted functions.</p>
         </div>
       </div>
     </div>
@@ -1490,74 +1418,66 @@
 
   <div class="section-divider" aria-hidden="true"></div>
 
-  <!-- Testimonials -->
-  <section class="testimonials" aria-labelledby="testimonials-heading">
+  <!-- About Casey -->
+  <section class="about-casey" id="about-casey" aria-labelledby="about-casey-heading">
     <div class="container">
-      <div class="section-header fade-up">
-        <div class="section-eyebrow">What People Say</div>
-        <h2 id="testimonials-heading">Trusted by Operators Who Ship</h2>
-        <p>Real results from real engagements.</p>
+      <div class="section-header fade-up" style="margin-bottom: 36px;">
+        <div class="section-eyebrow">About Casey</div>
+        <h2 id="about-casey-heading">Operator-Led Implementation</h2>
+        <p>Led by Casey Blustein, a 2x exited COO with a decade building and scaling operations in high-growth environments.</p>
       </div>
-      <div class="carousel-wrap fade-up">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"We were drowning in manual processes and had no idea where to start with AI. Casey came in, mapped everything in a week, and had automations running within the month. Our ops team got 15 hours a week back."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">JM</div>
-              <div><div class="testimonial-name">Operations Director</div><div class="testimonial-role">Construction &amp; Development Firm</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"What sets Casey apart is he actually understands operations. Most AI consultants give you a demo and a slide deck. He gave us systems that our team uses every single day."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">SK</div>
-              <div><div class="testimonial-name">CEO</div><div class="testimonial-role">SaaS Company, Series A</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"Casey automated our entire client onboarding pipeline. What used to take 3 people and 2 days now runs itself. The ROI was obvious within the first month."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">RL</div>
-              <div><div class="testimonial-name">Managing Partner</div><div class="testimonial-role">Professional Services Firm</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"I was skeptical about AI consulting. Casey's approach is refreshingly different. No buzzwords, no overselling. He found $200K+ in annual savings we didn't know existed."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">DW</div>
-              <div><div class="testimonial-name">VP Operations</div><div class="testimonial-role">Property Management Company</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"We brought Casey in to figure out our AI strategy. Within 6 weeks he had three automations live. Our sales team now spends 40% less time on admin and more time closing."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">AT</div>
-              <div><div class="testimonial-name">Founder &amp; CEO</div><div class="testimonial-role">B2B Tech Startup</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"The difference between Casey and other consultants is he actually builds the thing. Not a roadmap to maybe build the thing. He shipped in our environment, with our tools, in weeks."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">MH</div>
-              <div><div class="testimonial-name">Head of Operations</div><div class="testimonial-role">Financial Services</div></div>
-            </div>
-          </div>
+      <div class="about-casey-grid fade-up">
+        <div class="about-casey-card">
+          <p style="font-size:0.95rem;color:var(--gray-300);line-height:1.8;">Casey has led operations through multiple exits and has spent the last two years shipping AI and agentic workflow systems in real operating contexts.</p>
+          <ul class="about-casey-points">
+            <li>2x exited COO with deep execution experience</li>
+            <li>Production AI deployments across operations and revenue teams</li>
+            <li>Focused on implementation velocity and measurable outcomes</li>
+          </ul>
         </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonials">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
-          </button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <button class="carousel-btn" id="nextBtn" aria-label="Next testimonials">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
-          </button>
+        <div class="about-casey-card">
+          <p style="font-size:0.95rem;color:var(--gray-300);line-height:1.8;margin-bottom:12px;">Core implementation focus:</p>
+          <ul class="about-casey-points">
+            <li>Reduce admin work 30 to 50 percent</li>
+            <li>Shorten decision cycles for leadership and frontline teams</li>
+            <li>Embed AI into daily operations, not side projects</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Qualification -->
+  <section class="qualification" id="qualification" aria-labelledby="qualification-heading">
+    <div class="container">
+      <div class="qualification-wrap fade-up">
+        <div class="section-eyebrow">Fit</div>
+        <h2 id="qualification-heading" style="font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.15;color:var(--white);margin-bottom:10px;">Who We Work Best With</h2>
+        <ul class="qualification-list">
+          <li>Established companies with 10 to 100 employees</li>
+          <li>Manual coordination across teams</li>
+          <li>Leadership serious about implementation, not experimentation</li>
+          <li>Revenue $2M+ preferred</li>
+        </ul>
+        <p class="qualification-note">If you are looking for experimentation or slide decks, we are not the right fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Calendly Embed -->
+  <section class="calendly-section" id="book-call" aria-labelledby="book-call-heading">
+    <div class="container">
+      <div class="calendly-shell fade-up">
+        <div class="section-header" style="margin-bottom:0;">
+          <div class="section-eyebrow">Book Call</div>
+          <h2 id="book-call-heading">Schedule Your AI Readiness Call</h2>
+          <p>30 minutes. You will leave with 3 high-impact AI opportunities specific to your business.</p>
+        </div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/casey-bluepixelconsulting/30min?hide_gdpr_banner=1"></div>
       </div>
     </div>
   </section>
@@ -1569,15 +1489,15 @@
     <div class="container">
       <div class="cta-inner">
         <div class="section-header fade-up" style="margin-bottom: 0;">
-          <h2 id="cta-heading">Ready to See What AI Can Do for Your Business?</h2>
-          <p>30-minute assessment. We'll show you the three highest-impact automation opportunities in your operation.</p>
+          <h2 id="cta-heading">Ready to Reduce Admin Work and Move Faster?</h2>
+          <p>Book your AI readiness call and get a clear implementation path tailored to your operation.</p>
         </div>
         <div class="cta-actions fade-up">
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="footer-book-assessment">
-            Book Your Free Assessment
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="footer-book-readiness-call">
+            Book Your AI Readiness Call
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
-          <p class="cta-note">30 minutes &middot; No cost &middot; No commitment</p>
+          <p class="cta-note">30 minutes &middot; Operator-focused recommendations</p>
         </div>
       </div>
     </div>
@@ -1601,12 +1521,14 @@
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a href="construction-ai-automation.html">Construction AI</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
-        <span>Response within 1 business day</span>
+        <span>Based in Vancouver. Serving businesses across the Pacific Northwest.</span>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <span>&copy; 2026 Blue Pixel Consulting</span>
       </div>
     </div>
   </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
     (function() {
@@ -1625,60 +1547,6 @@
       document.querySelectorAll('.fade-up').forEach(function(el) {
         observer.observe(el);
       });
-
-      // Carousel
-      var track = document.getElementById('carouselTrack');
-      var dotsWrap = document.getElementById('carouselDots');
-      var prevBtn = document.getElementById('prevBtn');
-      var nextBtn = document.getElementById('nextBtn');
-      if (track && dotsWrap && prevBtn && nextBtn) {
-        var current = 0;
-        function getPerView() {
-          if (window.innerWidth <= 768) return 1;
-          if (window.innerWidth <= 1024) return 2;
-          return 3;
-        }
-        var cards = track.children.length;
-
-        function getMaxSlide() { return Math.max(0, cards - getPerView()); }
-
-        function buildDots() {
-          dotsWrap.innerHTML = '';
-          var max = getMaxSlide();
-          for (var i = 0; i <= max; i++) {
-            var dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (i === current ? ' active' : '');
-            dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-            dot.dataset.index = i;
-            dotsWrap.appendChild(dot);
-          }
-        }
-
-        function slideTo(index) {
-          var max = getMaxSlide();
-          current = Math.max(0, Math.min(index, max));
-          var card = track.children[0];
-          var gap = 20;
-          var cardWidth = card.offsetWidth + gap;
-          track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
-          var dots = dotsWrap.querySelectorAll('.carousel-dot');
-          dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-        }
-
-        prevBtn.addEventListener('click', function() { slideTo(current - 1); });
-        nextBtn.addEventListener('click', function() { slideTo(current + 1); });
-        dotsWrap.addEventListener('click', function(e) {
-          if (e.target.classList.contains('carousel-dot')) {
-            slideTo(parseInt(e.target.dataset.index));
-          }
-        });
-
-        buildDots();
-        window.addEventListener('resize', function() {
-          buildDots();
-          slideTo(Math.min(current, getMaxSlide()));
-        });
-      }
 
       // Nav glass effect on scroll
       var nav = document.querySelector('.nav');
