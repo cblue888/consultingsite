@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://bluepixelconsulting.com/construction-ai-automation">
   <link rel="icon" type="image/png" href="logo-128.png">
   <script>
-    window.BP_TRACKING = window.BP_TRACKING || { ga4Id: "G-XXXXXXXXXX", adsId: "AW-17981602232", adsConversionLabel: "XXXXXXXXXXXXXXX" };
+    window.BP_TRACKING = window.BP_TRACKING || { ga4Id: "G-XXXXXXXXXX", adsId: "AW-17981602232", adsConversionLabel: "EGe_CPSwrYAcELjzpf5C" };
     (function(w, d) {
       var c = w.BP_TRACKING || {};
       var hasGa4 = c.ga4Id && c.ga4Id.indexOf("G-") === 0 && c.ga4Id.indexOf("XXXX") === -1;
@@ -90,12 +90,31 @@
       var tracking = window.BP_TRACKING || {};
       var urlParams = new URLSearchParams(window.location.search);
 
-      function trackLeadClick(name) {
-        if (!window.gtag) return;
+      function gtagReportConversion(url, name) {
+        if (!window.gtag) {
+          if (typeof url !== "undefined") window.location = url;
+          return false;
+        }
+
+        var callback = function() {
+          if (typeof url !== "undefined") window.location = url;
+        };
+
         window.gtag("event", "generate_lead", { event_category: "engagement", event_label: name || "construction", value: 1 });
         var hasAds = tracking.adsId && tracking.adsId.indexOf("AW-") === 0 && tracking.adsId.indexOf("XXXX") === -1;
         var hasLabel = tracking.adsConversionLabel && tracking.adsConversionLabel.indexOf("XXXX") === -1;
-        if (hasAds && hasLabel) window.gtag("event", "conversion", { send_to: tracking.adsId + "/" + tracking.adsConversionLabel });
+        if (hasAds && hasLabel) {
+          window.gtag("event", "conversion", {
+            send_to: tracking.adsId + "/" + tracking.adsConversionLabel,
+            value: 5.0,
+            currency: "CAD",
+            event_callback: callback
+          });
+          setTimeout(callback, 1200);
+          return false;
+        }
+        callback();
+        return false;
       }
 
       document.querySelectorAll("a.calendly-link").forEach(function(link) {
@@ -108,8 +127,9 @@
           link.href = target.toString();
         } catch (e) {}
 
-        link.addEventListener("click", function() {
-          trackLeadClick(link.getAttribute("data-cta") || "construction");
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          gtagReportConversion(link.href, link.getAttribute("data-cta") || "construction");
         });
       });
     })();
