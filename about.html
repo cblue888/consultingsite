@@ -7,9 +7,36 @@
   <meta name="description" content="Blue Pixel helps companies turn AI from hype into operating leverage. Founded by Casey Blustein, 2x exited COO and operations leader. Proudly Canadian.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bluepixelconsulting.com/about">
+  <link rel="icon" type="image/png" href="logo-128.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.BP_TRACKING = window.BP_TRACKING || {
+      ga4Id: "G-XXXXXXXXXX",
+      adsId: "AW-17981602232",
+      adsConversionLabel: "XXXXXXXXXXXXXXX"
+    };
+
+    (function(w, d) {
+      var c = w.BP_TRACKING || {};
+      var hasGa4 = c.ga4Id && c.ga4Id.indexOf("G-") === 0 && c.ga4Id.indexOf("XXXX") === -1;
+      var hasAds = c.adsId && c.adsId.indexOf("AW-") === 0 && c.adsId.indexOf("XXXX") === -1;
+      if (!hasGa4 && !hasAds) return;
+
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function() { w.dataLayer.push(arguments); };
+      w.gtag("js", new Date());
+      if (hasGa4) w.gtag("config", c.ga4Id);
+      if (hasAds) w.gtag("config", c.adsId);
+
+      var tagId = hasGa4 ? c.ga4Id : c.adsId;
+      var script = d.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
+      d.head.appendChild(script);
+    })(window, document);
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -231,12 +258,12 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="/" class="nav-logo" aria-label="Blue Pixel Consulting - Home">
-        <img src="logo.png" alt="Blue Pixel Consulting logo" width="36" height="36">
+        <img src="logo-128.png" alt="Blue Pixel Consulting logo" width="36" height="36">
         <span>Blue Pixel</span>
       </a>
       <div class="nav-right">
         <a href="about.html" class="nav-link active">About</a>
-        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta">Book a Call</a>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="about-nav-book-call">Book a Call</a>
       </div>
     </div>
   </nav>
@@ -447,7 +474,7 @@
       <div class="cta-inner">
         <h2 id="cta-heading" class="fade-up">Serious About Leverage?<br>Let's Talk.</h2>
         <p class="fade-up">Not experimentation. Not strategy decks. Real operational AI.</p>
-        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary fade-up">
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary fade-up calendly-link" data-cta="about-footer-book-call">
           Book a Call
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
         </a>
@@ -460,11 +487,17 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="logo.png" alt="" width="24" height="24" aria-hidden="true">
+        <img src="logo-128.png" alt="" width="24" height="24" aria-hidden="true">
         <span>Blue Pixel Consulting</span>
       </div>
       <div class="footer-info">
         <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">&middot;</span>
+        <a href="terms.html">Terms</a>
+        <span aria-hidden="true">&middot;</span>
+        <span>Response within 1 business day</span>
         <span aria-hidden="true">&middot;</span>
         <span>&copy; 2026 Blue Pixel Consulting</span>
       </div>
@@ -480,6 +513,47 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
       document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+      var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
+      var tracking = window.BP_TRACKING || {};
+
+      function decorateCalendlyLinks() {
+        var urlParams = new URLSearchParams(window.location.search);
+        document.querySelectorAll('a.calendly-link').forEach(function(link) {
+          try {
+            var target = new URL(link.href);
+            attributionKeys.forEach(function(key) {
+              var value = urlParams.get(key);
+              if (value && !target.searchParams.get(key)) target.searchParams.set(key, value);
+            });
+            link.href = target.toString();
+          } catch (e) {}
+        });
+      }
+
+      function trackLeadClick(ctaName) {
+        if (!window.gtag) return;
+        window.gtag('event', 'generate_lead', {
+          event_category: 'engagement',
+          event_label: ctaName || 'book_call',
+          value: 1
+        });
+
+        var hasAds = tracking.adsId && tracking.adsId.indexOf('AW-') === 0 && tracking.adsId.indexOf('XXXX') === -1;
+        var hasLabel = tracking.adsConversionLabel && tracking.adsConversionLabel.indexOf('XXXX') === -1;
+        if (hasAds && hasLabel) {
+          window.gtag('event', 'conversion', {
+            send_to: tracking.adsId + '/' + tracking.adsConversionLabel
+          });
+        }
+      }
+
+      decorateCalendlyLinks();
+      document.querySelectorAll('a.calendly-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          trackLeadClick(link.getAttribute('data-cta') || 'book_call');
+        });
+      });
 
       // Carousel
       var track = document.getElementById('carouselTrack');

@@ -12,9 +12,36 @@
   <meta property="og:description" content="Practical AI solutions for established businesses. No jargon, just results.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bluepixelconsulting.com">
+  <link rel="icon" type="image/png" href="logo-128.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.BP_TRACKING = window.BP_TRACKING || {
+      ga4Id: "G-XXXXXXXXXX",
+      adsId: "AW-17981602232",
+      adsConversionLabel: "XXXXXXXXXXXXXXX"
+    };
+
+    (function(w, d) {
+      var c = w.BP_TRACKING || {};
+      var hasGa4 = c.ga4Id && c.ga4Id.indexOf("G-") === 0 && c.ga4Id.indexOf("XXXX") === -1;
+      var hasAds = c.adsId && c.adsId.indexOf("AW-") === 0 && c.adsId.indexOf("XXXX") === -1;
+      if (!hasGa4 && !hasAds) return;
+
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function() { w.dataLayer.push(arguments); };
+      w.gtag("js", new Date());
+      if (hasGa4) w.gtag("config", c.ga4Id);
+      if (hasAds) w.gtag("config", c.adsId);
+
+      var tagId = hasGa4 ? c.ga4Id : c.adsId;
+      var script = d.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
+      d.head.appendChild(script);
+    })(window, document);
+  </script>
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -1169,12 +1196,12 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="/" class="nav-logo" aria-label="Blue Pixel Consulting - Home">
-        <img src="logo.png" alt="Blue Pixel Consulting logo" width="36" height="36">
+        <img src="logo-128.png" alt="Blue Pixel Consulting logo" width="36" height="36">
         <span>Blue Pixel</span>
       </a>
       <div class="nav-right">
         <a href="about.html" class="nav-link">About</a>
-        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta">Book Free Assessment</a>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-assessment">Book Free Assessment</a>
       </div>
     </div>
   </nav>
@@ -1190,7 +1217,7 @@
         <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
         <p class="hero-sub fade-up">We find where automation saves you time and money. Then we build it.</p>
         <div class="hero-actions fade-up">
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary">
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-assessment">
             Book Your Free Assessment
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
@@ -1264,7 +1291,7 @@
           <div class="service-icon icon-audit">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
           </div>
-          <span class="service-tag tag-audit">1–2 Weeks</span>
+          <span class="service-tag tag-audit">1 to 2 Weeks</span>
           <h3>Operations Audit &amp; Quick Wins</h3>
           <p>We map your workflows and find the highest-impact automation opportunities. Fast.</p>
           <ul class="service-details">
@@ -1411,8 +1438,8 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="section-eyebrow">Industries</div>
-        <h2 id="industries-heading">Built for Vancouver &amp; BC Businesses</h2>
-        <p>Established companies where operational complexity and manual processes limit growth.</p>
+        <h2 id="industries-heading">Built for Businesses That Build Things</h2>
+        <p>We work with established companies in resource-rich, operationally complex industries across the coast-to-mountain corridor, on Pacific time.</p>
       </div>
       <div class="industries-grid stagger">
         <div class="industry-card fade-up">
@@ -1546,7 +1573,7 @@
           <p>30-minute assessment. We'll show you the three highest-impact automation opportunities in your operation.</p>
         </div>
         <div class="cta-actions fade-up">
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary">
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="footer-book-assessment">
             Book Your Free Assessment
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
@@ -1560,11 +1587,21 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="logo.png" alt="" width="24" height="24" aria-hidden="true">
+        <img src="logo-128.png" alt="" width="24" height="24" aria-hidden="true">
         <span>Blue Pixel Consulting</span>
       </div>
       <div class="footer-info">
         <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="terms.html">Terms</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="ai-ops-audit.html">AI Ops Audit</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="construction-ai-automation.html">Construction AI</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>Response within 1 business day</span>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <span>&copy; 2026 Blue Pixel Consulting</span>
       </div>
@@ -1655,6 +1692,47 @@
           scrolled = false;
         }
       }, { passive: true });
+
+      var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
+      var tracking = window.BP_TRACKING || {};
+
+      function decorateCalendlyLinks() {
+        var urlParams = new URLSearchParams(window.location.search);
+        document.querySelectorAll('a.calendly-link').forEach(function(link) {
+          try {
+            var target = new URL(link.href);
+            attributionKeys.forEach(function(key) {
+              var value = urlParams.get(key);
+              if (value && !target.searchParams.get(key)) target.searchParams.set(key, value);
+            });
+            link.href = target.toString();
+          } catch (e) {}
+        });
+      }
+
+      function trackLeadClick(ctaName) {
+        if (!window.gtag) return;
+        window.gtag('event', 'generate_lead', {
+          event_category: 'engagement',
+          event_label: ctaName || 'book_assessment',
+          value: 1
+        });
+
+        var hasAds = tracking.adsId && tracking.adsId.indexOf('AW-') === 0 && tracking.adsId.indexOf('XXXX') === -1;
+        var hasLabel = tracking.adsConversionLabel && tracking.adsConversionLabel.indexOf('XXXX') === -1;
+        if (hasAds && hasLabel) {
+          window.gtag('event', 'conversion', {
+            send_to: tracking.adsId + '/' + tracking.adsConversionLabel
+          });
+        }
+      }
+
+      decorateCalendlyLinks();
+      document.querySelectorAll('a.calendly-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          trackLeadClick(link.getAttribute('data-cta') || 'book_assessment');
+        });
+      });
     })();
   </script>
 </body>
