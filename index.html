@@ -407,70 +407,43 @@
       margin-top: 24px;
     }
 
-    .hero-region {
-      font-size: 0.875rem;
-      color: var(--gray-500);
-      margin-top: 14px;
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .hero-regional {
+      position: relative;
       margin-top: 18px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 14px;
+      max-width: 430px;
+      padding: 16px 18px;
       border-radius: 14px;
-      font-size: 0.72rem;
-      font-weight: 700;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(10,22,40,0.46);
+      overflow: hidden;
+    }
+
+    .hero-regional::before {
+      content: "";
+      position: absolute;
+      inset: -20px -10px -25px -10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='500' viewBox='0 0 900 500'%3E%3Cg fill='none' stroke='%2393c5fd' stroke-width='2'%3E%3Cpath d='M30 340 C160 280 290 300 410 245 C520 195 640 215 870 120'/%3E%3Cpath d='M50 395 C180 335 320 355 450 300 C560 252 690 270 860 200'/%3E%3Cpath d='M80 450 C220 390 360 405 500 350 C620 305 740 315 850 290'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-regional-line {
+      position: relative;
+      z-index: 1;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      border: 1px solid transparent;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      letter-spacing: 0.09em;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #dbeafe;
     }
 
-    .hero-badge.ai {
-      background: linear-gradient(120deg, rgba(37,99,235,0.18), rgba(59,130,246,0.08));
-      border-color: rgba(96,165,250,0.4);
+    .hero-regional-line + .hero-regional-line {
+      margin-top: 4px;
       color: #bfdbfe;
-    }
-    .hero-badge.canada {
-      background: linear-gradient(120deg, rgba(220,38,38,0.15), rgba(239,68,68,0.08));
-      border-color: rgba(252,165,165,0.34);
-      color: #fecaca;
-    }
-
-    .hero-badge.pnw {
-      background: linear-gradient(120deg, rgba(22,163,74,0.2), rgba(34,197,94,0.08));
-      border-color: rgba(134,239,172,0.32);
-      color: #bbf7d0;
-    }
-
-    .hero-badge .badge-icon {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 16px rgba(255,255,255,0.18);
-    }
-
-    .hero-badge.ai .badge-icon {
-      background: radial-gradient(circle, #93c5fd 0%, #3b82f6 70%, transparent 100%);
-    }
-
-    .hero-badge.canada .badge-icon {
-      background: radial-gradient(circle, #fca5a5 0%, #ef4444 70%, transparent 100%);
-    }
-
-    .hero-badge.pnw .badge-icon {
-      background: radial-gradient(circle, #86efac 0%, #22c55e 70%, transparent 100%);
     }
 
     /* ---- Section Divider ---- */
@@ -1318,7 +1291,6 @@
         <div class="hero-eyebrow fade-up">Built for Real Operations</div>
         <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
         <p class="hero-sub fade-up">We design and deploy practical AI systems that reduce manual workload and unlock operating leverage. Led by a 2x exited COO.</p>
-        <p class="hero-region fade-up">Serving established businesses across the Pacific Northwest.</p>
         <div class="hero-actions fade-up">
           <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-readiness-call">
             Book Your AI Readiness Call
@@ -1327,9 +1299,9 @@
           <a href="#services" class="btn btn-outline">See How It Works</a>
         </div>
         <p class="hero-note fade-up">Operator-focused delivery. Implementation first.</p>
-        <div class="hero-badges fade-up" aria-label="Regional positioning">
-          <div class="hero-badge pnw"><span class="badge-icon" aria-hidden="true"></span><span>PNW Based</span></div>
-          <div class="hero-badge canada"><span class="badge-icon" aria-hidden="true"></span><span>Proudly Canadian</span></div>
+        <div class="hero-regional fade-up" aria-label="Regional positioning">
+          <div class="hero-regional-line">Proudly Canadian</div>
+          <div class="hero-regional-line">Based in the Pacific Northwest</div>
         </div>
       </div>
     </div>
