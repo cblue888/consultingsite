@@ -406,6 +406,88 @@
       margin-top: 14px;
     }
 
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-badge.canada {
+      background: rgba(239,68,68,0.06);
+      border: 1px solid rgba(239,68,68,0.18);
+      color: #fca5a5;
+    }
+
+    .hero-badge.pnw {
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.2);
+      color: #86efac;
+    }
+
+    .hero-badge .badge-icon {
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .regional-visuals {
+      padding: 64px 0;
+      background: var(--navy);
+    }
+
+    .regional-visuals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .regional-visual {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      min-height: 250px;
+    }
+
+    .regional-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .regional-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6,13,27,0) 35%, rgba(6,13,27,0.78) 100%);
+      pointer-events: none;
+    }
+
+    .regional-visual-label {
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      z-index: 2;
+      color: var(--white);
+      font-size: 0.8125rem;
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
     /* ---- Section Divider ---- */
     .section-divider {
       height: 1px;
@@ -1198,6 +1280,10 @@
 
       .industries-grid { grid-template-columns: 1fr; }
 
+      .regional-visuals-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -1260,9 +1346,31 @@
           <a href="#services" class="btn btn-outline">See How It Works</a>
         </div>
         <p class="hero-note fade-up">Operator-focused delivery. Implementation first.</p>
+        <div class="hero-badges fade-up" aria-label="Regional positioning">
+          <div class="hero-badge canada"><span class="badge-icon">🇨🇦</span><span>Proudly Canadian</span></div>
+          <div class="hero-badge pnw"><span class="badge-icon">🌲</span><span>PNW Based</span></div>
+        </div>
       </div>
     </div>
   </header>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Regional Imagery -->
+  <section class="regional-visuals" aria-label="Pacific Northwest imagery">
+    <div class="container">
+      <div class="regional-visuals-grid fade-up">
+        <figure class="regional-visual">
+          <img src="https://source.unsplash.com/1200x800/?waterfall,pacific-northwest" alt="Waterfall in the Pacific Northwest">
+          <figcaption class="regional-visual-label">PNW Waterfall Terrain</figcaption>
+        </figure>
+        <figure class="regional-visual">
+          <img src="https://source.unsplash.com/1200x800/?forest,pacific-northwest" alt="Dense evergreen forest in the Pacific Northwest">
+          <figcaption class="regional-visual-label">Coastal Forestry Environment</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
   <div class="section-divider" aria-hidden="true"></div>
 
