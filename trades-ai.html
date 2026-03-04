@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Trades Businesses | Blue Pixel Consulting</title>
+  <meta name="description" content="AI implementation for trades companies focused on dispatch, quoting, and job workflow coordination.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bluepixelconsulting.com/trades-ai">
+  <link rel="icon" type="image/png" href="logo-128.png">
+  <script>
+    window.BP_TRACKING = window.BP_TRACKING || { ga4Id: "G-XXXXXXXXXX", adsId: "AW-17981602232", adsConversionLabel: "EGe_CPSwrYAcELjzpf5C" };
+    (function(w, d) {
+      var c = w.BP_TRACKING || {};
+      var hasGa4 = c.ga4Id && c.ga4Id.indexOf("G-") === 0 && c.ga4Id.indexOf("XXXX") === -1;
+      var hasAds = c.adsId && c.adsId.indexOf("AW-") === 0 && c.adsId.indexOf("XXXX") === -1;
+      if (!hasGa4 && !hasAds) return;
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function() { w.dataLayer.push(arguments); };
+      w.gtag("js", new Date());
+      if (hasGa4) w.gtag("config", c.ga4Id);
+      if (hasAds) w.gtag("config", c.adsId);
+      var tagId = hasGa4 ? c.ga4Id : c.adsId;
+      var script = d.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
+      d.head.appendChild(script);
+    })(window, document);
+  </script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #060d1b; color: #e2e8f0; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 36px 24px 84px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+    .brand img { width: 30px; height: 30px; }
+    .btn { display: inline-block; background: linear-gradient(135deg, #2563eb, #60a5fa); color: #fff; text-decoration: none; padding: 12px 20px; border-radius: 10px; font-weight: 600; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 0 0 18px; color: #fff; }
+    p { color: #94a3b8; line-height: 1.75; }
+    .lede { font-size: 1.1rem; max-width: 760px; margin-bottom: 26px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 28px 0 34px; }
+    .card { border: 1px solid rgba(255,255,255,0.1); background: rgba(15,29,50,0.6); border-radius: 12px; padding: 18px; }
+    .card h3 { margin: 0 0 8px; color: #fff; font-size: 1rem; }
+    .trust { margin-top: 24px; padding: 14px 16px; border-radius: 10px; background: rgba(37,99,235,0.14); color: #dbeafe; }
+    .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 0.9rem; }
+    .footer a { color: #93c5fd; text-decoration: none; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand"><img src="logo-128.png" alt="Blue Pixel logo"><span>Blue Pixel Consulting</span></a>
+      <a class="btn calendly-link" data-cta="trades-ai-nav" href="https://calendly.com/casey-bluepixelconsulting/30min">Book Assessment</a>
+    </nav>
+
+    <h1>AI for Trades Businesses</h1>
+    <p class="lede">We help trades businesses streamline dispatch, quoting, and post-job administration through practical automation.</p>
+
+    <div class="grid">
+      <section class="card">
+        <h3>Quote to Job Flow</h3>
+        <p>Speed up the handoff from inbound request to approved work order.</p>
+      </section>
+      <section class="card">
+        <h3>Crew Coordination</h3>
+        <p>Automate routine dispatch communication and status updates.</p>
+      </section>
+      <section class="card">
+        <h3>Job Closeout</h3>
+        <p>Reduce back-office load for invoice prep and completion documentation.</p>
+      </section>
+      <section class="card">
+        <h3>Customer Follow-Up</h3>
+        <p>Systematize reminders and post-job communication without manual chasing.</p>
+      </section>
+    </div>
+
+    <a class="btn calendly-link" data-cta="trades-ai-main" href="https://calendly.com/casey-bluepixelconsulting/30min">Book Your AI Readiness Call</a>
+    <p class="trust">Proudly Canadian. Based in the Pacific Northwest. Response within 1 business day.</p>
+
+    <footer class="footer">
+      <a href="index.html">Home</a> ·
+      <a href="about.html">About</a> ·
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms</a>
+    </footer>
+  </main>
+  <script>
+    (function() {
+      var attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid", "msclkid", "fbclid"];
+      var tracking = window.BP_TRACKING || {};
+      var urlParams = new URLSearchParams(window.location.search);
+
+      function gtagReportConversion(url, name) {
+        if (!window.gtag) {
+          if (typeof url !== "undefined") window.location = url;
+          return false;
+        }
+
+        var callback = function() {
+          if (typeof url !== "undefined") window.location = url;
+        };
+
+        window.gtag("event", "generate_lead", { event_category: "engagement", event_label: name || "vertical", value: 1 });
+        var hasAds = tracking.adsId && tracking.adsId.indexOf("AW-") === 0 && tracking.adsId.indexOf("XXXX") === -1;
+        var hasLabel = tracking.adsConversionLabel && tracking.adsConversionLabel.indexOf("XXXX") === -1;
+        if (hasAds && hasLabel) {
+          window.gtag("event", "conversion", {
+            send_to: tracking.adsId + "/" + tracking.adsConversionLabel,
+            value: 5.0,
+            currency: "CAD",
+            event_callback: callback
+          });
+          setTimeout(callback, 1200);
+          return false;
+        }
+        callback();
+        return false;
+      }
+
+      document.querySelectorAll("a.calendly-link").forEach(function(link) {
+        try {
+          var target = new URL(link.href);
+          attributionKeys.forEach(function(key) {
+            var value = urlParams.get(key);
+            if (value && !target.searchParams.get(key)) target.searchParams.set(key, value);
+          });
+          link.href = target.toString();
+        } catch (e) {}
+
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          gtagReportConversion(link.href, link.getAttribute("data-cta") || "vertical");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

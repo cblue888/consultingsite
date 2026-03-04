@@ -232,6 +232,8 @@
     .footer-info { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
     .footer-info a, .footer-info span { font-size: 0.8125rem; color: var(--gray-500); text-decoration: none; transition: color 0.2s; }
     .footer-info a:hover { color: var(--blue-accent); }
+    .social-link { display: inline-flex; align-items: center; gap: 6px; }
+    .social-link svg { width: 14px; height: 14px; }
 
     /* Responsive */
     @media (max-width: 1024px) {
@@ -492,6 +494,11 @@
       </div>
       <div class="footer-info">
         <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+        <span aria-hidden="true">&middot;</span>
+        <a class="social-link" href="https://www.linkedin.com/in/casey-blustein/" target="_blank" rel="noopener noreferrer" aria-label="Casey Blustein LinkedIn profile">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm-9.5 6h-3v9h3zm-1.5-4.4a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M18 13.1c0-2.7-1.4-4.1-3.3-4.1-1.5 0-2.2.8-2.6 1.4V9h-3v9h3v-5c0-1.3.2-2.6 1.8-2.6 1.6 0 1.6 1.5 1.6 2.7V18h3z"/></svg>
+          <span>Casey on LinkedIn</span>
+        </a>
         <span aria-hidden="true">&middot;</span>
         <a href="privacy.html">Privacy Policy</a>
         <span aria-hidden="true">&middot;</span>
