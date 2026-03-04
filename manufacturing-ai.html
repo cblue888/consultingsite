@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI for Manufacturing | Blue Pixel Consulting</title>
-  <meta name="description" content="AI implementation for manufacturing teams focused on reporting, process handoffs, and operational visibility.">
+  <meta name="description" content="AI implementation for manufacturing teams focused on production scheduling, quality reporting, and downtime reduction.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bluepixelconsulting.com/manufacturing-ai">
   <link rel="icon" type="image/png" href="logo-128.png">
@@ -40,7 +40,62 @@
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 28px 0 34px; }
     .card { border: 1px solid rgba(255,255,255,0.1); background: rgba(15,29,50,0.6); border-radius: 12px; padding: 18px; }
     .card h3 { margin: 0 0 8px; color: #fff; font-size: 1rem; }
-    .trust { margin-top: 24px; padding: 14px 16px; border-radius: 10px; background: rgba(37,99,235,0.14); color: #dbeafe; }
+    .trust {
+      position: relative;
+      margin-top: 24px;
+      max-width: 520px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(10,22,40,0.46);
+      overflow: hidden;
+    }
+    .trust::before {
+      content: "";
+      position: absolute;
+      inset: -20px -10px -25px -10px;
+      opacity: 0.2;
+      pointer-events: none;
+      background:
+        linear-gradient(160deg, transparent 44%, rgba(147,197,253,0.5) 45%, transparent 46%) 0 0 / 100% 48%,
+        linear-gradient(165deg, transparent 48%, rgba(147,197,253,0.4) 49%, transparent 50%) 0 45% / 100% 48%,
+        linear-gradient(170deg, transparent 55%, rgba(147,197,253,0.32) 56%, transparent 57%) 0 95% / 100% 48%;
+      background-repeat: no-repeat;
+    }
+    .trust-main {
+      position: relative;
+      z-index: 1;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #dbeafe;
+    }
+    .trust-sub {
+      position: relative;
+      z-index: 1;
+      margin-top: 4px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #bfdbfe;
+    }
+    .trust-note {
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #93c5fd;
+      letter-spacing: 0.03em;
+    }
+    .detail { margin: 28px 0; padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15,29,50,0.5); }
+    .detail h2 { margin: 0 0 10px; color: #fff; font-size: 1.1rem; }
+    .detail p { margin: 0 0 10px; }
+    .detail-list { margin: 0; padding-left: 18px; color: #cbd5e1; line-height: 1.7; }
+    .detail-list li + li { margin-top: 6px; }
     .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 0.9rem; }
     .footer a { color: #93c5fd; text-decoration: none; }
     @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
@@ -54,29 +109,47 @@
     </nav>
 
     <h1>AI for Manufacturing</h1>
-    <p class="lede">We help manufacturing teams reduce friction in production reporting, handoffs, and recurring operational administration.</p>
+    <p class="lede">Manufacturing performance depends on throughput, uptime, and clear handoffs. We build systems that reduce planning friction, tighten floor reporting, and improve operating response time.</p>
 
     <div class="grid">
       <section class="card">
-        <h3>Production Reporting</h3>
-        <p>Automate recurring summaries and KPI snapshots from shop-floor inputs.</p>
+        <h3>Dynamic Production Scheduling</h3>
+        <p>Adjust schedules as order mix and capacity shift so planners spend less time rebuilding spreadsheets every day.</p>
       </section>
       <section class="card">
-        <h3>Process Handoffs</h3>
-        <p>Reduce missed steps between planning, production, and fulfillment teams.</p>
+        <h3>Digital Quality Documentation</h3>
+        <p>Capture inspection data in real time and flag exceptions automatically before defects move further through the line.</p>
       </section>
       <section class="card">
-        <h3>Quality and Compliance</h3>
-        <p>Streamline recurring documentation and traceability workflows.</p>
+        <h3>Inventory and Supply Alerts</h3>
+        <p>Trigger reorder and exception workflows at threshold levels so stockouts and rush purchasing happen less often.</p>
       </section>
       <section class="card">
-        <h3>Ops Visibility</h3>
-        <p>Provide leadership with clearer operating signals and faster exception detection.</p>
+        <h3>Shift Handover and Maintenance Signals</h3>
+        <p>Generate consistent shift summaries and runtime-based maintenance alerts that support uptime and faster floor decisions.</p>
       </section>
     </div>
 
+    <section class="detail">
+      <h2>What We Implement on the Manufacturing Side</h2>
+      <p>We focus on floor-to-office workflows that directly affect throughput, downtime, and response speed.</p>
+      <ul class="detail-list">
+        <li>Production schedule adjustment workflows tied to order and capacity changes.</li>
+        <li>Digital quality logging and exception reporting with faster escalation.</li>
+        <li>Shift handover and maintenance workflows built from runtime signals.</li>
+      </ul>
+    </section>
+    <section class="detail">
+      <h2>Who This Is Best For</h2>
+      <ul class="detail-list">
+        <li>Plants relying on mixed systems plus spreadsheet coordination.</li>
+        <li>Operations teams under pressure to improve uptime and cycle time.</li>
+        <li>Leaders who want measurable operational gains within one quarter.</li>
+      </ul>
+    </section>
+
     <a class="btn calendly-link" data-cta="manufacturing-ai-main" href="https://calendly.com/casey-bluepixelconsulting/30min">Book Your AI Readiness Call</a>
-    <p class="trust">Proudly Canadian. Based in the Pacific Northwest. Response within 1 business day.</p>
+    <div class="trust"><div class="trust-main">🇨🇦 Proudly Canadian</div><div class="trust-sub">Based in the Pacific Northwest</div><div class="trust-note">Response within 1 business day.</div></div>
 
     <footer class="footer">
       <a href="index.html">Home</a> ·

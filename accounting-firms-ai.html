@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI for Accounting Firms | Blue Pixel Consulting</title>
-  <meta name="description" content="AI implementation for accounting firms focused on reconciliation, reporting, and workflow automation.">
+  <meta name="description" content="AI implementation for accounting firms focused on busy season workflows, document intake, and billable efficiency.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bluepixelconsulting.com/accounting-firms-ai">
   <link rel="icon" type="image/png" href="logo-128.png">
@@ -40,7 +40,62 @@
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 28px 0 34px; }
     .card { border: 1px solid rgba(255,255,255,0.1); background: rgba(15,29,50,0.6); border-radius: 12px; padding: 18px; }
     .card h3 { margin: 0 0 8px; color: #fff; font-size: 1rem; }
-    .trust { margin-top: 24px; padding: 14px 16px; border-radius: 10px; background: rgba(37,99,235,0.14); color: #dbeafe; }
+    .trust {
+      position: relative;
+      margin-top: 24px;
+      max-width: 520px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(10,22,40,0.46);
+      overflow: hidden;
+    }
+    .trust::before {
+      content: "";
+      position: absolute;
+      inset: -20px -10px -25px -10px;
+      opacity: 0.2;
+      pointer-events: none;
+      background:
+        linear-gradient(160deg, transparent 44%, rgba(147,197,253,0.5) 45%, transparent 46%) 0 0 / 100% 48%,
+        linear-gradient(165deg, transparent 48%, rgba(147,197,253,0.4) 49%, transparent 50%) 0 45% / 100% 48%,
+        linear-gradient(170deg, transparent 55%, rgba(147,197,253,0.32) 56%, transparent 57%) 0 95% / 100% 48%;
+      background-repeat: no-repeat;
+    }
+    .trust-main {
+      position: relative;
+      z-index: 1;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #dbeafe;
+    }
+    .trust-sub {
+      position: relative;
+      z-index: 1;
+      margin-top: 4px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #bfdbfe;
+    }
+    .trust-note {
+      position: relative;
+      z-index: 1;
+      margin-top: 6px;
+      font-size: 0.75rem;
+      color: #93c5fd;
+      letter-spacing: 0.03em;
+    }
+    .detail { margin: 28px 0; padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15,29,50,0.5); }
+    .detail h2 { margin: 0 0 10px; color: #fff; font-size: 1.1rem; }
+    .detail p { margin: 0 0 10px; }
+    .detail-list { margin: 0; padding-left: 18px; color: #cbd5e1; line-height: 1.7; }
+    .detail-list li + li { margin-top: 6px; }
     .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; font-size: 0.9rem; }
     .footer a { color: #93c5fd; text-decoration: none; }
     @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
@@ -54,29 +109,47 @@
     </nav>
 
     <h1>AI for Accounting Firms</h1>
-    <p class="lede">We help accounting firms reduce manual load across reconciliations, document handling, and recurring reporting cycles.</p>
+    <p class="lede">Busy season breaks teams. We implement practical systems that collect documents, route work, and keep deadlines visible so partners recover billable hours instead of chasing admin.</p>
 
     <div class="grid">
       <section class="card">
-        <h3>Recurring Reporting</h3>
-        <p>Automate monthly reporting workflows and client deliverable handoffs.</p>
+        <h3>Tax Season Document Collection</h3>
+        <p>Automate reminders for T4s, receipts, and signatures until files are complete so staff stop chasing clients manually.</p>
       </section>
       <section class="card">
-        <h3>Document Processing</h3>
-        <p>Speed up extraction, review, and routing of tax and financial documents.</p>
+        <h3>Intake and Engagement Letters</h3>
+        <p>Generate engagement letter drafts from a short intake form and cut repetitive setup work from 45 minutes to a few minutes.</p>
       </section>
       <section class="card">
-        <h3>Internal Coordination</h3>
-        <p>Reduce back-and-forth across staff with structured workflow triggers and alerts.</p>
+        <h3>Workflow Routing Across Offices</h3>
+        <p>Assign files by complexity and team capacity so busy season handoffs are structured instead of living in spreadsheets.</p>
       </section>
       <section class="card">
-        <h3>Client Communication</h3>
-        <p>Standardize updates and follow-up touchpoints without adding admin burden.</p>
+        <h3>Client Status and Deadline Control</h3>
+        <p>Send proactive status updates and flag at-risk files before due dates so partners are not fielding constant update calls.</p>
       </section>
     </div>
 
+    <section class="detail">
+      <h2>What We Implement Inside Accounting Firms</h2>
+      <p>We focus on recurring admin bottlenecks that steal partner and manager capacity during busy season and month-end cycles.</p>
+      <ul class="detail-list">
+        <li>Client document chase workflows across email and SMS with completion tracking.</li>
+        <li>Engagement setup automation for intake, draft letters, and file routing.</li>
+        <li>Deadline monitoring with at-risk escalation before filing windows close.</li>
+      </ul>
+    </section>
+    <section class="detail">
+      <h2>Who This Is Best For</h2>
+      <ul class="detail-list">
+        <li>Firms with multiple preparers and recurring seasonal bottlenecks.</li>
+        <li>Teams losing non-billable hours to follow-up and status communication.</li>
+        <li>Partners who want measurable throughput gains, not experiments.</li>
+      </ul>
+    </section>
+
     <a class="btn calendly-link" data-cta="accounting-firms-ai-main" href="https://calendly.com/casey-bluepixelconsulting/30min">Book Your AI Readiness Call</a>
-    <p class="trust">Proudly Canadian. Based in the Pacific Northwest. Response within 1 business day.</p>
+    <div class="trust"><div class="trust-main">🇨🇦 Proudly Canadian</div><div class="trust-sub">Based in the Pacific Northwest</div><div class="trust-note">Response within 1 business day.</div></div>
 
     <footer class="footer">
       <a href="index.html">Home</a> ·

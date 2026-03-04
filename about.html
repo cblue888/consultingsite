@@ -157,6 +157,9 @@
     .founder-name-card { margin-top: 20px; text-align: center; }
     .founder-name-card h3 { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
     .founder-name-card span { font-size: 0.8125rem; color: var(--blue-accent); }
+    .founder-social { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 0.8125rem; color: var(--gray-400); text-decoration: none; transition: color 0.2s; }
+    .founder-social:hover { color: var(--blue-accent); }
+    .founder-social svg { width: 14px; height: 14px; }
 
     .founder-bio h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 20px; letter-spacing: -0.02em; }
     .founder-bio h3 { font-family: var(--font-heading); font-size: 1.125rem; font-weight: 600; color: var(--white); margin: 36px 0 16px; letter-spacing: -0.01em; }
@@ -170,41 +173,6 @@
     .career-role { font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600; color: var(--white); letter-spacing: -0.01em; }
     .career-company { font-size: 0.8125rem; color: var(--blue-accent); }
     .career-desc { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; margin-top: 4px; }
-
-    /* Testimonials */
-    .testimonials { padding: 80px 0; background: var(--navy-mid); overflow: hidden; }
-    .testimonials-header { text-align: center; margin-bottom: 48px; }
-    .testimonials-header h2 { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: 12px; letter-spacing: -0.02em; }
-    .testimonials-header p { font-size: 1rem; color: var(--text-secondary); }
-
-    .carousel-wrap { position: relative; }
-    .carousel-track { display: flex; gap: 20px; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
-    .testimonial-card {
-      flex: 0 0 calc(33.333% - 14px);
-      padding: 32px 28px;
-      background: var(--glass);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      transition: border-color 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-    .testimonial-card:hover { border-color: var(--border-hover); }
-    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 16px; }
-    .testimonial-stars svg { width: 16px; height: 16px; color: #fbbf24; fill: #fbbf24; }
-    .testimonial-quote { font-size: 0.9375rem; color: var(--gray-300); line-height: 1.7; flex: 1; margin-bottom: 20px; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: 12px; }
-    .testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(34,211,238,0.2)); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 0.8125rem; font-weight: 600; color: var(--blue-accent); }
-    .testimonial-name { font-size: 0.8125rem; font-weight: 600; color: var(--white); }
-    .testimonial-role { font-size: 0.75rem; color: var(--gray-500); }
-
-    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 32px; }
-    .carousel-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--glass); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; color: var(--gray-400); }
-    .carousel-btn:hover { border-color: var(--border-hover); color: var(--white); }
-    .carousel-btn svg { width: 18px; height: 18px; }
-    .carousel-dots { display: flex; align-items: center; gap: 8px; }
-    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-600); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
-    .carousel-dot.active { background: var(--blue-accent); box-shadow: 0 0 8px rgba(96,165,250,0.4); }
 
     /* Philosophy */
     .philosophy { padding: 80px 0; background: var(--navy); }
@@ -246,7 +214,7 @@
     }
     @media (max-width: 768px) {
       .page-header { padding: 120px 0 60px; }
-      .about-intro, .what-we-do, .founder, .testimonials, .philosophy { padding: 60px 0; }
+      .about-intro, .what-we-do, .founder, .philosophy { padding: 60px 0; }
       .cta { padding: 80px 0; }
       .nav-logo span { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
@@ -339,6 +307,10 @@
           <div class="founder-name-card">
             <h3>Casey Blustein</h3>
             <span>Founder, Blue Pixel</span>
+            <a class="founder-social" href="https://www.linkedin.com/in/casey-blustein/" target="_blank" rel="noopener noreferrer" aria-label="Casey Blustein LinkedIn profile">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm-9.5 6h-3v9h3zm-1.5-4.4a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M18 13.1c0-2.7-1.4-4.1-3.3-4.1-1.5 0-2.2.8-2.6 1.4V9h-3v9h3v-5c0-1.3.2-2.6 1.8-2.6 1.6 0 1.6 1.5 1.6 2.7V18h3z"/></svg>
+              <span>LinkedIn</span>
+            </a>
           </div>
         </div>
         <div class="founder-bio fade-up">
@@ -377,78 +349,6 @@
 
   <div class="section-divider" aria-hidden="true"></div>
 
-  <!-- Testimonials -->
-  <section class="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <div class="testimonials-header fade-up">
-        <div class="eyebrow">What People Say</div>
-        <h2 id="testimonials-heading">Trusted by Operators Who Ship</h2>
-      </div>
-      <div class="carousel-wrap fade-up">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"We were drowning in manual processes and had no idea where to start with AI. Casey came in, mapped everything in a week, and had automations running within the month. Our ops team got 15 hours a week back."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">JM</div>
-              <div><div class="testimonial-name">Operations Director</div><div class="testimonial-role">Construction &amp; Development Firm</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"What sets Casey apart is he actually understands operations. Most AI consultants give you a demo and a slide deck. He gave us systems that our team uses every single day."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">SK</div>
-              <div><div class="testimonial-name">CEO</div><div class="testimonial-role">SaaS Company, Series A</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"Casey automated our entire client onboarding pipeline. What used to take 3 people and 2 days now runs itself. The ROI was obvious within the first month."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">RL</div>
-              <div><div class="testimonial-name">Managing Partner</div><div class="testimonial-role">Professional Services Firm</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"I was skeptical about AI consulting. Casey's approach is refreshingly different. No buzzwords, no overselling. He found $200K+ in annual savings we didn't know existed."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">DW</div>
-              <div><div class="testimonial-name">VP Operations</div><div class="testimonial-role">Property Management Company</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"We brought Casey in to figure out our AI strategy. Within 6 weeks he had three automations live. Our sales team now spends 40% less time on admin and more time closing."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">AT</div>
-              <div><div class="testimonial-name">Founder &amp; CEO</div><div class="testimonial-role">B2B Tech Startup</div></div>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.69l5.34-.78L10 1z"/></svg></div>
-            <p class="testimonial-quote">"The difference between Casey and other consultants is he actually builds the thing. Not a roadmap to maybe build the thing. He shipped in our environment, with our tools, in weeks."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">MH</div>
-              <div><div class="testimonial-name">Head of Operations</div><div class="testimonial-role">Financial Services</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-controls">
-          <button class="carousel-btn" id="prevBtn" aria-label="Previous testimonials">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
-          </button>
-          <div class="carousel-dots" id="carouselDots"></div>
-          <button class="carousel-btn" id="nextBtn" aria-label="Next testimonials">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider" aria-hidden="true"></div>
 
   <!-- Philosophy -->
   <section class="philosophy" aria-labelledby="philosophy-heading">
@@ -494,11 +394,6 @@
       </div>
       <div class="footer-info">
         <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
-        <span aria-hidden="true">&middot;</span>
-        <a class="social-link" href="https://www.linkedin.com/in/casey-blustein/" target="_blank" rel="noopener noreferrer" aria-label="Casey Blustein LinkedIn profile">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm-9.5 6h-3v9h3zm-1.5-4.4a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M18 13.1c0-2.7-1.4-4.1-3.3-4.1-1.5 0-2.2.8-2.6 1.4V9h-3v9h3v-5c0-1.3.2-2.6 1.8-2.6 1.6 0 1.6 1.5 1.6 2.7V18h3z"/></svg>
-          <span>Casey on LinkedIn</span>
-        </a>
         <span aria-hidden="true">&middot;</span>
         <a href="privacy.html">Privacy Policy</a>
         <span aria-hidden="true">&middot;</span>
@@ -581,59 +476,6 @@
         });
       });
 
-      // Carousel
-      var track = document.getElementById('carouselTrack');
-      var dotsWrap = document.getElementById('carouselDots');
-      var prevBtn = document.getElementById('prevBtn');
-      var nextBtn = document.getElementById('nextBtn');
-      if (!track) return;
-
-      var current = 0;
-      function getPerView() {
-        if (window.innerWidth <= 768) return 1;
-        if (window.innerWidth <= 1024) return 2;
-        return 3;
-      }
-      var cards = track.children.length;
-
-      function getMaxSlide() { return Math.max(0, cards - getPerView()); }
-
-      function buildDots() {
-        dotsWrap.innerHTML = '';
-        var max = getMaxSlide();
-        for (var i = 0; i <= max; i++) {
-          var dot = document.createElement('button');
-          dot.className = 'carousel-dot' + (i === current ? ' active' : '');
-          dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-          dot.dataset.index = i;
-          dotsWrap.appendChild(dot);
-        }
-      }
-
-      function slideTo(index) {
-        var max = getMaxSlide();
-        current = Math.max(0, Math.min(index, max));
-        var card = track.children[0];
-        var gap = 20;
-        var cardWidth = card.offsetWidth + gap;
-        track.style.transform = 'translateX(-' + (current * cardWidth) + 'px)';
-        var dots = dotsWrap.querySelectorAll('.carousel-dot');
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-      }
-
-      prevBtn.addEventListener('click', function() { slideTo(current - 1); });
-      nextBtn.addEventListener('click', function() { slideTo(current + 1); });
-      dotsWrap.addEventListener('click', function(e) {
-        if (e.target.classList.contains('carousel-dot')) {
-          slideTo(parseInt(e.target.dataset.index));
-        }
-      });
-
-      buildDots();
-      window.addEventListener('resize', function() {
-        buildDots();
-        slideTo(Math.min(current, getMaxSlide()));
-      });
     })();
   </script>
 </body>
