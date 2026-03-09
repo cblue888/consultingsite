@@ -68,6 +68,14 @@
 
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(20px, -14px) scale(1.05); }
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(37,99,235,0.1); }
+      50% { box-shadow: 0 0 28px rgba(37,99,235,0.24); }
+    }
 
     .btn {
       display: inline-flex;
@@ -137,6 +145,29 @@
       background: var(--navy);
       overflow: hidden;
     }
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-orb-1 {
+      width: 360px;
+      height: 360px;
+      top: -80px;
+      right: -60px;
+      background: radial-gradient(circle, rgba(37,99,235,0.22) 0%, transparent 70%);
+      animation: float 18s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 280px;
+      height: 280px;
+      bottom: -60px;
+      left: -40px;
+      background: radial-gradient(circle, rgba(34,211,238,0.16) 0%, transparent 72%);
+      animation: float 22s ease-in-out infinite reverse;
+    }
 
     .hero::before {
       content: "";
@@ -195,16 +226,32 @@
     .pain-card,
     .industry-card,
     .cred-card {
+      position: relative;
       padding: 26px 22px;
       background: var(--glass);
       border: 1px solid var(--border-subtle);
       border-radius: 14px;
       transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .pain-card::before,
+    .industry-card::before,
+    .cred-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 32%, rgba(96,165,250,0.07) 50%, transparent 68%);
+      transform: translateX(-120%);
+      transition: transform 0.55s ease;
+      pointer-events: none;
     }
 
     .pain-card:hover,
     .industry-card:hover,
     .cred-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .pain-card:hover::before,
+    .industry-card:hover::before,
+    .cred-card:hover::before { transform: translateX(120%); }
 
     .pain-card h3,
     .industry-card h3,
@@ -250,6 +297,7 @@
       position: relative;
       z-index: 1;
       box-shadow: 0 0 20px rgba(37,99,235,0.1);
+      animation: pulse 3.6s ease-in-out infinite;
     }
 
     .step h3 { font-family: var(--font-heading); font-size: 1.06rem; color: var(--white); margin-bottom: 8px; font-weight: 600; letter-spacing: -0.01em; }
@@ -296,6 +344,8 @@
       .nav-logo span { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-info { justify-content: center; }
+      .hero-orb-1,
+      .hero-orb-2 { filter: blur(52px); }
     }
   </style>
 </head>
@@ -317,16 +367,18 @@
   </nav>
 
   <header class="hero" aria-labelledby="growth-hero-heading">
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">FOR GROWING COMPANIES</div>
         <h1 id="growth-hero-heading" class="fade-up">Your Operations Got You to $10M. AI Gets You to $100M.</h1>
-        <p class="hero-sub fade-up">We build agentic AI systems that replace manual workflows across your operation, not chatbots, not dashboards, not proof-of-concepts. Working systems that run.</p>
+        <p class="hero-sub fade-up">We build agentic AI systems that fix sales process bottlenecks, execute GEO strategy, and replace manual workflows across your operation. Not chatbots, not dashboards, not proof-of-concepts. Working systems that run.</p>
         <div class="hero-actions fade-up">
           <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="growth-hero-book-strategy-call">Book a Strategy Call</a>
           <a href="#how-we-work" class="btn btn-outline">See How It Works</a>
         </div>
-        <p class="hero-cred fade-up">Led by a 2x exited tech COO and Walmart's Director of Agentic Commerce</p>
+        <p class="hero-cred fade-up">Led by a 2x exited tech COO.</p>
       </div>
     </div>
   </header>
@@ -371,7 +423,7 @@
         <div class="step fade-up">
           <div class="step-number">2</div>
           <h3>Build &amp; Deploy (Week 3-7)</h3>
-          <p>We build agentic systems that handle real work: quoting, scheduling, document processing, customer communication, and internal routing. Not demos.</p>
+          <p>We build agentic systems that handle real work: sales qualification, follow-up sequencing, proposal flow, GEO execution, scheduling, document processing, and internal routing. Not demos.</p>
         </div>
         <div class="step fade-up">
           <div class="step-number">3</div>
@@ -427,8 +479,8 @@
           <p>2x exited tech COO. Built ops systems at Drippi, Entertainment One, and Parallax.</p>
         </article>
         <article class="cred-card fade-up">
-          <h3>Operator Network</h3>
-          <p>Delivery informed by senior operators including Walmart's Director of Agentic Commerce.</p>
+          <h3>Sales Process + GEO Focus</h3>
+          <p>We redesign and automate revenue workflows from lead intake to close, then layer GEO strategy so growth compounds across channels.</p>
         </article>
       </div>
       <p class="cred-line fade-up">We do not do strategy decks. We build the thing, measure it, and iterate.</p>
