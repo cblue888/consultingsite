@@ -76,6 +76,14 @@
       0%, 100% { box-shadow: 0 0 20px rgba(37,99,235,0.1); }
       50% { box-shadow: 0 0 28px rgba(37,99,235,0.24); }
     }
+    @keyframes flowLine {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
     .btn {
       display: inline-flex;
@@ -276,7 +284,10 @@
       left: calc(16.67% + 36px);
       right: calc(16.67% + 36px);
       height: 1px;
-      background: linear-gradient(90deg, rgba(37,99,235,0.3) 0%, rgba(34,211,238,0.3) 50%, rgba(37,99,235,0.3) 100%);
+      background: linear-gradient(90deg, rgba(37,99,235,0.12) 0%, rgba(96,165,250,0.45) 45%, rgba(34,211,238,0.45) 55%, rgba(37,99,235,0.12) 100%);
+      background-size: 200% 100%;
+      animation: flowLine 5s linear infinite;
+      opacity: 0.9;
     }
 
     .step { text-align: center; position: relative; }
@@ -298,6 +309,38 @@
       z-index: 1;
       box-shadow: 0 0 20px rgba(37,99,235,0.1);
       animation: pulse 3.6s ease-in-out infinite;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .step-number::before {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+      border: 1px solid rgba(96,165,250,0.22);
+      opacity: 0.6;
+    }
+    .step-number::after {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(96,165,250,0.22);
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .step.visible .step-number {
+      transform: translateY(-2px) scale(1.03);
+      border-color: rgba(96,165,250,0.42);
+      box-shadow: 0 0 30px rgba(37,99,235,0.26);
+    }
+    .step.visible .step-number::after {
+      opacity: 1;
+      transform: scale(1);
+      animation: spinRing 12s linear infinite;
+    }
+    .step:hover .step-number {
+      transform: translateY(-3px) scale(1.06);
     }
 
     .step h3 { font-family: var(--font-heading); font-size: 1.06rem; color: var(--white); margin-bottom: 8px; font-weight: 600; letter-spacing: -0.01em; }
@@ -373,7 +416,7 @@
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">FOR GROWING COMPANIES</div>
         <h1 id="growth-hero-heading" class="fade-up">Your Operations Got You to $10M. AI Gets You to $100M.</h1>
-        <p class="hero-sub fade-up">We build agentic AI systems that fix sales process bottlenecks, execute GEO strategy, and replace manual workflows across your operation. Not chatbots, not dashboards, not proof-of-concepts. Working systems that run.</p>
+        <p class="hero-sub fade-up">We build agentic AI systems that fix sales process bottlenecks, execute GEO strategy, and replace manual workflows across your operation. Not dashboards, not proof-of-concepts. Working systems that run.</p>
         <div class="hero-actions fade-up">
           <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="growth-hero-book-strategy-call">Book a Strategy Call</a>
           <a href="#how-we-work" class="btn btn-outline">See How It Works</a>
