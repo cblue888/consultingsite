@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growing Companies | Blue Pixel Consulting</title>
+  <meta name="description" content="Agentic AI systems for midmarket and growing companies. Replace manual workflows with working systems in 8 weeks.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bluepixelconsulting.com/growth">
+  <link rel="icon" type="image/png" href="logo-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    window.BP_TRACKING = window.BP_TRACKING || {
+      ga4Id: "G-XXXXXXXXXX",
+      adsId: "AW-17981602232",
+      adsConversionLabel: "EGe_CPSwrYAcELjzpf5C"
+    };
+
+    (function(w, d) {
+      var c = w.BP_TRACKING || {};
+      var hasGa4 = c.ga4Id && c.ga4Id.indexOf("G-") === 0 && c.ga4Id.indexOf("XXXX") === -1;
+      var hasAds = c.adsId && c.adsId.indexOf("AW-") === 0 && c.adsId.indexOf("XXXX") === -1;
+      if (!hasGa4 && !hasAds) return;
+
+      w.dataLayer = w.dataLayer || [];
+      w.gtag = function() { w.dataLayer.push(arguments); };
+      w.gtag("js", new Date());
+      if (hasGa4) w.gtag("config", c.ga4Id);
+      if (hasAds) w.gtag("config", c.adsId);
+
+      var tagId = hasGa4 ? c.ga4Id : c.adsId;
+      var script = d.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(tagId);
+      d.head.appendChild(script);
+    })(window, document);
+  </script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #060d1b;
+      --navy-mid: #0a1628;
+      --navy-light: #0f1d32;
+      --blue-mid: #2563eb;
+      --blue-accent: #60a5fa;
+      --cyan: #22d3ee;
+      --white: #ffffff;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border-subtle: rgba(255,255,255,0.06);
+      --border-hover: rgba(255,255,255,0.12);
+      --glass: rgba(15,29,50,0.6);
+      --font-heading: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--font-body); color: var(--text-primary); line-height: 1.6; background: var(--navy); overflow-x: hidden; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 14px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+      color: var(--white);
+      box-shadow: 0 0 20px rgba(37,99,235,0.3), 0 4px 16px rgba(37,99,235,0.2);
+    }
+
+    .btn-primary:hover { box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 8px 32px rgba(37,99,235,0.3); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gray-300);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.2); color: var(--white); }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav.scrolled {
+      background: rgba(6, 13, 27, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0;
+    }
+
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo span { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 0.875rem; font-weight: 500; color: var(--gray-400); text-decoration: none; transition: color 0.2s; letter-spacing: -0.01em; }
+    .nav-link:hover, .nav-link.active { color: var(--white); }
+    .nav-cta { font-size: 0.8125rem; padding: 10px 20px; }
+
+    .hero {
+      position: relative;
+      min-height: 86vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg, rgba(6,13,27,0.9) 15%, rgba(6,13,27,0.72) 55%, rgba(6,13,27,0.95) 100%),
+        radial-gradient(circle at 18% 30%, rgba(96,165,250,0.2), transparent 45%),
+        radial-gradient(circle at 78% 72%, rgba(34,211,238,0.12), transparent 42%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 780px; padding: 140px 0 96px; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #bfdbfe;
+      margin-bottom: 24px;
+      padding: 7px 16px;
+      background: linear-gradient(120deg, rgba(37,99,235,0.18), rgba(14,116,144,0.12));
+      border: 1px solid rgba(147,197,253,0.28);
+      border-radius: 100px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.4vw, 3.7rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub { font-size: 1.125rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 34px; max-width: 690px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .hero-cred { margin-top: 22px; font-size: 0.86rem; color: #cbd5e1; }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent 0%, var(--border-subtle) 20%, rgba(37,99,235,0.15) 50%, var(--border-subtle) 80%, transparent 100%); }
+
+    .section { padding: 100px 0; }
+    .section-dark { background: var(--navy); }
+    .section-mid { background: var(--navy-mid); }
+
+    .section-header { text-align: center; max-width: 740px; margin: 0 auto 56px; }
+    .section-header h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.15; color: var(--white); margin-bottom: 14px; font-weight: 700; letter-spacing: -0.02em; }
+    .section-header p { font-size: 1.03rem; color: var(--text-secondary); line-height: 1.75; }
+
+    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .pain-card,
+    .industry-card,
+    .cred-card {
+      padding: 26px 22px;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .pain-card:hover,
+    .industry-card:hover,
+    .cred-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+
+    .pain-card h3,
+    .industry-card h3,
+    .cred-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.03rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .pain-card p,
+    .industry-card p,
+    .cred-card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
+    .process-steps::before {
+      content: "";
+      position: absolute;
+      top: 36px;
+      left: calc(16.67% + 36px);
+      right: calc(16.67% + 36px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(37,99,235,0.3) 0%, rgba(34,211,238,0.3) 50%, rgba(37,99,235,0.3) 100%);
+    }
+
+    .step { text-align: center; position: relative; }
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1px solid rgba(37,99,235,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue-accent);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(37,99,235,0.1);
+    }
+
+    .step h3 { font-family: var(--font-heading); font-size: 1.06rem; color: var(--white); margin-bottom: 8px; font-weight: 600; letter-spacing: -0.01em; }
+    .step p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; max-width: 320px; margin: 0 auto; }
+
+    .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .cred-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .cred-line { text-align: center; margin-top: 24px; font-size: 1rem; color: var(--gray-300); }
+
+    .cta {
+      padding: 110px 0;
+      background: var(--navy-mid);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 60%); }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta h2 { font-family: var(--font-heading); font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.15; color: var(--white); margin-bottom: 14px; font-weight: 700; letter-spacing: -0.02em; }
+    .cta p { font-size: 1.06rem; color: var(--text-secondary); line-height: 1.7; max-width: 680px; margin: 0 auto 36px; }
+
+    .footer { padding: 40px 0; background: var(--navy); border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; color: var(--gray-500); font-size: 0.875rem; }
+    .footer-brand img { height: 24px; width: auto; opacity: 0.6; }
+    .footer-info { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-info a, .footer-info span { font-size: 0.8125rem; color: var(--gray-500); text-decoration: none; transition: color 0.2s; }
+    .footer-info a:hover { color: var(--blue-accent); }
+
+    @media (max-width: 1024px) {
+      .cards-3,
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr; gap: 44px; max-width: 380px; margin: 0 auto; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-content { padding: 120px 0 76px; }
+      .cards-3,
+      .industries-grid,
+      .cred-grid { grid-template-columns: 1fr; }
+      .nav-logo span { display: none; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-info { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Blue Pixel Consulting Home">
+          <img src="logo-128.png" alt="Blue Pixel Consulting logo" loading="eager" decoding="async">
+          <span>Blue Pixel Consulting</span>
+        </a>
+        <div class="nav-right">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="growth.html" class="nav-link active">Growing Companies</a>
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="growth-nav-book-call">Book a Call</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" aria-labelledby="growth-hero-heading">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow fade-up">FOR GROWING COMPANIES</div>
+        <h1 id="growth-hero-heading" class="fade-up">Your Operations Got You to $10M. AI Gets You to $100M.</h1>
+        <p class="hero-sub fade-up">We build agentic AI systems that replace manual workflows across your operation, not chatbots, not dashboards, not proof-of-concepts. Working systems that run.</p>
+        <div class="hero-actions fade-up">
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="growth-hero-book-strategy-call">Book a Strategy Call</a>
+          <a href="#how-we-work" class="btn btn-outline">See How It Works</a>
+        </div>
+        <p class="hero-cred fade-up">Led by a 2x exited tech COO and Walmart's Director of Agentic Commerce</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="section section-mid" aria-labelledby="problem-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 id="problem-heading">You're Growing. Your Operations Aren't Keeping Up.</h2>
+      </div>
+      <div class="cards-3">
+        <article class="pain-card fade-up">
+          <h3>Hiring Can't Keep Pace</h3>
+          <p>You're adding headcount to handle volume, but every new hire adds coordination overhead. The work scales linearly, your margins do not.</p>
+        </article>
+        <article class="pain-card fade-up">
+          <h3>Your Systems Don't Talk to Each Other</h3>
+          <p>Customer data lives in 4 places. Job scheduling is a spreadsheet. Quoting takes 2 days when it should take 2 minutes.</p>
+        </article>
+        <article class="pain-card fade-up">
+          <h3>AI Pressure Without a Clear Path</h3>
+          <p>Leadership knows AI matters but every vendor is selling vaporware. You need a partner who has actually built and shipped these systems.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="section section-dark" id="how-we-work" aria-labelledby="work-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 id="work-heading">From Assessment to Running System in 8 Weeks</h2>
+      </div>
+      <div class="process-steps">
+        <div class="step fade-up">
+          <div class="step-number">1</div>
+          <h3>Ops Audit (Week 1-2)</h3>
+          <p>We map your workflows, identify the 3 to 5 highest-ROI automation targets, and build the business case with hard numbers.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">2</div>
+          <h3>Build &amp; Deploy (Week 3-7)</h3>
+          <p>We build agentic systems that handle real work: quoting, scheduling, document processing, customer communication, and internal routing. Not demos.</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-number">3</div>
+          <h3>Handoff &amp; Scale (Week 8+)</h3>
+          <p>Your team runs the systems. We train them, document everything, and stay on retainer if you want ongoing optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="section section-mid" aria-labelledby="industries-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 id="industries-heading">Industries We Work With</h2>
+      </div>
+      <div class="industries-grid">
+        <article class="industry-card fade-up">
+          <h3>Retail</h3>
+          <p>Inventory ops, vendor communication, multi-location coordination, customer service automation.</p>
+        </article>
+        <article class="industry-card fade-up">
+          <h3>Property Management</h3>
+          <p>Tenant communication, maintenance dispatch, lease processing, compliance tracking.</p>
+        </article>
+        <article class="industry-card fade-up">
+          <h3>Accounting Firms</h3>
+          <p>Client document collection, engagement management, deadline tracking, deliverable assembly.</p>
+        </article>
+        <article class="industry-card fade-up">
+          <h3>Trades (HVAC, Electrical, Plumbing)</h3>
+          <p>Quoting, dispatch, job costing, customer follow-up, invoice automation.</p>
+        </article>
+        <article class="industry-card fade-up">
+          <h3>Construction</h3>
+          <p>Submittal tracking, RFI management, subcontractor coordination, project documentation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="section section-dark" aria-labelledby="cred-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2 id="cred-heading">Operator-Led. Not Agency-Led.</h2>
+      </div>
+      <div class="cred-grid">
+        <article class="cred-card fade-up">
+          <h3>Casey Blue</h3>
+          <p>2x exited tech COO. Built ops systems at Drippi, Entertainment One, and Parallax.</p>
+        </article>
+        <article class="cred-card fade-up">
+          <h3>Operator Network</h3>
+          <p>Delivery informed by senior operators including Walmart's Director of Agentic Commerce.</p>
+        </article>
+      </div>
+      <p class="cred-line fade-up">We do not do strategy decks. We build the thing, measure it, and iterate.</p>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 id="cta-heading" class="fade-up">See What AI Ops Looks Like For Your Business</h2>
+        <p class="fade-up">30-minute call. We'll walk through your operations and show you where agentic systems create the most leverage.</p>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link fade-up" data-cta="growth-final-book-strategy-call">Book Your Strategy Call</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logo-128.png" alt="Blue Pixel logo" loading="lazy" decoding="async">
+          <span>Blue Pixel Consulting</span>
+        </div>
+        <div class="footer-info">
+          <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+          <span aria-hidden="true">&middot;</span>
+          <a href="privacy.html">Privacy Policy</a>
+          <span aria-hidden="true">&middot;</span>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.querySelector('.nav');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+      window.addEventListener('scroll', function() {
+        if (!nav) return;
+        if (window.scrollY > 30) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }, { passive: true });
+
+      var attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid", "msclkid", "fbclid"];
+      var tracking = window.BP_TRACKING || {};
+      var urlParams = new URLSearchParams(window.location.search);
+
+      function gtagReportConversion(url, name) {
+        if (!window.gtag) {
+          if (typeof url !== "undefined") window.location = url;
+          return false;
+        }
+
+        var callback = function() {
+          if (typeof url !== "undefined") window.location = url;
+        };
+
+        window.gtag("event", "generate_lead", { event_category: "engagement", event_label: name || "growth", value: 1 });
+        var hasAds = tracking.adsId && tracking.adsId.indexOf("AW-") === 0 && tracking.adsId.indexOf("XXXX") === -1;
+        var hasLabel = tracking.adsConversionLabel && tracking.adsConversionLabel.indexOf("XXXX") === -1;
+        if (hasAds && hasLabel) {
+          window.gtag("event", "conversion", {
+            send_to: tracking.adsId + "/" + tracking.adsConversionLabel,
+            value: 5.0,
+            currency: "CAD",
+            event_callback: callback
+          });
+          setTimeout(callback, 1200);
+          return false;
+        }
+        callback();
+        return false;
+      }
+
+      document.querySelectorAll("a.calendly-link").forEach(function(link) {
+        try {
+          var target = new URL(link.href);
+          attributionKeys.forEach(function(key) {
+            var value = urlParams.get(key);
+            if (value && !target.searchParams.get(key)) target.searchParams.set(key, value);
+          });
+          link.href = target.toString();
+        } catch (e) {}
+
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          gtagReportConversion(link.href, link.getAttribute("data-cta") || "growth");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
