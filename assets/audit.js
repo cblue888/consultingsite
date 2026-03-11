@@ -240,6 +240,10 @@
     return merged;
   }
 
+  function getActiveQuestions(questionSet, pillarId) {
+    return (questionSet[pillarId] || BASE_QUESTIONS[pillarId] || []).slice(0, 2);
+  }
+
   function initAuditPage() {
     var root = $("[data-audit-app]");
     if (!root) return;
@@ -298,8 +302,9 @@
       }
 
       var pillar = PILLARS[state.step - 1];
+      var questionCount = getActiveQuestions(getQuestionSet(state.form.industry || ""), pillar.id).length;
       var answers = state.responses[pillar.id] || [];
-      if (answers.length < 3 || answers.some(function (n) { return typeof n !== "number"; })) {
+      if (answers.length < questionCount || answers.slice(0, questionCount).some(function (n) { return typeof n !== "number"; })) {
         state.error = "Answer all statements before continuing.";
         return false;
       }
@@ -314,12 +319,12 @@
 
       container.innerHTML =
         '<p class="step-tag">Step 1 of ' + totalSteps() + '</p>' +
-        '<h2 class="step-title">Company Intake</h2>' +
-        '<p class="step-sub">Quick profile first. Then five short operational pillars.</p>' +
+        '<h2 class="step-title">FREE AI Ops Audit</h2>' +
+        '<p class="step-sub">Quick profile first. Then five short pillars. We also scan your website to personalize the report.</p>' +
         '<div class="form-grid">' +
         '  <div class="field"><label for="company_name">Company name</label><input id="company_name" name="company_name" value="' + escapeHtml(state.form.company_name) + '" placeholder="Blue Pixel Consulting"></div>' +
         '  <div class="field"><label for="contact_name">Your name</label><input id="contact_name" name="contact_name" value="' + escapeHtml(state.form.contact_name) + '" placeholder="Casey"></div>' +
-        '  <div class="field full"><label for="email">Email' + (state.mode === "standard" ? "*" : "") + '</label><input id="email" type="email" name="email" value="' + escapeHtml(state.form.email) + '" placeholder="you@company.com" ' + (state.mode === "standard" ? "required" : "") + '><div class="helper">We send persistent results here for standard mode.</div><button type="button" class="guest-toggle" data-guest-toggle aria-label="Toggle guest mode">' + (state.mode === "standard" ? "Prefer not to share email?" : "Use standard mode instead") + '</button>' + (state.mode === "guest" ? '<div class="guest-note">Guest mode enabled. Report link is visible in-app and expires in 24 hours.</div>' : '') + '</div>' +
+        '  <div class="field full"><label for="email">Email' + (state.mode === "standard" ? "*" : "") + '</label><input id="email" type="email" name="email" value="' + escapeHtml(state.form.email) + '" placeholder="you@company.com" ' + (state.mode === "standard" ? "required" : "") + '><div class="helper">Email saves your report and lets us send a persistent link. Guest mode works without email.</div><button type="button" class="guest-toggle" data-guest-toggle aria-label="Toggle guest mode">' + (state.mode === "standard" ? "Prefer not to share email?" : "Use standard mode instead") + '</button>' + (state.mode === "guest" ? '<div class="guest-note">Guest mode enabled. Report link is visible in-app and expires in 24 hours.</div>' : '') + '</div>' +
         '  <div class="field"><label for="industry">Industry*</label><select id="industry" name="industry"><option value="">Select industry</option>' + industryOptions + '</select></div>' +
         '  <div class="field"><label for="employee_band">Employees*</label><select id="employee_band" name="employee_band"><option value="">Select range</option><option value="10-25"' + selectedOpt(state.form.employee_band, "10-25") + '>10-25</option><option value="25-50"' + selectedOpt(state.form.employee_band, "25-50") + '>25-50</option><option value="50-100"' + selectedOpt(state.form.employee_band, "50-100") + '>50-100</option><option value="100-250"' + selectedOpt(state.form.employee_band, "100-250") + '>100-250</option><option value="250+"' + selectedOpt(state.form.employee_band, "250+") + '>250+</option></select></div>' +
         '  <div class="field full"><label for="website_url">Company website</label><input id="website_url" name="website_url" value="' + escapeHtml(state.form.website_url) + '" placeholder="https://yourcompany.com"><div class="helper">We use homepage content to personalize recommendations.</div></div>' +
@@ -341,7 +346,7 @@
 
     function renderPillarStep(container) {
       var pillar = PILLARS[state.step - 1];
-      var questions = getQuestionSet(state.form.industry || "")[pillar.id] || BASE_QUESTIONS[pillar.id];
+      var questions = getActiveQuestions(getQuestionSet(state.form.industry || ""), pillar.id);
       var answers = state.responses[pillar.id] || [];
 
       var questionHtml = questions.map(function (question, idx) {
@@ -371,6 +376,7 @@
     function showProcessing(container) {
       var lines = [
         "Analyzing your operations...",
+        "Scanning your website for context...",
         "Scoring readiness across all pillars...",
         "Generating prioritized recommendations...",
         "Packaging your report..."
@@ -394,7 +400,7 @@
       var questionSet = getQuestionSet(state.form.industry);
       var payload = [];
       PILLARS.forEach(function (pillar) {
-        var questions = questionSet[pillar.id] || BASE_QUESTIONS[pillar.id];
+        var questions = getActiveQuestions(questionSet, pillar.id);
         var answers = state.responses[pillar.id] || [];
         questions.forEach(function (statement, idx) {
           payload.push({
@@ -460,7 +466,7 @@
         .then(function (data) {
           var token = data.report_token;
           if (!token) throw new Error("No report token received.");
-          window.location.href = "/audit/results/" + encodeURIComponent(token);
+          window.location.href = "/audit/results/?token=" + encodeURIComponent(token);
         })
         .catch(function (err) {
           state.processing = false;
@@ -498,8 +504,8 @@
       root.innerHTML =
         '<section class="audit-shell">' +
         '  <aside class="audit-sidebar card">' +
-        '    <h1>AI Ops Readiness Audit</h1>' +
-        '    <p>Actionable report in minutes. Built for established operators.</p>' +
+        '    <h1>FREE AI Ops Readiness Audit</h1>' +
+        '    <p>Actionable report in minutes. Built for established operators. Includes live website scan context.</p>' +
         '    <div class="progress-track" aria-label="Audit progress"><div class="progress-fill" style="width:' + progress + '%"></div></div>' +
         '    <div class="progress-meta"><span>Progress</span><span>' + progress + '%</span></div>' +
         '  </aside>' +
