@@ -382,6 +382,27 @@
       z-index: 1;
       max-width: 740px;
       padding: 140px 0 100px;
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(6,13,27,0.72), rgba(10,22,40,0.58));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 22px 54px rgba(0,0,0,0.32), 0 0 0 1px rgba(96,165,250,0.12) inset;
+      padding-left: 34px;
+      padding-right: 34px;
+    }
+
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 22px;
+      padding: 1px;
+      background: linear-gradient(120deg, rgba(96,165,250,0.32), rgba(34,211,238,0.18), rgba(139,92,246,0.28));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
     .hero-eyebrow {
@@ -404,14 +425,14 @@
 
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
-      line-height: 1.1;
+      font-size: clamp(2.7rem, 6vw, 4.1rem);
+      line-height: 1.04;
       color: var(--white);
       margin-bottom: 24px;
       font-weight: 700;
       letter-spacing: -0.03em;
       position: relative;
-      text-shadow: 0 8px 40px rgba(96,165,250,0.16);
+      text-shadow: 0 12px 48px rgba(96,165,250,0.22);
     }
 
     .hero h1 em {
@@ -423,11 +444,11 @@
     }
 
     .hero-sub {
-      font-size: 1.125rem;
-      line-height: 1.7;
+      font-size: 1.15rem;
+      line-height: 1.75;
       color: var(--text-secondary);
       margin-bottom: 40px;
-      max-width: 540px;
+      max-width: 620px;
     }
 
     .hero-actions {
@@ -443,8 +464,8 @@
     }
 
     .hero-note {
-      font-size: 0.8125rem;
-      color: var(--gray-500);
+      font-size: 0.84rem;
+      color: var(--gray-400);
       margin-top: 24px;
     }
 
@@ -1722,6 +1743,8 @@
     @media (max-width: 768px) {
       .hero-content {
         padding: 120px 0 80px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
       .problem-grid,
@@ -1835,7 +1858,7 @@
         <a href="#industries" class="nav-link">Industries</a>
         <a href="growth.html" class="nav-link">For Growing Companies</a>
         <a href="pricing.html" class="nav-link">Pricing</a>
-        <a href="/audit" class="btn btn-primary nav-cta" data-cta="nav-book-free-audit">Book a Free Audit</a>
+        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-strategy-call">Book a Strategy Call</a>
       </div>
     </div>
   </nav>
@@ -1852,12 +1875,12 @@
         <h1 class="fade-up">We Build AI Systems That <em>Cut Your Admin Work in Half</em></h1>
         <p class="hero-sub fade-up">We build AI-powered workflows that automate quoting, scheduling, document collection, client communication, and more. Purpose-built for how your business actually operates. Led by a 2x exited COO. Pricing starts at $150.</p>
         <div class="hero-actions fade-up">
-          <a href="/audit" class="btn btn-primary" data-cta="hero-free-audit">
-            Start FREE AI Ops Audit
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-strategy-call">
+            Book a Strategy Call
           </a>
           <a href="#services" class="btn btn-outline">See How We Work</a>
         </div>
-        <p class="hero-note fade-up">Free AI Ops Audit. Walk away with a prioritized action plan, no strings attached.</p>
+        <p class="hero-note fade-up">The <a href="/audit" style="color:#bfdbfe;text-decoration:underline;text-underline-offset:2px;">FREE AI Ops Audit</a> is self-serve and available anytime. No booking required.</p>
         <div class="credibility-strip fade-up" aria-label="Trust signals">
           <span>2x Exited Tech COO</span>
           <span>Built ops systems for 6+ industries</span>
@@ -2385,9 +2408,9 @@
     <div class="container">
       <div class="calendly-shell fade-up">
         <div class="section-header" style="margin-bottom:0;">
-          <div class="section-eyebrow">Book Free Audit</div>
-          <h2 id="book-call-heading">Start With a 60-Second Pre-Qualification</h2>
-          <p>Tell us your core bottleneck first. Then pick a time for your free AI Ops Audit.</p>
+          <div class="section-eyebrow">Book a Call</div>
+          <h2 id="book-call-heading">Book a Strategy Call</h2>
+          <p>60-second pre-qualification, then choose a time. The FREE audit is separate and can be completed anytime.</p>
         </div>
         <form class="prequal-form" data-prequal-form novalidate>
           <div class="prequal-field">
@@ -2442,14 +2465,15 @@
       <div class="cta-inner">
         <div class="section-header fade-up" style="margin-bottom: 0;">
           <h2 id="cta-heading">See Exactly Where AI Would Save You the Most Time</h2>
-          <p>Free 30-minute AI Ops Audit with a concrete action plan, whether you work with us or not.</p>
+          <p>Book a strategy call for operator-level guidance. Or run the FREE AI Ops Audit anytime.</p>
         </div>
         <div class="cta-actions fade-up">
-          <a href="/audit" class="btn btn-primary" data-cta="footer-book-free-audit">
-            Book Your Free Audit
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="footer-book-strategy-call">
+            Book a Strategy Call
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
-          <p class="cta-note">Free assessment and implementation roadmap</p>
+          <a href="/audit" class="btn btn-outline" data-cta="footer-free-audit-anytime">Take the FREE AI Ops Audit</a>
+          <p class="cta-note">Audit is instant and self-serve. Strategy call is optional.</p>
         </div>
       </div>
     </div>
