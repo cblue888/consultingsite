@@ -346,6 +346,55 @@
     .step h3 { font-family: var(--font-heading); font-size: 1.06rem; color: var(--white); margin-bottom: 8px; font-weight: 600; letter-spacing: -0.01em; }
     .step p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; max-width: 320px; margin: 0 auto; }
 
+    .insights-carousel {
+      padding: 100px 0;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .carousel-shell { position: relative; margin-top: 8px; }
+    .carousel-track {
+      display: flex;
+      gap: 18px;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .carousel-card {
+      flex: 0 0 calc(33.333% - 12px);
+      padding: 24px 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      min-height: 210px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .carousel-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .carousel-kicker { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue-accent); margin-bottom: 10px; font-weight: 600; }
+    .carousel-card h3 { font-family: var(--font-heading); font-size: 1.02rem; line-height: 1.25; color: var(--white); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .carousel-card p { font-size: 0.89rem; line-height: 1.7; color: var(--text-secondary); }
+
+    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 24px; }
+    .carousel-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      color: var(--gray-300);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .carousel-btn:hover { color: var(--white); border-color: var(--border-hover); }
+    .carousel-btn svg { width: 16px; height: 16px; }
+    .carousel-dots { display: inline-flex; align-items: center; gap: 8px; margin: 0 4px; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; border: 0; background: var(--gray-600); cursor: pointer; transition: transform 0.2s ease, background 0.2s ease; }
+    .carousel-dot.active { background: var(--blue-accent); transform: scale(1.2); }
+
     .industries-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
     .cred-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -375,6 +424,7 @@
     @media (max-width: 1024px) {
       .cards-3,
       .industries-grid { grid-template-columns: repeat(2, 1fr); }
+      .carousel-card { flex: 0 0 calc(50% - 9px); }
       .process-steps { grid-template-columns: 1fr; gap: 44px; max-width: 380px; margin: 0 auto; }
       .process-steps::before { display: none; }
     }
@@ -384,6 +434,7 @@
       .cards-3,
       .industries-grid,
       .cred-grid { grid-template-columns: 1fr; }
+      .carousel-card { flex: 0 0 100%; }
       .nav-logo span { display: none; }
       .footer-inner { flex-direction: column; text-align: center; }
       .footer-info { justify-content: center; }
@@ -403,6 +454,7 @@
         <div class="nav-right">
           <a href="about.html" class="nav-link">About</a>
           <a href="growth.html" class="nav-link active">Growing Companies</a>
+          <a href="/audit" class="nav-link">AI Ops Audit</a>
           <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="growth-nav-book-call">Book a Call</a>
         </div>
       </div>
@@ -431,7 +483,8 @@
   <section class="section section-mid" aria-labelledby="problem-heading">
     <div class="container">
       <div class="section-header fade-up">
-        <h2 id="problem-heading">You're Growing. Your Operations Aren't Keeping Up.</h2>
+        <h2 id="problem-heading">The Rules of Customer Acquisition Changed.</h2>
+        <p>Growth now depends on discovery in AI engines, faster conversion systems, and operations that can execute without added friction.</p>
       </div>
       <div class="cards-3">
         <article class="pain-card fade-up">
@@ -455,7 +508,8 @@
   <section class="section section-dark" id="how-we-work" aria-labelledby="work-heading">
     <div class="container">
       <div class="section-header fade-up">
-        <h2 id="work-heading">From Assessment to Running System in 8 Weeks</h2>
+        <h2 id="work-heading">From Invisible to Recommended in 90 Days</h2>
+        <p>We scope the right systems, deploy fast, and build the orchestration layer that keeps results compounding.</p>
       </div>
       <div class="process-steps">
         <div class="step fade-up">
@@ -472,6 +526,65 @@
           <div class="step-number">3</div>
           <h3>Handoff &amp; Scale (Week 8+)</h3>
           <p>Your team runs the systems. We train them, document everything, and stay on retainer if you want ongoing optimization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="insights-carousel" aria-labelledby="growth-insights-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="hero-eyebrow" style="margin-bottom:14px;">WHAT CHANGES</div>
+        <h2 id="growth-insights-heading">When Sales Process and GEO Run Together</h2>
+      </div>
+      <div class="carousel-shell fade-up" data-carousel="growth">
+        <div class="carousel-track">
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">GEO / AEO</div>
+              <h3>AI Engines Start Surfacing You</h3>
+              <p>Structured content and entity signals improve citation, recommendation, and answer visibility.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Sales Ops</div>
+              <h3>Follow-Up Happens in Sequence</h3>
+              <p>Qualification, routing, and handoff logic run automatically so hot opportunities do not stall.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Conversion</div>
+              <h3>Quote-to-Close Cycle Shrinks</h3>
+              <p>Proposal flow and communication loops tighten, reducing delays that kill conversion momentum.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Execution</div>
+              <h3>Teams Scale Without Chaos</h3>
+              <p>Internal routing and workflow automation reduce coordination overhead as demand grows.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Compounding</div>
+              <h3>Performance Improves Each Month</h3>
+              <p>Systems are measured and iterated continuously so outcomes improve instead of flattening out.</p>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls" aria-label="Carousel controls">
+          <button class="carousel-btn" data-carousel-prev aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-dots" aria-hidden="true"></div>
+          <button class="carousel-btn" data-carousel-next aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -581,6 +694,89 @@
       var tracking = window.BP_TRACKING || {};
       var urlParams = new URLSearchParams(window.location.search);
 
+      function initCarousel(rootSelector) {
+        var root = document.querySelector(rootSelector);
+        if (!root) return;
+
+        var track = root.querySelector('.carousel-track');
+        var cards = Array.prototype.slice.call(root.querySelectorAll('.carousel-card'));
+        var prev = root.querySelector('[data-carousel-prev]');
+        var next = root.querySelector('[data-carousel-next]');
+        var dotsWrap = root.querySelector('.carousel-dots');
+        if (!track || !cards.length) return;
+
+        var perView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
+        var index = 0;
+        var timer = null;
+
+        function maxIndex() {
+          return Math.max(0, cards.length - perView);
+        }
+
+        function renderDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = '';
+          var total = maxIndex() + 1;
+          for (var i = 0; i < total; i++) {
+            var b = document.createElement('button');
+            b.className = 'carousel-dot' + (i === index ? ' active' : '');
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            b.addEventListener('click', (function(target) {
+              return function() { go(target); };
+            })(i));
+            dotsWrap.appendChild(b);
+          }
+        }
+
+        function update() {
+          var cardWidth = cards[0].offsetWidth + 18;
+          track.style.transform = 'translateX(-' + (index * cardWidth) + 'px)';
+          if (dotsWrap) {
+            Array.prototype.forEach.call(dotsWrap.children, function(d, i) {
+              d.classList.toggle('active', i === index);
+            });
+          }
+        }
+
+        function go(target) {
+          index = Math.max(0, Math.min(target, maxIndex()));
+          update();
+        }
+
+        function start() {
+          stop();
+          timer = setInterval(function() {
+            var atEnd = index >= maxIndex();
+            go(atEnd ? 0 : index + 1);
+          }, 4200);
+        }
+
+        function stop() {
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        if (prev) prev.addEventListener('click', function() { go(index - 1); start(); });
+        if (next) next.addEventListener('click', function() { go(index + 1); start(); });
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('mouseleave', start);
+
+        window.addEventListener('resize', function() {
+          var nextPerView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
+          if (nextPerView !== perView) {
+            perView = nextPerView;
+            index = Math.min(index, maxIndex());
+            renderDots();
+            update();
+          }
+        });
+
+        renderDots();
+        update();
+        start();
+      }
+
       function gtagReportConversion(url, name) {
         if (!window.gtag) {
           if (typeof url !== "undefined") window.location = url;
@@ -608,6 +804,7 @@
         return false;
       }
 
+      initCarousel('[data-carousel="growth"]');
       document.querySelectorAll("a.calendly-link").forEach(function(link) {
         try {
           var target = new URL(link.href);

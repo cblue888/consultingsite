@@ -731,6 +731,118 @@
       margin-top: 2px;
     }
 
+    /* ---- Carousel ---- */
+    .insights-carousel {
+      padding: 100px 0;
+      background: var(--navy-mid);
+      overflow: hidden;
+    }
+
+    .carousel-shell {
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 18px;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .carousel-card {
+      flex: 0 0 calc(33.333% - 12px);
+      padding: 24px 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      min-height: 220px;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .carousel-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .carousel-kicker {
+      font-size: 0.67rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-accent);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .carousel-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .carousel-card p {
+      font-size: 0.89rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .carousel-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      color: var(--gray-300);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .carousel-btn:hover {
+      color: var(--white);
+      border-color: var(--border-hover);
+    }
+
+    .carousel-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .carousel-dots {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 4px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 0;
+      background: var(--gray-600);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .carousel-dot.active {
+      background: var(--blue-accent);
+      transform: scale(1.2);
+    }
+
     /* ---- How It Works ---- */
     .process {
       padding: 100px 0;
@@ -1202,6 +1314,10 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
+      .carousel-card {
+        flex: 0 0 calc(50% - 9px);
+      }
+
       .services-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
@@ -1253,6 +1369,10 @@
 
       .industries-grid { grid-template-columns: 1fr; }
 
+      .carousel-card {
+        flex: 0 0 100%;
+      }
+
       .hero-actions {
         flex-direction: column;
         align-items: stretch;
@@ -1292,6 +1412,7 @@
       <div class="nav-right">
         <a href="about.html" class="nav-link">About</a>
         <a href="growth.html" class="nav-link">Growing Companies</a>
+        <a href="/audit" class="nav-link">AI Ops Audit</a>
         <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-readiness-call">Book Your AI Readiness Call</a>
       </div>
     </div>
@@ -1306,7 +1427,7 @@
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">Built for Real Operations</div>
         <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
-        <p class="hero-sub fade-up">We design and deploy practical AI systems that reduce manual workload and unlock operating leverage. Led by a 2x exited COO.</p>
+        <p class="hero-sub fade-up">We build systems that improve discovery, increase conversion speed, and remove manual work across your operation. Led by a 2x exited COO.</p>
         <div class="hero-actions fade-up">
           <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-readiness-call">
             Book Your AI Readiness Call
@@ -1374,8 +1495,8 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="section-eyebrow">What We Do</div>
-        <h2 id="services-heading">Embed AI Into Daily Operations</h2>
-        <p>Reduce admin work 30 to 50 percent. Shorten decision cycles. Deploy systems your team uses every day.</p>
+        <h2 id="services-heading">Three Ways We Work Together</h2>
+        <p>Everything maps to one outcome: show up, convert, and operate at the pace of AI-driven commerce.</p>
       </div>
       <div class="services-grid stagger">
         <article class="service-card fade-up">
@@ -1383,20 +1504,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
           </div>
           <span class="service-tag tag-audit">1 to 2 Weeks</span>
-          <h3>Operations Audit and Quick Wins</h3>
-          <p>We identify bottlenecks and prioritize fast implementations with measurable impact.</p>
+          <h3>Growth and AI Ops Readiness</h3>
+          <p>We map your customer journey, data stack, and workflow bottlenecks so your highest-leverage moves are clear.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Deep workflow analysis
+              Discovery and conversion gap analysis
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Immediate quick-win implementations
+              Revenue and operations priority map
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Prioritized automation roadmap
+              90-day execution plan
             </li>
           </ul>
         </article>
@@ -1405,20 +1526,20 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
           </div>
           <span class="service-tag tag-build">Project-Based</span>
-          <h3>Workflow Automation and AI Integration</h3>
-          <p>Deploy AI workflows inside your existing stack without rebuilding your operating model.</p>
+          <h3>Build and Deploy Working Systems</h3>
+          <p>We build and ship systems inside your existing stack so your team executes faster without platform sprawl.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Custom AI-powered automations
+              Sales process automation
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Integrates with your current systems
+              Customer-ready content and data pipelines
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Team training included
+              Deployment and team adoption
             </li>
           </ul>
         </article>
@@ -1427,23 +1548,84 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
           </div>
           <span class="service-tag tag-partner">Monthly Retainer</span>
-          <h3>Ongoing AI Operations Support</h3>
-          <p>Keep systems performing, expand into new workflows, and drive continuous operational gains.</p>
+          <h3>Orchestration and Scale</h3>
+          <p>We stabilize the workflow layer, monitor performance, and keep improving what drives growth and margin.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Continuous process optimization
+              Data and orchestration layer support
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Monthly performance reviews
+              Weekly performance iteration
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Priority support and new automations
+              Ongoing build and optimization
             </li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <!-- Outcomes Carousel -->
+  <section class="insights-carousel" aria-labelledby="insights-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Execution</div>
+        <h2 id="insights-heading">From Invisible to Recommended</h2>
+        <p>What changes when sales process and operations are built as one system.</p>
+      </div>
+      <div class="carousel-shell fade-up" data-carousel="landing">
+        <div class="carousel-track">
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Discovery</div>
+              <h3>Visibility Starts Before the Click</h3>
+              <p>Structure content and business data so AI engines can cite and recommend you, not just index your pages.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Conversion</div>
+              <h3>Lead Response Becomes a System</h3>
+              <p>Automate qualification, routing, and follow-up so high-intent prospects are handled in minutes, not days.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Delivery</div>
+              <h3>Execution Survives Scale</h3>
+              <p>Operational workflows run with fewer handoffs so team capacity and margin improve as volume grows.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Signals</div>
+              <h3>Decisions Move to Real-Time</h3>
+              <p>Leaders see performance signals sooner, adjust faster, and stop waiting for delayed weekly summaries.</p>
+            </div>
+          </article>
+          <article class="carousel-card">
+            <div>
+              <div class="carousel-kicker">Compounding</div>
+              <h3>Optimization Is Ongoing, Not One-Off</h3>
+              <p>Measure, iterate, and improve systems continuously so each cycle produces better output and lower admin load.</p>
+            </div>
+          </article>
+        </div>
+        <div class="carousel-controls" aria-label="Carousel controls">
+          <button class="carousel-btn" data-carousel-prev aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="carousel-dots" aria-hidden="true"></div>
+          <button class="carousel-btn" data-carousel-next aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -1618,7 +1800,7 @@
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a href="terms.html">Terms</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
-        <a href="ai-ops-audit.html">AI Ops Audit</a>
+        <a href="/audit">AI Ops Audit</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a href="construction-ai-automation.html">Construction AI</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
@@ -1664,6 +1846,90 @@
 
       var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
       var tracking = window.BP_TRACKING || {};
+
+      function initCarousel(rootSelector) {
+        var root = document.querySelector(rootSelector);
+        if (!root) return;
+
+        var track = root.querySelector('.carousel-track');
+        var cards = Array.prototype.slice.call(root.querySelectorAll('.carousel-card'));
+        var prev = root.querySelector('[data-carousel-prev]');
+        var next = root.querySelector('[data-carousel-next]');
+        var dotsWrap = root.querySelector('.carousel-dots');
+        if (!track || !cards.length) return;
+
+        var perView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
+        var index = 0;
+        var timer = null;
+
+        function maxIndex() {
+          return Math.max(0, cards.length - perView);
+        }
+
+        function renderDots() {
+          if (!dotsWrap) return;
+          dotsWrap.innerHTML = '';
+          var total = maxIndex() + 1;
+          for (var i = 0; i < total; i++) {
+            var b = document.createElement('button');
+            b.className = 'carousel-dot' + (i === index ? ' active' : '');
+            b.type = 'button';
+            b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+            b.addEventListener('click', (function(target) {
+              return function() { go(target); };
+            })(i));
+            dotsWrap.appendChild(b);
+          }
+        }
+
+        function update() {
+          var cardWidth = cards[0].offsetWidth + 18;
+          track.style.transform = 'translateX(-' + (index * cardWidth) + 'px)';
+          if (dotsWrap) {
+            Array.prototype.forEach.call(dotsWrap.children, function(d, i) {
+              d.classList.toggle('active', i === index);
+            });
+          }
+        }
+
+        function go(target) {
+          index = Math.max(0, Math.min(target, maxIndex()));
+          update();
+        }
+
+        function start() {
+          stop();
+          timer = setInterval(function() {
+            var atEnd = index >= maxIndex();
+            go(atEnd ? 0 : index + 1);
+          }, 4200);
+        }
+
+        function stop() {
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        if (prev) prev.addEventListener('click', function() { go(index - 1); start(); });
+        if (next) next.addEventListener('click', function() { go(index + 1); start(); });
+
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('mouseleave', start);
+
+        window.addEventListener('resize', function() {
+          var nextPerView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
+          if (nextPerView !== perView) {
+            perView = nextPerView;
+            index = Math.min(index, maxIndex());
+            renderDots();
+            update();
+          }
+        });
+
+        renderDots();
+        update();
+        start();
+      }
 
       function decorateCalendlyLinks() {
         var urlParams = new URLSearchParams(window.location.search);
@@ -1715,6 +1981,7 @@
       }
 
       decorateCalendlyLinks();
+      initCarousel('[data-carousel=\"landing\"]');
       document.querySelectorAll('a.calendly-link').forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();

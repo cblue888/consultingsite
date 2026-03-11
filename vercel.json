@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/audit", "destination": "/audit/index.html" },
+    { "source": "/audit/results", "destination": "/audit/results/index.html" },
+    { "source": "/audit/results/:token", "destination": "/audit/results/index.html" }
+  ]
+}
