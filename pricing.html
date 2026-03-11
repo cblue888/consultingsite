@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Blue Pixel Consulting</title>
+  <meta name="description" content="Blue Pixel Consulting pricing ranges for AI operations implementation: quick wins, full system builds, and ongoing partnership.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bluepixelconsulting.com/pricing">
+  <link rel="icon" type="image/png" href="logo-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #060d1b;
+      --navy-mid: #0a1628;
+      --navy-light: #0f1d32;
+      --blue-accent: #60a5fa;
+      --cyan: #22d3ee;
+      --white: #ffffff;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --border-subtle: rgba(255,255,255,0.06);
+      --glass: rgba(15,29,50,0.6);
+      --font-heading: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text-primary); background: var(--navy); overflow-x: hidden; line-height: 1.6; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 0.92rem; font-weight: 600; text-decoration: none; border-radius: 10px;
+      padding: 12px 24px; border: 1px solid transparent; cursor: pointer; transition: all 0.3s ease;
+    }
+    .btn-primary {
+      color: var(--white);
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+      box-shadow: 0 0 20px rgba(37,99,235,0.26), 0 6px 20px rgba(37,99,235,0.2);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(37,99,235,0.38), 0 8px 24px rgba(37,99,235,0.3); }
+    .btn-outline { color: var(--gray-300); border-color: rgba(255,255,255,0.16); background: transparent; }
+    .btn-outline:hover { color: var(--white); border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.03); }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0; transition: all 0.35s ease;
+    }
+    .nav.scrolled {
+      background: rgba(6, 13, 27, 0.82);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: var(--white); text-decoration: none; }
+    .nav-logo img { width: 36px; height: 36px; }
+    .nav-logo span { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { color: var(--gray-400); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-link:hover, .nav-link.active { color: var(--white); }
+    .nav-cta { font-size: 0.8125rem; padding: 10px 20px; }
+
+    .hero {
+      position: relative; min-height: 78vh; display: flex; align-items: center;
+      padding: 132px 0 86px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(96,165,250,0.18), transparent 44%),
+        radial-gradient(circle at 80% 22%, rgba(34,211,238,0.08), transparent 42%),
+        var(--navy);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em;
+      color: #bfdbfe; margin-bottom: 24px; padding: 7px 16px;
+      background: linear-gradient(120deg, rgba(37,99,235,0.18), rgba(14,116,144,0.12));
+      border: 1px solid rgba(147,197,253,0.28); border-radius: 100px;
+    }
+    .hero h1 {
+      font-family: var(--font-heading); font-size: clamp(2.2rem, 5.2vw, 3.5rem);
+      line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 18px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(125deg, #60a5fa 0%, #22d3ee 45%, #8b5cf6 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-sub { max-width: 720px; color: var(--text-secondary); font-size: 1.08rem; line-height: 1.8; margin-bottom: 28px; }
+    .hero-meta { font-size: 0.9rem; color: var(--gray-300); }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(148,163,184,0.09) 20%, rgba(37,99,235,0.18) 50%, rgba(148,163,184,0.09) 80%, transparent 100%);
+      opacity: 0.7;
+    }
+
+    section { padding: 92px 0; }
+    .section-header { text-align: center; max-width: 740px; margin: 0 auto 48px; }
+    .section-eyebrow {
+      display: inline-flex; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--blue-accent); font-weight: 600; margin-bottom: 12px;
+    }
+    .section-header h2 {
+      font-family: var(--font-heading); font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+      letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px;
+      background: linear-gradient(120deg, #eef6ff 0%, #a5d8ff 42%, #70d7ff 74%, #a78bfa 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .section-header p { color: var(--text-secondary); font-size: 1.02rem; }
+
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .pricing-card {
+      background: var(--glass); border: 1px solid var(--border-subtle); border-radius: 16px;
+      padding: 28px 24px; transition: all 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: rgba(96,165,250,0.4);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.24), 0 0 0 1px rgba(96,165,250,0.2) inset;
+    }
+    .pricing-badge {
+      display: inline-flex; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--blue-accent); font-weight: 700; margin-bottom: 10px;
+      border: 1px solid rgba(96,165,250,0.24); border-radius: 999px; padding: 4px 10px;
+      background: rgba(37,99,235,0.1);
+    }
+    .pricing-card h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 8px; }
+    .pricing-value { font-size: 1.5rem; font-weight: 700; color: #dbeafe; margin-bottom: 6px; }
+    .pricing-timeline { font-size: 0.88rem; color: var(--gray-300); margin-bottom: 12px; }
+    .pricing-card p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 14px; }
+    .pricing-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .pricing-list li { color: var(--gray-300); font-size: 0.84rem; }
+    .pricing-list li::before { content: "• "; color: var(--blue-accent); }
+
+    .drivers {
+      background: var(--navy-mid);
+    }
+    .driver-grid, .example-grid, .faq-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+    }
+    .driver-item, .example-card, .faq-item {
+      background: var(--glass); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 20px;
+    }
+    .driver-item h3, .example-card h3, .faq-item h3 {
+      font-family: var(--font-heading); font-size: 1rem; margin-bottom: 8px;
+    }
+    .driver-item p, .example-card p, .faq-item p { color: var(--text-secondary); font-size: 0.92rem; }
+
+    .example-card .example-meta {
+      display: inline-flex; margin-top: 10px; font-size: 0.78rem; color: var(--gray-300);
+      border: 1px solid rgba(148,163,184,0.2); border-radius: 999px; padding: 3px 10px;
+      background: rgba(15,29,50,0.65);
+    }
+
+    .cta {
+      text-align: center;
+      background: var(--navy-mid);
+      position: relative;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 60%);
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta h2 { font-family: var(--font-heading); font-size: clamp(1.8rem, 3.4vw, 2.5rem); margin-bottom: 14px; letter-spacing: -0.02em; }
+    .cta p { max-width: 640px; margin: 0 auto 24px; color: var(--text-secondary); }
+
+    .footer { padding: 40px 0; background: var(--navy); border-top: 1px solid var(--border-subtle); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; color: var(--gray-500); font-size: 0.875rem; }
+    .footer-brand img { height: 24px; width: auto; opacity: 0.6; }
+    .footer-info { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-info a, .footer-info span { font-size: 0.8125rem; color: var(--gray-500); text-decoration: none; transition: color 0.2s; }
+    .footer-info a:hover { color: var(--blue-accent); }
+    .footer-divider { color: var(--gray-600); }
+
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .nav-logo span { display: none; }
+      .nav-right { gap: 14px; }
+      .nav-link { display: none; }
+      .driver-grid, .example-grid, .faq-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-info { justify-content: center; }
+      section { padding: 76px 0; }
+      .hero { min-height: 72vh; padding: 120px 0 72px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .fade-up { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Blue Pixel Consulting - Home">
+        <img src="logo-128.png" alt="Blue Pixel Consulting logo" width="36" height="36">
+        <span>Blue Pixel</span>
+      </a>
+      <div class="nav-right">
+        <a href="index.html#services" class="nav-link">How We Work</a>
+        <a href="index.html#industries" class="nav-link">Industries</a>
+        <a href="growth.html" class="nav-link">For Growing Companies</a>
+        <a href="pricing.html" class="nav-link active">Pricing</a>
+        <a href="/audit" class="btn btn-primary nav-cta" data-cta="nav-book-free-audit">Book a Free Audit</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-eyebrow fade-up">Transparent Ranges, Practical Scope</div>
+      <h1 class="fade-up">Pricing That Matches <em>Operational Impact</em></h1>
+      <p class="hero-sub fade-up">We price around workflow complexity, data quality, and implementation speed. You get clear ranges upfront, then exact scope after your free audit. If we do not see ROI potential, we will tell you directly.</p>
+      <p class="hero-meta fade-up">Most engagements land between $3K and $20K. Ongoing support starts at $3K/month.</p>
+    </div>
+  </header>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section aria-labelledby="pricing-tiers-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Engagement Tiers</div>
+        <h2 id="pricing-tiers-heading">Hybrid Transparency</h2>
+        <p>Ranges and examples are public. Final pricing is set after we map your workflows and estimate implementation effort.</p>
+      </div>
+      <div class="pricing-grid">
+        <article class="pricing-card fade-up">
+          <span class="pricing-badge">Fast Start</span>
+          <h3>Quick Wins Sprint</h3>
+          <p class="pricing-value">$3K-5K</p>
+          <p class="pricing-timeline">Timeline: 1-2 weeks</p>
+          <p>Best when you need rapid relief in one high-friction workflow.</p>
+          <ul class="pricing-list">
+            <li>Workflow audit + ROI baseline</li>
+            <li>1-3 automations live in production</li>
+            <li>Execution playbook for internal team</li>
+          </ul>
+        </article>
+        <article class="pricing-card fade-up">
+          <span class="pricing-badge">Core Build</span>
+          <h3>Full System Build</h3>
+          <p class="pricing-value">$10K-20K</p>
+          <p class="pricing-timeline">Timeline: 4-8 weeks</p>
+          <p>Best when one department needs end-to-end process redesign and automation.</p>
+          <ul class="pricing-list">
+            <li>Process redesign across key handoffs</li>
+            <li>System integration and workflow orchestration</li>
+            <li>Team handoff and measurement cadence</li>
+          </ul>
+        </article>
+        <article class="pricing-card fade-up">
+          <span class="pricing-badge">Ongoing</span>
+          <h3>AI Ops Partner</h3>
+          <p class="pricing-value">$3K-5K / month</p>
+          <p class="pricing-timeline">Timeline: monthly retainer</p>
+          <p>Best when you want continuous optimization and a fractional AI ops lead.</p>
+          <ul class="pricing-list">
+            <li>Monthly optimization sprints</li>
+            <li>New workflow automations as needs change</li>
+            <li>KPI review and roadmap updates</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="drivers" aria-labelledby="drivers-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Price Drivers</div>
+        <h2 id="drivers-heading">What Impacts Price</h2>
+        <p>Four factors move scope up or down. We review these in your audit so pricing is predictable.</p>
+      </div>
+      <div class="driver-grid">
+        <article class="driver-item fade-up">
+          <h3>Workflow Complexity</h3>
+          <p>Simple single-owner processes are faster to automate than cross-team workflows with many exceptions.</p>
+        </article>
+        <article class="driver-item fade-up">
+          <h3>System Landscape</h3>
+          <p>The number of tools and quality of integration points materially affects implementation effort.</p>
+        </article>
+        <article class="driver-item fade-up">
+          <h3>Delivery Speed</h3>
+          <p>Compressed timelines require tighter sequencing and more implementation hours per week.</p>
+        </article>
+        <article class="driver-item fade-up">
+          <h3>Team Readiness</h3>
+          <p>Projects move faster when one internal owner can approve decisions and drive adoption.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section aria-labelledby="examples-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">Examples</div>
+        <h2 id="examples-heading">Sample Engagements</h2>
+        <p>Anonymized examples to show spend and outcome bands before your custom scope is defined.</p>
+      </div>
+      <div class="example-grid">
+        <article class="example-card fade-up">
+          <h3>Regional Trades Team</h3>
+          <p>Automated quote creation, scheduling confirmation, and invoice follow-up to reduce office admin load by 30 to 40 percent.</p>
+          <span class="example-meta">Spend band: $4K-6K</span>
+        </article>
+        <article class="example-card fade-up">
+          <h3>Property Management Portfolio</h3>
+          <p>Implemented tenant communication routing and maintenance dispatch logic across multiple properties, cutting response cycle times significantly.</p>
+          <span class="example-meta">Spend band: $12K-18K</span>
+        </article>
+        <article class="example-card fade-up">
+          <h3>Accounting Firm Busy Season</h3>
+          <p>Built document request automation and engagement status tracking to reduce partner escalations and file delays.</p>
+          <span class="example-meta">Spend band: $8K-14K</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="drivers" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-eyebrow">FAQ</div>
+        <h2 id="faq-heading">Common Pricing Questions</h2>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item fade-up">
+          <h3>Do you guarantee outcomes?</h3>
+          <p>We only take projects where we see measurable ROI potential. Exact outcomes depend on internal adoption and data quality.</p>
+        </article>
+        <article class="faq-item fade-up">
+          <h3>What is included in scope?</h3>
+          <p>Implementation includes workflow mapping, build, deployment, and handoff. Ongoing support is available as a separate retainer.</p>
+        </article>
+        <article class="faq-item fade-up">
+          <h3>How quickly can we start?</h3>
+          <p>Most projects start within 1 to 2 weeks after the audit and scope confirmation.</p>
+        </article>
+        <article class="faq-item fade-up">
+          <h3>What is not included?</h3>
+          <p>Large custom software products and unrelated marketing work are outside core AI ops implementation scope.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
+  <section class="cta" aria-labelledby="cta-heading">
+    <div class="container cta-inner">
+      <h2 id="cta-heading" class="fade-up">Book a Free Audit to Get Exact Scope and Pricing</h2>
+      <p class="fade-up">30-minute call. We map your bottlenecks, identify highest-ROI opportunities, and recommend the right engagement path.</p>
+      <a href="/audit" class="btn btn-primary fade-up" data-cta="pricing-book-free-audit">Book a Free Audit</a>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo-128.png" alt="" width="24" height="24" aria-hidden="true">
+        <span>Blue Pixel Consulting</span>
+      </div>
+      <div class="footer-info">
+        <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>Vancouver, BC</span>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="https://www.linkedin.com/in/casey-blustein/" target="_blank" rel="noopener noreferrer">Casey LinkedIn</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="growth.html">For Growing Companies</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="pricing.html">Pricing</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="terms.html">Terms</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>Transparent ranges. Final scope priced after the audit.</span>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>&copy; 2026 Blue Pixel Consulting</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('visible'); });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+      }
+
+      var nav = document.querySelector('.nav');
+      var scrolled = false;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 40 && !scrolled) { nav.classList.add('scrolled'); scrolled = true; }
+        else if (window.scrollY <= 40 && scrolled) { nav.classList.remove('scrolled'); scrolled = false; }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

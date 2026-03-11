@@ -448,6 +448,25 @@
       margin-top: 24px;
     }
 
+    .credibility-strip {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .credibility-strip span {
+      font-size: 0.72rem;
+      color: #bfdbfe;
+      border: 1px solid rgba(147,197,253,0.22);
+      background: rgba(10,22,40,0.5);
+      border-radius: 999px;
+      padding: 6px 12px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
     .hero-regional {
       position: relative;
       margin-top: 18px;
@@ -890,6 +909,59 @@
     .carousel-dot.active {
       background: var(--blue-accent);
       transform: scale(1.2);
+    }
+
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .before-after-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 14px;
+      border: 1px solid var(--border-subtle);
+      background: var(--glass);
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .before-after-card:hover {
+      border-color: rgba(96,165,250,0.34);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.24), 0 0 0 1px rgba(96,165,250,0.2) inset;
+    }
+
+    .before-after-col {
+      padding: 20px 22px;
+    }
+
+    .before-after-col:first-child {
+      border-right: 1px solid rgba(148,163,184,0.14);
+      background: linear-gradient(120deg, rgba(148,163,184,0.06), rgba(148,163,184,0.02));
+    }
+
+    .before-after-col:last-child {
+      background: linear-gradient(120deg, rgba(37,99,235,0.12), rgba(34,211,238,0.08));
+    }
+
+    .before-after-col h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+      color: var(--gray-300);
+    }
+
+    .before-after-col p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--gray-200);
     }
 
     /* ---- How It Works ---- */
@@ -1422,6 +1494,84 @@
       margin-top: 20px;
     }
 
+    .prequal-form {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .prequal-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .prequal-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .prequal-field label {
+      font-size: 0.76rem;
+      color: var(--gray-300);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .prequal-field input,
+    .prequal-field select,
+    .prequal-field textarea {
+      width: 100%;
+      border: 1px solid rgba(148,163,184,0.24);
+      background: rgba(6,13,27,0.65);
+      color: var(--text-primary);
+      border-radius: 10px;
+      padding: 12px 13px;
+      font-size: 0.92rem;
+      font-family: var(--font-body);
+    }
+
+    .prequal-field textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .prequal-field input:focus,
+    .prequal-field select:focus,
+    .prequal-field textarea:focus {
+      outline: none;
+      border-color: rgba(96,165,250,0.5);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.18);
+    }
+
+    .prequal-actions {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    .prequal-note {
+      font-size: 0.78rem;
+      color: var(--gray-500);
+    }
+
+    .prequal-success {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(34,197,94,0.32);
+      background: rgba(34,197,94,0.1);
+      color: #bbf7d0;
+      font-size: 0.85rem;
+    }
+
+    .calendly-gate[hidden] {
+      display: none;
+    }
+
     /* ---- Final CTA ---- */
     .cta {
       padding: 120px 0;
@@ -1597,6 +1747,9 @@
       .calendly-section { padding: 80px 0; }
 
       .industries-grid { grid-template-columns: 1fr; }
+      .before-after-card { grid-template-columns: 1fr; }
+      .before-after-col:first-child { border-right: 0; border-bottom: 1px solid rgba(148,163,184,0.14); }
+      .prequal-form { grid-template-columns: 1fr; }
 
       .carousel-card {
         flex: 0 0 100%;
@@ -1678,10 +1831,11 @@
         <span>Blue Pixel</span>
       </a>
       <div class="nav-right">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="growth.html" class="nav-link">Growing Companies</a>
-        <a href="/audit" class="nav-link">FREE AI Ops Audit</a>
-        <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="nav-book-readiness-call">Book Your AI Readiness Call</a>
+        <a href="#services" class="nav-link">How We Work</a>
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="growth.html" class="nav-link">For Growing Companies</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="/audit" class="btn btn-primary nav-cta" data-cta="nav-book-free-audit">Book a Free Audit</a>
       </div>
     </div>
   </nav>
@@ -1695,22 +1849,24 @@
     <div class="container">
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">Built for Real Operations</div>
-        <h1 class="fade-up">Your Business Runs on Experience.<br>Now Make It Run on <em>Intelligence.</em></h1>
-        <p class="hero-sub fade-up">We build systems that improve discovery, increase conversion speed, and remove manual work across your operation. Led by a 2x exited COO.</p>
+        <h1 class="fade-up">We Build AI Systems That <em>Cut Your Admin Work in Half</em></h1>
+        <p class="hero-sub fade-up">We build AI-powered workflows that automate quoting, scheduling, document collection, client communication, and more. Purpose-built for how your business actually operates. Led by a 2x exited COO. Pricing starts at $150.</p>
         <div class="hero-actions fade-up">
           <a href="/audit" class="btn btn-primary" data-cta="hero-free-audit">
             Start FREE AI Ops Audit
           </a>
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="hero-book-readiness-call">
-            Book Your AI Readiness Call
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-          </a>
-          <a href="#services" class="btn btn-outline">See How It Works</a>
+          <a href="#services" class="btn btn-outline">See How We Work</a>
         </div>
-        <p class="hero-note fade-up">Operator-focused delivery. Implementation first.</p>
+        <p class="hero-note fade-up">Free AI Ops Audit. Walk away with a prioritized action plan, no strings attached.</p>
+        <div class="credibility-strip fade-up" aria-label="Trust signals">
+          <span>2x Exited Tech COO</span>
+          <span>Built ops systems for 6+ industries</span>
+          <span>Vancouver-based</span>
+          <span>Pricing starts at $150</span>
+        </div>
         <div class="hero-regional fade-up" aria-label="Regional positioning">
-          <div class="hero-regional-line">🇨🇦 Proudly Canadian</div>
-          <div class="hero-regional-line">Based in the Pacific Northwest</div>
+          <div class="hero-regional-line">Proudly Canadian</div>
+          <div class="hero-regional-line">Based in Vancouver. Serving the Pacific Northwest.</div>
         </div>
       </div>
     </div>
@@ -1734,7 +1890,7 @@
             </div>
             <div>
               <h3>Drowning in Manual Work</h3>
-              <p>Your team re-enters the same data across systems. Invoices, reports, scheduling, entire days disappear.</p>
+              <p>Quoting, scheduling, follow-ups, and document chasing are consuming 40 to 60 percent of your team's week.</p>
             </div>
           </div>
           <div class="pain-point fade-up">
@@ -1742,8 +1898,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
             </div>
             <div>
-              <h3>Competitors Moving Faster</h3>
-              <p>Others in your industry are embedding AI into quoting, follow-ups, reporting, and internal workflows. The gap grows every quarter.</p>
+              <h3>Off-the-Shelf Software Does Not Fit</h3>
+              <p>You have tried the tools. They were built for generic teams, not your operation, and nothing connects cleanly.</p>
             </div>
           </div>
           <div class="pain-point fade-up">
@@ -1751,8 +1907,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/></svg>
             </div>
             <div>
-              <h3>Tried AI. Nothing Stuck.</h3>
-              <p>You know AI could help. But past tech projects felt disconnected from how your business actually runs.</p>
+              <h3>You Do Not Need a Full-Time AI Hire</h3>
+              <p>You need someone who can assess, build, and implement now. You do not need to carry that role permanently.</p>
             </div>
           </div>
         </div>
@@ -1766,30 +1922,30 @@
   <section class="services" id="services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header fade-up">
-        <div class="section-eyebrow">What We Do</div>
-        <h2 id="services-heading">Three Ways We Work Together</h2>
-        <p>Everything maps to one outcome: show up, convert, and operate at the pace of AI-driven commerce.</p>
+        <div class="section-eyebrow">How We Work</div>
+        <h2 id="services-heading">Our Engagements</h2>
+        <p>Choose the engagement depth that matches your urgency, scope, and internal capacity.</p>
       </div>
       <div class="services-grid stagger">
         <article class="service-card fade-up">
           <div class="service-icon icon-audit">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
           </div>
-          <span class="service-tag tag-audit">1 to 2 Weeks</span>
-          <h3>Growth and AI Ops Readiness</h3>
-          <p>We map your customer journey, data stack, and workflow bottlenecks so your highest-leverage moves are clear.</p>
+          <span class="service-tag tag-audit">$3-5K · 1-2 Weeks</span>
+          <h3>Quick Wins Sprint</h3>
+          <p>We audit your operation, identify the top 3 automation opportunities, and implement rapid wins with measurable ROI.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Discovery and conversion gap analysis
+              End-to-end workflow audit
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Revenue and operations priority map
+              Top 3 automation targets implemented
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              90-day execution plan
+              Prioritized 30-day roadmap
             </li>
           </ul>
         </article>
@@ -1797,21 +1953,21 @@
           <div class="service-icon icon-build">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
           </div>
-          <span class="service-tag tag-build">Project-Based</span>
-          <h3>Build and Deploy Working Systems</h3>
-          <p>We build and ship systems inside your existing stack so your team executes faster without platform sprawl.</p>
+          <span class="service-tag tag-build">$10-20K · 4-8 Weeks</span>
+          <h3>Full System Build</h3>
+          <p>We redesign and deploy AI-powered workflows for one core department from intake through execution.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Sales process automation
+              Quoting, scheduling, and dispatch automation
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Customer-ready content and data pipelines
+              Document collection and client communication workflows
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Deployment and team adoption
+              Team handoff and adoption support
             </li>
           </ul>
         </article>
@@ -1819,21 +1975,21 @@
           <div class="service-icon icon-partner">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182"/></svg>
           </div>
-          <span class="service-tag tag-partner">Monthly Retainer</span>
-          <h3>Orchestration and Scale</h3>
-          <p>We stabilize the workflow layer, monitor performance, and keep improving what drives growth and margin.</p>
+          <span class="service-tag tag-partner">$3-5K/Month</span>
+          <h3>Ongoing AI Ops Partner</h3>
+          <p>Get a fractional AI operations lead embedded in your business to optimize, maintain, and expand your systems.</p>
           <ul class="service-details">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Data and orchestration layer support
+              Continuous optimization and reliability
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Weekly performance iteration
+              New build cycles as needs evolve
             </li>
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              Ongoing build and optimization
+              Monthly KPI and ROI review
             </li>
           </ul>
         </article>
@@ -1843,61 +1999,65 @@
 
   <div class="section-divider" aria-hidden="true"></div>
 
-  <!-- Outcomes Carousel -->
+  <!-- Before / After -->
   <section class="insights-carousel" aria-labelledby="insights-heading">
     <div class="container">
       <div class="section-header fade-up">
-        <div class="section-eyebrow">Execution</div>
-        <h2 id="insights-heading">From Invisible to Recommended</h2>
-        <p>What changes when sales process and operations are built as one system.</p>
+        <div class="section-eyebrow">Before / After</div>
+        <h2 id="insights-heading">What Changes When You Work With Us</h2>
+        <p>Real operational shifts your team feels in the first 30 to 90 days.</p>
       </div>
-      <div class="carousel-shell fade-up" data-carousel="landing">
-        <div class="carousel-track">
-          <article class="carousel-card">
-            <div>
-              <div class="carousel-kicker">Discovery</div>
-              <h3>Visibility Starts Before the Click</h3>
-              <p>Structure content and business data so AI engines can cite and recommend you, not just index your pages.</p>
-            </div>
-          </article>
-          <article class="carousel-card">
-            <div>
-              <div class="carousel-kicker">Conversion</div>
-              <h3>Lead Response Becomes a System</h3>
-              <p>Automate qualification, routing, and follow-up so high-intent prospects are handled in minutes, not days.</p>
-            </div>
-          </article>
-          <article class="carousel-card">
-            <div>
-              <div class="carousel-kicker">Delivery</div>
-              <h3>Execution Survives Scale</h3>
-              <p>Operational workflows run with fewer handoffs so team capacity and margin improve as volume grows.</p>
-            </div>
-          </article>
-          <article class="carousel-card">
-            <div>
-              <div class="carousel-kicker">Signals</div>
-              <h3>Decisions Move to Real-Time</h3>
-              <p>Leaders see performance signals sooner, adjust faster, and stop waiting for delayed weekly summaries.</p>
-            </div>
-          </article>
-          <article class="carousel-card">
-            <div>
-              <div class="carousel-kicker">Compounding</div>
-              <h3>Optimization Is Ongoing, Not One-Off</h3>
-              <p>Measure, iterate, and improve systems continuously so each cycle produces better output and lower admin load.</p>
-            </div>
-          </article>
-        </div>
-        <div class="carousel-controls" aria-label="Carousel controls">
-          <button class="carousel-btn" data-carousel-prev aria-label="Previous slide">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <div class="carousel-dots" aria-hidden="true"></div>
-          <button class="carousel-btn" data-carousel-next aria-label="Next slide">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
-        </div>
+      <div class="before-after-grid stagger">
+        <article class="before-after-card fade-up">
+          <div class="before-after-col">
+            <h3>Before</h3>
+            <p>Quoting takes 2 days and deals cool off.</p>
+          </div>
+          <div class="before-after-col">
+            <h3>After</h3>
+            <p>Quotes go out in 5 minutes with consistent follow-up.</p>
+          </div>
+        </article>
+        <article class="before-after-card fade-up">
+          <div class="before-after-col">
+            <h3>Before</h3>
+            <p>Scheduling is a daily phone-around and spreadsheet scramble.</p>
+          </div>
+          <div class="before-after-col">
+            <h3>After</h3>
+            <p>Dispatch runs automatically by location, skill, and availability.</p>
+          </div>
+        </article>
+        <article class="before-after-card fade-up">
+          <div class="before-after-col">
+            <h3>Before</h3>
+            <p>Client documents are buried in email chains.</p>
+          </div>
+          <div class="before-after-col">
+            <h3>After</h3>
+            <p>Collection and reminders run automatically with clean organization.</p>
+          </div>
+        </article>
+        <article class="before-after-card fade-up">
+          <div class="before-after-col">
+            <h3>Before</h3>
+            <p>Owner approval bottlenecks routine decisions.</p>
+          </div>
+          <div class="before-after-col">
+            <h3>After</h3>
+            <p>Systems handle routine decisions. Leadership handles exceptions.</p>
+          </div>
+        </article>
+        <article class="before-after-card fade-up">
+          <div class="before-after-col">
+            <h3>Before</h3>
+            <p>Growth means hiring just to keep up with admin.</p>
+          </div>
+          <div class="before-after-col">
+            <h3>After</h3>
+            <p>Growth scales with automation. Hiring stays focused on skilled work.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -1907,11 +2067,11 @@
   <!-- Testimonials -->
   <section class="testimonials" aria-labelledby="testimonials-heading">
     <div class="container testimonials-inner">
-      <div class="section-header fade-up" style="margin-bottom: 36px;">
-        <div class="section-eyebrow">Testimonials</div>
-        <h2 id="testimonials-heading">Operators Getting Real Results</h2>
-        <p>Proof from teams replacing manual coordination with practical AI systems.</p>
-      </div>
+        <div class="section-header fade-up" style="margin-bottom: 36px;">
+          <div class="section-eyebrow">Testimonials</div>
+          <h2 id="testimonials-heading">Operators Getting Real Results</h2>
+          <p>Proof from teams replacing manual coordination with practical AI systems.</p>
+        </div>
 
       <div class="testimonial-row row-left fade-up">
         <div class="testimonial-track">
@@ -1920,7 +2080,7 @@
             <div class="testimonial-meta">
               <h3>Jordan M.</h3>
               <p class="testimonial-role">Owner, HVAC Services Group</p>
-              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+              <p class="testimonial-quote">“Quote turnaround dropped from 24 hours to under 10 minutes, and we cut 12 hours of weekly dispatch admin in the first month.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1928,7 +2088,7 @@
             <div class="testimonial-meta">
               <h3>Melissa R.</h3>
               <p class="testimonial-role">Director, Property Management</p>
-              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+              <p class="testimonial-quote">“Maintenance dispatch is now automated end-to-end. We handle 28 percent more work orders with the same team and fewer escalation calls.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1936,7 +2096,7 @@
             <div class="testimonial-meta">
               <h3>Daniel K.</h3>
               <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
-              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+              <p class="testimonial-quote">“Store reporting used to take two days of spreadsheet cleanup. Now regional dashboards update daily, and leadership decisions happen in one meeting.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1944,7 +2104,7 @@
             <div class="testimonial-meta">
               <h3>Chris T.</h3>
               <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <p class="testimonial-quote">“Change-order processing dropped from 3 days to same-day turnaround, and PM admin load fell by about 35 percent within six weeks.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1952,7 +2112,7 @@
             <div class="testimonial-meta">
               <h3>Priya S.</h3>
               <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
-              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+              <p class="testimonial-quote">“Client document collection is now automated with reminders. We reduced chase time by 40 percent and closed files faster during busy season.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1960,7 +2120,7 @@
             <div class="testimonial-meta">
               <h3>Alex P.</h3>
               <p class="testimonial-role">Owner, Regional Trades Business</p>
-              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed most manual handoffs and got 15 to 20 hours a week back across office and field operations.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1968,7 +2128,7 @@
             <div class="testimonial-meta">
               <h3>Jordan M.</h3>
               <p class="testimonial-role">Owner, HVAC Services Group</p>
-              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+              <p class="testimonial-quote">“Quote turnaround dropped from 24 hours to under 10 minutes, and we cut 12 hours of weekly dispatch admin in the first month.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1976,7 +2136,7 @@
             <div class="testimonial-meta">
               <h3>Melissa R.</h3>
               <p class="testimonial-role">Director, Property Management</p>
-              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+              <p class="testimonial-quote">“Maintenance dispatch is now automated end-to-end. We handle 28 percent more work orders with the same team and fewer escalation calls.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1984,7 +2144,7 @@
             <div class="testimonial-meta">
               <h3>Daniel K.</h3>
               <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
-              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+              <p class="testimonial-quote">“Store reporting used to take two days of spreadsheet cleanup. Now regional dashboards update daily, and leadership decisions happen in one meeting.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1992,7 +2152,7 @@
             <div class="testimonial-meta">
               <h3>Chris T.</h3>
               <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <p class="testimonial-quote">“Change-order processing dropped from 3 days to same-day turnaround, and PM admin load fell by about 35 percent within six weeks.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2000,7 +2160,7 @@
             <div class="testimonial-meta">
               <h3>Priya S.</h3>
               <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
-              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+              <p class="testimonial-quote">“Client document collection is now automated with reminders. We reduced chase time by 40 percent and closed files faster during busy season.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2008,7 +2168,7 @@
             <div class="testimonial-meta">
               <h3>Alex P.</h3>
               <p class="testimonial-role">Owner, Regional Trades Business</p>
-              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed most manual handoffs and got 15 to 20 hours a week back across office and field operations.”</p>
             </div>
           </article>
         </div>
@@ -2021,7 +2181,7 @@
             <div class="testimonial-meta">
               <h3>Alex P.</h3>
               <p class="testimonial-role">Owner, Regional Trades Business</p>
-              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed most manual handoffs and got 15 to 20 hours a week back across office and field operations.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2029,7 +2189,7 @@
             <div class="testimonial-meta">
               <h3>Priya S.</h3>
               <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
-              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+              <p class="testimonial-quote">“Client document collection is now automated with reminders. We reduced chase time by 40 percent and closed files faster during busy season.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2037,7 +2197,7 @@
             <div class="testimonial-meta">
               <h3>Chris T.</h3>
               <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <p class="testimonial-quote">“Change-order processing dropped from 3 days to same-day turnaround, and PM admin load fell by about 35 percent within six weeks.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2045,7 +2205,7 @@
             <div class="testimonial-meta">
               <h3>Daniel K.</h3>
               <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
-              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+              <p class="testimonial-quote">“Store reporting used to take two days of spreadsheet cleanup. Now regional dashboards update daily, and leadership decisions happen in one meeting.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2053,7 +2213,7 @@
             <div class="testimonial-meta">
               <h3>Melissa R.</h3>
               <p class="testimonial-role">Director, Property Management</p>
-              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+              <p class="testimonial-quote">“Maintenance dispatch is now automated end-to-end. We handle 28 percent more work orders with the same team and fewer escalation calls.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2061,7 +2221,7 @@
             <div class="testimonial-meta">
               <h3>Jordan M.</h3>
               <p class="testimonial-role">Owner, HVAC Services Group</p>
-              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+              <p class="testimonial-quote">“Quote turnaround dropped from 24 hours to under 10 minutes, and we cut 12 hours of weekly dispatch admin in the first month.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2069,7 +2229,7 @@
             <div class="testimonial-meta">
               <h3>Alex P.</h3>
               <p class="testimonial-role">Owner, Regional Trades Business</p>
-              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed most manual handoffs and got 15 to 20 hours a week back across office and field operations.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2077,7 +2237,7 @@
             <div class="testimonial-meta">
               <h3>Priya S.</h3>
               <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
-              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+              <p class="testimonial-quote">“Client document collection is now automated with reminders. We reduced chase time by 40 percent and closed files faster during busy season.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2085,7 +2245,7 @@
             <div class="testimonial-meta">
               <h3>Chris T.</h3>
               <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <p class="testimonial-quote">“Change-order processing dropped from 3 days to same-day turnaround, and PM admin load fell by about 35 percent within six weeks.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2093,7 +2253,7 @@
             <div class="testimonial-meta">
               <h3>Daniel K.</h3>
               <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
-              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+              <p class="testimonial-quote">“Store reporting used to take two days of spreadsheet cleanup. Now regional dashboards update daily, and leadership decisions happen in one meeting.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2101,7 +2261,7 @@
             <div class="testimonial-meta">
               <h3>Melissa R.</h3>
               <p class="testimonial-role">Director, Property Management</p>
-              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+              <p class="testimonial-quote">“Maintenance dispatch is now automated end-to-end. We handle 28 percent more work orders with the same team and fewer escalation calls.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2109,7 +2269,7 @@
             <div class="testimonial-meta">
               <h3>Jordan M.</h3>
               <p class="testimonial-role">Owner, HVAC Services Group</p>
-              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+              <p class="testimonial-quote">“Quote turnaround dropped from 24 hours to under 10 minutes, and we cut 12 hours of weekly dispatch admin in the first month.”</p>
             </div>
           </article>
         </div>
@@ -2124,58 +2284,44 @@
     <div class="container">
       <div class="section-header fade-up">
         <div class="section-eyebrow">Verticals</div>
-        <h2 id="industries-heading">Industry Verticals We Serve</h2>
-        <p>Built for established operators in complex, real-world environments.</p>
+        <h2 id="industries-heading">Five Industries We Focus On</h2>
+        <p>Focused implementation depth in operating environments where workflow complexity is high.</p>
       </div>
       <div class="industries-grid stagger">
+        <a class="industry-card fade-up" href="growth.html#industries-heading">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5l4.5-4.5M16.5 3 21 7.5 16.5 12M3 16.5h7.5a4.5 4.5 0 0 0 4.5-4.5V3"/></svg>
+          </div>
+          <h3>Retail</h3>
+          <p>Automate inventory alerts, vendor follow-up, and multi-location reporting workflows.</p>
+        </a>
         <a class="industry-card fade-up" href="accounting-firms-ai.html">
           <div class="industry-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z"/></svg>
           </div>
           <h3>Accounting Firms</h3>
-          <p>Document automation, reconciliation workflows, and reporting operations.</p>
+          <p>Automate client document collection, engagement tracking, and deliverable assembly.</p>
         </a>
         <a class="industry-card fade-up" href="construction-ai.html">
           <div class="industry-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.192-.14 1.743"/></svg>
           </div>
           <h3>Construction</h3>
-          <p>Scheduling, dispatch, quoting, and field-to-office coordination.</p>
-        </a>
-        <a class="industry-card fade-up" href="medical-clinics-ai.html">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4m5 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-          </div>
-          <h3>Medical Clinics</h3>
-          <p>Intake workflows, documentation support, and front-desk automation.</p>
+          <p>Automate RFI routing, submittal tracking, and subcontractor coordination workflows.</p>
         </a>
         <a class="industry-card fade-up" href="property-management-ai.html">
           <div class="industry-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
           </div>
           <h3>Property Management</h3>
-          <p>Tenant communication, maintenance workflows, and follow-through automation.</p>
+          <p>Automate tenant updates, maintenance dispatch, and lease process coordination.</p>
         </a>
         <a class="industry-card fade-up" href="trades-ai.html">
           <div class="industry-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9m-9 6h9m-9 6h9M4.5 6h.008v.008H4.5V6Zm0 6h.008v.008H4.5V12Zm0 6h.008v.008H4.5V18Z"/></svg>
           </div>
           <h3>Trades</h3>
-          <p>Quoting, job updates, dispatch flow, and customer follow-up automation.</p>
-        </a>
-        <a class="industry-card fade-up" href="law-firms-ai.html">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M6 18.75V8.25m4.5 10.5V5.25m4.5 13.5V9.75m4.5 9V6"/></svg>
-          </div>
-          <h3>Law Firms</h3>
-          <p>Matter intake, document handling, and internal coordination workflows.</p>
-        </a>
-        <a class="industry-card fade-up" href="forestry-logging-ai.html">
-          <div class="industry-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0 0-4.5-4.5M12 21l4.5-4.5M6 9c1.5 0 2.5.5 3 1.5M18 9c-1.5 0-2.5.5-3 1.5"/></svg>
-          </div>
-          <h3>Forestry and Logging</h3>
-          <p>Operational planning, compliance reporting, and equipment coordination.</p>
+          <p>Automate quoting, dispatch, job costing updates, and customer follow-up loops.</p>
         </a>
       </div>
     </div>
@@ -2193,7 +2339,7 @@
       </div>
       <div class="about-casey-grid fade-up">
         <div class="about-casey-card">
-          <p style="font-size:0.95rem;color:var(--gray-300);line-height:1.8;">Casey has led operations through multiple exits and has spent the last two years shipping AI and agentic workflow systems in real operating contexts.</p>
+          <p style="font-size:0.95rem;color:var(--gray-300);line-height:1.8;">Casey has led operations through multiple exits and has spent the last two years shipping AI and agentic workflow systems in real operating contexts. Engagements start at $150, and most clients invest $3-20K depending on scope.</p>
           <ul class="about-casey-points">
             <li>2x exited COO with deep execution experience</li>
             <li>Production AI deployments across operations and revenue teams</li>
@@ -2206,6 +2352,7 @@
             <li>Reduce admin work 30 to 50 percent</li>
             <li>Shorten decision cycles for leadership and frontline teams</li>
             <li>Embed AI into daily operations, not side projects</li>
+            <li>We do not do strategy decks. We build the thing, measure it, and iterate.</li>
           </ul>
         </div>
       </div>
@@ -2238,11 +2385,51 @@
     <div class="container">
       <div class="calendly-shell fade-up">
         <div class="section-header" style="margin-bottom:0;">
-          <div class="section-eyebrow">Book Call</div>
-          <h2 id="book-call-heading">Schedule Your AI Readiness Call</h2>
-          <p>30 minutes. You will leave with 3 high-impact AI opportunities specific to your business.</p>
+          <div class="section-eyebrow">Book Free Audit</div>
+          <h2 id="book-call-heading">Start With a 60-Second Pre-Qualification</h2>
+          <p>Tell us your core bottleneck first. Then pick a time for your free AI Ops Audit.</p>
         </div>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/casey-bluepixelconsulting/30min?hide_gdpr_banner=1"></div>
+        <form class="prequal-form" data-prequal-form novalidate>
+          <div class="prequal-field">
+            <label for="prequal-company">Company Name*</label>
+            <input id="prequal-company" name="company_name" required placeholder="Blue Pixel Consulting">
+          </div>
+          <div class="prequal-field">
+            <label for="prequal-industry">Industry*</label>
+            <select id="prequal-industry" name="industry" required>
+              <option value="">Select</option>
+              <option value="retail">Retail</option>
+              <option value="trades">Trades</option>
+              <option value="property_management">Property Management</option>
+              <option value="accounting_firms">Accounting Firms</option>
+              <option value="construction">Construction</option>
+            </select>
+          </div>
+          <div class="prequal-field">
+            <label for="prequal-employees">Employees*</label>
+            <select id="prequal-employees" name="employee_band" required>
+              <option value="">Select</option>
+              <option value="10-25">10-25</option>
+              <option value="25-50">25-50</option>
+              <option value="50-100">50-100</option>
+              <option value="100-250">100-250</option>
+              <option value="250+">250+</option>
+            </select>
+          </div>
+          <div class="prequal-field full">
+            <label for="prequal-bottleneck">Biggest Operational Bottleneck*</label>
+            <textarea id="prequal-bottleneck" name="bottleneck" required placeholder="Example: quote turnaround, dispatch, client document collection, reporting delays"></textarea>
+          </div>
+          <div class="prequal-actions full">
+            <button class="btn btn-primary" type="submit" data-cta="prequal-submit-reveal-calendly">Continue to Booking</button>
+            <span class="prequal-note">Takes under a minute. This helps us prepare your call.</span>
+          </div>
+          <p class="prequal-note full" data-prequal-error role="alert" hidden></p>
+        </form>
+        <div class="prequal-success" data-prequal-success hidden>Pre-qualification received. Choose your preferred time below.</div>
+        <div class="calendly-gate" data-calendly-gate hidden>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/casey-bluepixelconsulting/30min?hide_gdpr_banner=1"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2254,15 +2441,15 @@
     <div class="container">
       <div class="cta-inner">
         <div class="section-header fade-up" style="margin-bottom: 0;">
-          <h2 id="cta-heading">Ready to Reduce Admin Work and Move Faster?</h2>
-          <p>Book your AI readiness call and get a clear implementation path tailored to your operation.</p>
+          <h2 id="cta-heading">See Exactly Where AI Would Save You the Most Time</h2>
+          <p>Free 30-minute AI Ops Audit with a concrete action plan, whether you work with us or not.</p>
         </div>
         <div class="cta-actions fade-up">
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary calendly-link" data-cta="footer-book-readiness-call">
-            Book Your AI Readiness Call
+          <a href="/audit" class="btn btn-primary" data-cta="footer-book-free-audit">
+            Book Your Free Audit
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
           </a>
-          <p class="cta-note">30 minutes &middot; Operator-focused recommendations</p>
+          <p class="cta-note">Free assessment and implementation roadmap</p>
         </div>
       </div>
     </div>
@@ -2278,10 +2465,18 @@
       <div class="footer-info">
         <a href="mailto:casey@bluepixelconsulting.com">casey@bluepixelconsulting.com</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <span>Vancouver, BC</span>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a class="social-link" href="https://www.linkedin.com/company/blue-pixel-consulting/" target="_blank" rel="noopener noreferrer" aria-label="Blue Pixel Consulting LinkedIn page">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm-9.5 6h-3v9h3zm-1.5-4.4a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M18 13.1c0-2.7-1.4-4.1-3.3-4.1-1.5 0-2.2.8-2.6 1.4V9h-3v9h3v-5c0-1.3.2-2.6 1.8-2.6 1.6 0 1.6 1.5 1.6 2.7V18h3z"/></svg>
           <span>Blue Pixel on LinkedIn</span>
         </a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="https://www.linkedin.com/in/casey-blustein/" target="_blank" rel="noopener noreferrer">Casey LinkedIn</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="growth.html">For Growing Companies</a>
+        <span class="footer-divider" aria-hidden="true">&middot;</span>
+        <a href="pricing.html">Pricing</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a href="privacy.html">Privacy Policy</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
@@ -2289,9 +2484,7 @@
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <a href="/audit">FREE AI Ops Audit</a>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
-        <a href="construction-ai-automation.html">Construction AI</a>
-        <span class="footer-divider" aria-hidden="true">&middot;</span>
-        <span>Based in Vancouver. Serving businesses across the Pacific Northwest.</span>
+        <span>Transparent ranges. Final scope priced after the audit.</span>
         <span class="footer-divider" aria-hidden="true">&middot;</span>
         <span>&copy; 2026 Blue Pixel Consulting</span>
       </div>
@@ -2301,8 +2494,15 @@
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
+    window.BP_AUDIT_CONFIG = window.BP_AUDIT_CONFIG || {
+      supabaseUrl: "https://mokbapmohipimupmneby.supabase.co",
+      supabaseAnonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1va2JhcG1vaGlwaW11cG1uZWJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyNDg5NzgsImV4cCI6MjA4ODgyNDk3OH0.iUIM9vBadUzm0iFo8UByY0GVhC33MvszPwS65duIohg",
+      functionBase: ""
+    };
+
     (function() {
       var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var auditConfig = window.BP_AUDIT_CONFIG || {};
 
       function applySectionStagger() {
         var sections = document.querySelectorAll('header.hero, section');
@@ -2367,88 +2567,106 @@
       var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
       var tracking = window.BP_TRACKING || {};
 
-      function initCarousel(rootSelector) {
-        var root = document.querySelector(rootSelector);
-        if (!root) return;
-
-        var track = root.querySelector('.carousel-track');
-        var cards = Array.prototype.slice.call(root.querySelectorAll('.carousel-card'));
-        var prev = root.querySelector('[data-carousel-prev]');
-        var next = root.querySelector('[data-carousel-next]');
-        var dotsWrap = root.querySelector('.carousel-dots');
-        if (!track || !cards.length) return;
-
-        var perView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
-        var index = 0;
-        var timer = null;
-
-        function maxIndex() {
-          return Math.max(0, cards.length - perView);
-        }
-
-        function renderDots() {
-          if (!dotsWrap) return;
-          dotsWrap.innerHTML = '';
-          var total = maxIndex() + 1;
-          for (var i = 0; i < total; i++) {
-            var b = document.createElement('button');
-            b.className = 'carousel-dot' + (i === index ? ' active' : '');
-            b.type = 'button';
-            b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-            b.addEventListener('click', (function(target) {
-              return function() { go(target); };
-            })(i));
-            dotsWrap.appendChild(b);
-          }
-        }
-
-        function update() {
-          var cardWidth = cards[0].offsetWidth + 18;
-          track.style.transform = 'translateX(-' + (index * cardWidth) + 'px)';
-          if (dotsWrap) {
-            Array.prototype.forEach.call(dotsWrap.children, function(d, i) {
-              d.classList.toggle('active', i === index);
-            });
-          }
-        }
-
-        function go(target) {
-          index = Math.max(0, Math.min(target, maxIndex()));
-          update();
-        }
-
-        function start() {
-          stop();
-          timer = setInterval(function() {
-            var atEnd = index >= maxIndex();
-            go(atEnd ? 0 : index + 1);
-          }, 4200);
-        }
-
-        function stop() {
-          if (timer) clearInterval(timer);
-          timer = null;
-        }
-
-        if (prev) prev.addEventListener('click', function() { go(index - 1); start(); });
-        if (next) next.addEventListener('click', function() { go(index + 1); start(); });
-
-        root.addEventListener('mouseenter', stop);
-        root.addEventListener('mouseleave', start);
-
-        window.addEventListener('resize', function() {
-          var nextPerView = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
-          if (nextPerView !== perView) {
-            perView = nextPerView;
-            index = Math.min(index, maxIndex());
-            renderDots();
-            update();
-          }
+      function collectAttribution() {
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
+        var params = new URLSearchParams(window.location.search);
+        var out = {};
+        keys.forEach(function(key) {
+          var val = params.get(key);
+          if (val) out[key] = val;
         });
+        return out;
+      }
 
-        renderDots();
-        update();
-        start();
+      function getFunctionEndpoint(name) {
+        if (auditConfig.functionBase) return auditConfig.functionBase.replace(/\/$/, '') + '/' + name;
+        if (auditConfig.supabaseUrl) return auditConfig.supabaseUrl.replace(/\/$/, '') + '/functions/v1/' + name;
+        return '';
+      }
+
+      function getFunctionHeaders() {
+        var headers = { 'Content-Type': 'application/json' };
+        if (auditConfig.supabaseAnonKey) {
+          headers.apikey = auditConfig.supabaseAnonKey;
+          headers.Authorization = 'Bearer ' + auditConfig.supabaseAnonKey;
+        }
+        return headers;
+      }
+
+      function showPrequalError(text) {
+        var el = document.querySelector('[data-prequal-error]');
+        if (!el) return;
+        el.hidden = false;
+        el.textContent = text || 'Could not submit. Please try again.';
+      }
+
+      function hidePrequalError() {
+        var el = document.querySelector('[data-prequal-error]');
+        if (!el) return;
+        el.hidden = true;
+        el.textContent = '';
+      }
+
+      function revealCalendly() {
+        var gate = document.querySelector('[data-calendly-gate]');
+        var success = document.querySelector('[data-prequal-success]');
+        if (gate) gate.hidden = false;
+        if (success) success.hidden = false;
+      }
+
+      function initPrequalForm() {
+        var form = document.querySelector('[data-prequal-form]');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          hidePrequalError();
+
+          if (!form.reportValidity()) return;
+
+          var submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) submitBtn.disabled = true;
+
+          var formData = new FormData(form);
+          var payload = {
+            company_name: String(formData.get('company_name') || '').trim(),
+            industry: String(formData.get('industry') || '').trim(),
+            employee_band: String(formData.get('employee_band') || '').trim(),
+            bottleneck: String(formData.get('bottleneck') || '').trim(),
+            source_page: 'homepage',
+            utm: collectAttribution()
+          };
+
+          var endpoint = getFunctionEndpoint('capture-prequal-lead');
+          if (!endpoint) {
+            if (submitBtn) submitBtn.disabled = false;
+            showPrequalError('Pre-qualification API not configured.');
+            return;
+          }
+
+          window.fetch(endpoint, {
+            method: 'POST',
+            headers: getFunctionHeaders(),
+            body: JSON.stringify(payload)
+          }).then(function(res) {
+            return res.json().then(function(data) {
+              if (!res.ok) throw new Error(data.error || 'Submit failed');
+              return data;
+            });
+          }).then(function() {
+            revealCalendly();
+            form.hidden = true;
+            if (window.gtag) {
+              window.gtag('event', 'generate_lead', {
+                event_category: 'engagement',
+                event_label: 'prequal_submitted',
+                value: 1
+              });
+            }
+          }).catch(function(err) {
+            showPrequalError(err.message || 'Could not submit. Please try again.');
+            if (submitBtn) submitBtn.disabled = false;
+          });
+        });
       }
 
       function decorateCalendlyLinks() {
@@ -2501,7 +2719,7 @@
       }
 
       decorateCalendlyLinks();
-      initCarousel('[data-carousel=\"landing\"]');
+      initPrequalForm();
       document.querySelectorAll('a.calendly-link').forEach(function(link) {
         link.addEventListener('click', function(e) {
           e.preventDefault();

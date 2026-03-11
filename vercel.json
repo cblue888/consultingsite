@@ -1,5 +1,18 @@
 {
   "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/growth", "destination": "/growth.html" },
+    { "source": "/pricing", "destination": "/pricing.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/accounting-firms-ai", "destination": "/accounting-firms-ai.html" },
+    { "source": "/construction-ai", "destination": "/construction-ai.html" },
+    { "source": "/medical-clinics-ai", "destination": "/medical-clinics-ai.html" },
+    { "source": "/property-management-ai", "destination": "/property-management-ai.html" },
+    { "source": "/trades-ai", "destination": "/trades-ai.html" },
+    { "source": "/law-firms-ai", "destination": "/law-firms-ai.html" },
+    { "source": "/forestry-logging-ai", "destination": "/forestry-logging-ai.html" },
+    { "source": "/construction-ai-automation", "destination": "/construction-ai-automation.html" },
     { "source": "/audit", "destination": "/audit/index.html" },
     { "source": "/audit/results", "destination": "/audit/results/index.html" },
     { "source": "/audit/results/:token", "destination": "/audit/results/index.html" }
