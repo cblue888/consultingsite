@@ -78,6 +78,7 @@
       --glass-solid: rgba(15,29,50,0.85);
       --font-heading: 'Space Grotesk', system-ui, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --purple-accent: #8b5cf6;
     }
 
     html {
@@ -144,6 +145,26 @@
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    @keyframes grid-drift {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-80px, -80px, 0); }
+    }
+
+    @keyframes pulse-breathe {
+      0%, 100% { box-shadow: 0 0 18px rgba(37,99,235,0.26), 0 6px 20px rgba(37,99,235,0.2); }
+      50% { box-shadow: 0 0 34px rgba(37,99,235,0.5), 0 10px 30px rgba(37,99,235,0.35); }
+    }
+
+    .gradient-headline {
+      background: linear-gradient(120deg, #93c5fd 0%, #22d3ee 55%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      background-size: 200% 200%;
+      animation: gradient-shift 9s ease infinite;
     }
 
     /* ---- Buttons ---- */
@@ -295,6 +316,18 @@
       pointer-events: none;
     }
 
+    .hero-glow {
+      position: absolute;
+      inset: 18% 18% auto;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,0.24) 0%, rgba(139,92,246,0.12) 40%, transparent 70%);
+      filter: blur(36px);
+      pointer-events: none;
+      z-index: 0;
+      transition: transform 0.35s ease-out;
+    }
+
     /* animated gradient orbs */
     .hero-orb {
       position: absolute;
@@ -334,13 +367,14 @@
     .hero::after {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -80px;
       background-image:
         linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
       background-size: 80px 80px;
       mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 20%, transparent 70%);
+      animation: grid-drift 28s linear infinite;
     }
 
     .hero-content {
@@ -376,11 +410,13 @@
       margin-bottom: 24px;
       font-weight: 700;
       letter-spacing: -0.03em;
+      position: relative;
+      text-shadow: 0 8px 40px rgba(96,165,250,0.16);
     }
 
     .hero h1 em {
       font-style: normal;
-      background: linear-gradient(135deg, #60a5fa 0%, #22d3ee 100%);
+      background: linear-gradient(125deg, #60a5fa 0%, #22d3ee 45%, #8b5cf6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -399,6 +435,11 @@
       flex-wrap: wrap;
       gap: 16px;
       align-items: center;
+    }
+
+    .hero-actions .btn-primary:first-child,
+    .cta-actions .btn-primary {
+      animation: pulse-breathe 2.8s ease-in-out infinite;
     }
 
     .hero-note {
@@ -449,7 +490,8 @@
     /* ---- Section Divider ---- */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, var(--border-subtle) 20%, rgba(37,99,235,0.15) 50%, var(--border-subtle) 80%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(148,163,184,0.09) 20%, rgba(37,99,235,0.18) 50%, rgba(148,163,184,0.09) 80%, transparent 100%);
+      opacity: 0.7;
     }
 
     /* ---- Problem / Empathy ---- */
@@ -511,8 +553,10 @@
     }
 
     .pain-point:hover {
-      border-color: var(--border-hover);
+      border-color: rgba(96,165,250,0.36);
       background: rgba(15,29,50,0.7);
+      transform: scale(1.02);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.24), 0 0 0 1px rgba(96,165,250,0.24) inset;
     }
 
     .pain-point-icon {
@@ -581,6 +625,11 @@
       margin-bottom: 16px;
       font-weight: 700;
       letter-spacing: -0.02em;
+      text-shadow: 0 8px 28px rgba(96,165,250,0.12);
+      background: linear-gradient(120deg, #eef6ff 0%, #a5d8ff 42%, #70d7ff 74%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .section-header p {
@@ -620,9 +669,9 @@
     }
 
     .service-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(37,99,235,0.08);
+      border-color: rgba(96,165,250,0.45);
+      transform: translateY(-4px) scale(1.025);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(37,99,235,0.16), 0 0 0 1px rgba(96,165,250,0.25) inset;
     }
 
     .service-card:hover::before {
@@ -1026,11 +1075,39 @@
       transition: all 0.3s ease;
       text-decoration: none;
       color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .industry-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 120% -20%, rgba(96,165,250,0.16), transparent 40%);
+      opacity: 0.7;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      transform: translateX(0);
     }
 
     .industry-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
+      border-color: rgba(96,165,250,0.4);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.24), 0 0 0 1px rgba(96,165,250,0.22) inset;
+    }
+
+    .industry-card:hover::before {
+      transform: translateX(-10px);
+      opacity: 1;
+    }
+
+    .industry-card:hover .industry-icon {
+      transform: translateY(-2px) rotate(-4deg);
+      border-color: rgba(96,165,250,0.38);
+      box-shadow: 0 0 24px rgba(37,99,235,0.22);
+    }
+
+    .industry-card:hover .industry-icon svg {
+      transform: scale(1.07);
     }
 
     .industry-icon {
@@ -1043,12 +1120,16 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 16px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .industry-icon svg {
       width: 22px;
       height: 22px;
       color: var(--blue-accent);
+      transition: transform 0.3s ease;
     }
 
     .industry-card h3 {
@@ -1058,6 +1139,8 @@
       color: var(--white);
       margin-bottom: 6px;
       letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
     }
 
     .industry-card p {
@@ -1065,6 +1148,8 @@
       color: var(--text-secondary);
       line-height: 1.6;
       margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
     }
 
     /* ---- Canadian Badge ---- */
@@ -1087,10 +1172,132 @@
       color: #fca5a5;
     }
 
+    /* ---- Testimonials ---- */
+    .testimonials {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--navy-mid) 0%, rgba(10,22,40,0.96) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonials::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 15% 30%, rgba(37,99,235,0.15) 0%, transparent 42%);
+      pointer-events: none;
+    }
+
+    .testimonials-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-row {
+      position: relative;
+      overflow: hidden;
+      margin-top: 14px;
+      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .testimonial-track {
+      width: max-content;
+      display: flex;
+      gap: 16px;
+      animation: marquee-left 42s linear infinite;
+      will-change: transform;
+    }
+
+    .testimonial-row.row-right .testimonial-track {
+      animation-name: marquee-right;
+      animation-duration: 46s;
+    }
+
+    .testimonial-row:hover .testimonial-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee-left {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    @keyframes marquee-right {
+      0% { transform: translate3d(-50%, 0, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+
+    .testimonial-card {
+      width: 420px;
+      max-width: 88vw;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.22);
+      background: rgba(15,29,50,0.62);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 12px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.02);
+      border-color: rgba(96,165,250,0.4);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.26), 0 0 0 1px rgba(96,165,250,0.2) inset;
+    }
+
+    .testimonial-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(96,165,250,0.4);
+      box-shadow: 0 0 18px rgba(96,165,250,0.22);
+    }
+
+    .testimonial-meta h3 {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--white);
+      font-family: var(--font-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .testimonial-role {
+      margin: 2px 0 8px;
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .testimonial-quote {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--gray-200);
+      line-height: 1.65;
+    }
+
     /* ---- About Casey ---- */
     .about-casey {
       padding: 100px 0;
       background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-casey::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 80% 25%, rgba(59,130,246,0.12) 0%, transparent 45%),
+        linear-gradient(120deg, rgba(37,99,235,0.05), rgba(139,92,246,0.04));
+      pointer-events: none;
     }
 
     .about-casey-grid {
@@ -1098,6 +1305,8 @@
       grid-template-columns: 1fr 1fr;
       gap: 32px;
       align-items: start;
+      position: relative;
+      z-index: 1;
     }
 
     .about-casey-card {
@@ -1105,6 +1314,13 @@
       border-radius: 14px;
       border: 1px solid var(--border-subtle);
       background: var(--glass);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-casey-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      border-color: rgba(96,165,250,0.34);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.22), 0 0 0 1px rgba(96,165,250,0.2) inset;
     }
 
     .about-casey-points {
@@ -1137,6 +1353,12 @@
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       background: var(--glass);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .qualification-wrap:hover {
+      transform: scale(1.015);
+      border-color: rgba(96,165,250,0.34);
     }
 
     .qualification-list {
@@ -1183,6 +1405,13 @@
       border-radius: 16px;
       border: 1px solid var(--border-subtle);
       background: var(--glass);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .calendly-shell:hover {
+      border-color: rgba(96,165,250,0.32);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.24);
+      transform: scale(1.01);
     }
 
     .calendly-inline-widget {
@@ -1398,6 +1627,45 @@
       .hero-orb-1 { width: 300px; height: 300px; }
       .hero-orb-2 { width: 200px; height: 200px; }
       .hero-orb-3 { display: none; }
+
+      .testimonial-row {
+        overflow-x: auto;
+        mask-image: none;
+        -webkit-mask-image: none;
+        scrollbar-width: none;
+      }
+
+      .testimonial-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .testimonial-track {
+        animation: none !important;
+        width: auto;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(280px, 84vw);
+        gap: 12px;
+        padding-bottom: 4px;
+      }
+
+      .testimonial-row.row-right {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
   </style>
 </head>
@@ -1423,6 +1691,7 @@
     <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
     <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+    <div class="hero-glow" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <div class="hero-eyebrow fade-up">Built for Real Operations</div>
@@ -1635,6 +1904,221 @@
 
   <div class="section-divider" aria-hidden="true"></div>
 
+  <!-- Testimonials -->
+  <section class="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container testimonials-inner">
+      <div class="section-header fade-up" style="margin-bottom: 36px;">
+        <div class="section-eyebrow">Testimonials</div>
+        <h2 id="testimonials-heading">Operators Getting Real Results</h2>
+        <p>Proof from teams replacing manual coordination with practical AI systems.</p>
+      </div>
+
+      <div class="testimonial-row row-left fade-up">
+        <div class="testimonial-track">
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=12" alt="HVAC company owner avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Jordan M.</h3>
+              <p class="testimonial-role">Owner, HVAC Services Group</p>
+              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=25" alt="Property management director avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Melissa R.</h3>
+              <p class="testimonial-role">Director, Property Management</p>
+              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=33" alt="Retail operations VP avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Daniel K.</h3>
+              <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
+              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="Construction owner avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Chris T.</h3>
+              <p class="testimonial-role">Owner, Commercial Construction</p>
+              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=44" alt="Accounting firm partner avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Priya S.</h3>
+              <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
+              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=57" alt="Trades business owner avatar" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Alex P.</h3>
+              <p class="testimonial-role">Owner, Regional Trades Business</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=12" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Jordan M.</h3>
+              <p class="testimonial-role">Owner, HVAC Services Group</p>
+              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=25" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Melissa R.</h3>
+              <p class="testimonial-role">Director, Property Management</p>
+              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=33" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Daniel K.</h3>
+              <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
+              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Chris T.</h3>
+              <p class="testimonial-role">Owner, Commercial Construction</p>
+              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=44" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Priya S.</h3>
+              <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
+              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=57" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Alex P.</h3>
+              <p class="testimonial-role">Owner, Regional Trades Business</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="testimonial-row row-right fade-up">
+        <div class="testimonial-track">
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=57" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Alex P.</h3>
+              <p class="testimonial-role">Owner, Regional Trades Business</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=44" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Priya S.</h3>
+              <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
+              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Chris T.</h3>
+              <p class="testimonial-role">Owner, Commercial Construction</p>
+              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=33" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Daniel K.</h3>
+              <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
+              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=25" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Melissa R.</h3>
+              <p class="testimonial-role">Director, Property Management</p>
+              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=12" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Jordan M.</h3>
+              <p class="testimonial-role">Owner, HVAC Services Group</p>
+              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=57" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Alex P.</h3>
+              <p class="testimonial-role">Owner, Regional Trades Business</p>
+              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=44" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Priya S.</h3>
+              <p class="testimonial-role">Partner, Mid-Size Accounting Firm</p>
+              <p class="testimonial-quote">“Document collection and file routing are dramatically cleaner. Busy season feels more controlled for the first time in years.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Chris T.</h3>
+              <p class="testimonial-role">Owner, Commercial Construction</p>
+              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=33" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Daniel K.</h3>
+              <p class="testimonial-role">VP Operations, Multi-Location Retail</p>
+              <p class="testimonial-quote">“Blue Pixel mapped our bottlenecks fast and shipped working automations, not slide decks. Decision cycles are noticeably shorter.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=25" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Melissa R.</h3>
+              <p class="testimonial-role">Director, Property Management</p>
+              <p class="testimonial-quote">“Maintenance triage and tenant updates are finally standardized. Our team handles more volume without adding headcount.”</p>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=12" alt="" loading="lazy" decoding="async">
+            <div class="testimonial-meta">
+              <h3>Jordan M.</h3>
+              <p class="testimonial-role">Owner, HVAC Services Group</p>
+              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true"></div>
+
   <!-- Industry Verticals -->
   <section class="industries" id="industries" aria-labelledby="industries-heading">
     <div class="container">
@@ -1818,21 +2302,42 @@
 
   <script>
     (function() {
-      // Scroll-triggered animations
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: '0px 0px -60px 0px'
-      });
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      document.querySelectorAll('.fade-up').forEach(function(el) {
-        observer.observe(el);
-      });
+      function applySectionStagger() {
+        var sections = document.querySelectorAll('header.hero, section');
+        sections.forEach(function(section) {
+          var count = 0;
+          section.querySelectorAll('.fade-up').forEach(function(el) {
+            if (el.closest('header.hero, section') !== section) return;
+            el.style.transitionDelay = (count * 100) + 'ms';
+            count += 1;
+          });
+        });
+      }
+
+      applySectionStagger();
+
+      if (prefersReducedMotion) {
+        document.querySelectorAll('.fade-up').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      } else {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -60px 0px'
+        });
+
+        document.querySelectorAll('.fade-up').forEach(function(el) {
+          observer.observe(el);
+        });
+      }
 
       // Nav glass effect on scroll
       var nav = document.querySelector('.nav');
@@ -1846,6 +2351,18 @@
           scrolled = false;
         }
       }, { passive: true });
+
+      if (!prefersReducedMotion) {
+        var parallaxLayers = document.querySelectorAll('.hero-glow');
+        window.addEventListener('mousemove', function(e) {
+          var px = (e.clientX / window.innerWidth - 0.5);
+          var py = (e.clientY / window.innerHeight - 0.5);
+          parallaxLayers.forEach(function(layer, idx) {
+            var depth = (idx + 1) * 18;
+            layer.style.transform = 'translate3d(' + (px * depth) + 'px,' + (py * depth) + 'px,0)';
+          });
+        }, { passive: true });
+      }
 
       var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'wbraid', 'gbraid', 'msclkid', 'fbclid'];
       var tracking = window.BP_TRACKING || {};
