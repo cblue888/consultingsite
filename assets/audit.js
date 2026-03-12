@@ -1,6 +1,20 @@
 (function () {
   var CONFIG = window.BP_AUDIT_CONFIG || {};
   var SCORE_LABELS = ["Not at all", "Somewhat", "Mostly", "Completely"];
+
+  function severityColor(score) {
+    if (score >= 75) return "#22c55e";
+    if (score >= 56) return "#eab308";
+    if (score >= 31) return "#f97316";
+    return "#ef4444";
+  }
+
+  function severityClass(score) {
+    if (score >= 75) return "severity-green";
+    if (score >= 56) return "severity-yellow";
+    if (score >= 31) return "severity-orange";
+    return "severity-red";
+  }
   var PILLARS = [
     { id: "process_efficiency", name: "Process Efficiency" },
     { id: "system_integration", name: "System Integration" },
@@ -221,6 +235,17 @@
     return "https://" + trimmed;
   }
 
+  function isValidWebsiteUrl(v) {
+    var normalized = normalizeUrl(v);
+    if (!normalized) return false;
+    try {
+      var parsed = new URL(normalized);
+      return /^https?:$/i.test(parsed.protocol);
+    } catch (_err) {
+      return false;
+    }
+  }
+
   function selectedOpt(current, value) { return current === value ? " selected" : ""; }
 
   function escapeHtml(str) {
@@ -294,6 +319,10 @@
           state.error = "Select your employee range.";
           return false;
         }
+        if (!isValidWebsiteUrl(state.form.website_url)) {
+          state.error = "Company website is required so the AI site agent can scan live pages.";
+          return false;
+        }
         if (state.mode === "standard" && !state.form.company_name.trim()) {
           state.error = "Company name is required for standard reports.";
           return false;
@@ -320,14 +349,14 @@
       container.innerHTML =
         '<p class="step-tag">Step 1 of ' + totalSteps() + '</p>' +
         '<h2 class="step-title">FREE AI Ops Audit</h2>' +
-        '<p class="step-sub">Quick profile first. Then five short pillars. We also scan your website to personalize the report.</p>' +
+        '<p class="step-sub">Quick profile first. Then five short pillars. Our AI site agent scans your live website and bakes those findings into your report.</p>' +
         '<div class="form-grid">' +
         '  <div class="field"><label for="company_name">Company name</label><input id="company_name" name="company_name" value="' + escapeHtml(state.form.company_name) + '" placeholder="Blue Pixel Consulting"></div>' +
         '  <div class="field"><label for="contact_name">Your name</label><input id="contact_name" name="contact_name" value="' + escapeHtml(state.form.contact_name) + '" placeholder="Casey"></div>' +
-        '  <div class="field full"><label for="email">Email' + (state.mode === "standard" ? "*" : "") + '</label><input id="email" type="email" name="email" value="' + escapeHtml(state.form.email) + '" placeholder="you@company.com" ' + (state.mode === "standard" ? "required" : "") + '><div class="helper">Email saves your report and lets us send a persistent link. Guest mode works without email.</div><button type="button" class="guest-toggle" data-guest-toggle aria-label="Toggle guest mode">' + (state.mode === "standard" ? "Prefer not to share email?" : "Use standard mode instead") + '</button>' + (state.mode === "guest" ? '<div class="guest-note">Guest mode enabled. Report link is visible in-app and expires in 24 hours.</div>' : '') + '</div>' +
+        '  <div class="field full"><label for="email">Email' + (state.mode === "standard" ? "*" : "") + '</label><input id="email" type="email" name="email" value="' + escapeHtml(state.form.email) + '" placeholder="you@company.com" ' + (state.mode === "standard" ? "required" : "") + '><div class="helper">Email keeps a persistent report link. You can still run anonymous guest mode if needed.</div><button type="button" class="guest-toggle" data-guest-toggle aria-label="Toggle guest mode">' + (state.mode === "standard" ? "Prefer not to share email?" : "Use standard mode instead") + '</button>' + (state.mode === "guest" ? '<div class="guest-note">Guest mode enabled. Report link is visible in-app and expires in 24 hours.</div>' : '') + '</div>' +
         '  <div class="field"><label for="industry">Industry*</label><select id="industry" name="industry"><option value="">Select industry</option>' + industryOptions + '</select></div>' +
         '  <div class="field"><label for="employee_band">Employees*</label><select id="employee_band" name="employee_band"><option value="">Select range</option><option value="10-25"' + selectedOpt(state.form.employee_band, "10-25") + '>10-25</option><option value="25-50"' + selectedOpt(state.form.employee_band, "25-50") + '>25-50</option><option value="50-100"' + selectedOpt(state.form.employee_band, "50-100") + '>50-100</option><option value="100-250"' + selectedOpt(state.form.employee_band, "100-250") + '>100-250</option><option value="250+"' + selectedOpt(state.form.employee_band, "250+") + '>250+</option></select></div>' +
-        '  <div class="field full"><label for="website_url">Company website</label><input id="website_url" name="website_url" value="' + escapeHtml(state.form.website_url) + '" placeholder="https://yourcompany.com"><div class="helper">We use homepage content to personalize recommendations.</div></div>' +
+        '  <div class="field full"><label for="website_url">Company website*</label><input id="website_url" name="website_url" value="' + escapeHtml(state.form.website_url) + '" placeholder="https://yourcompany.com" required><div class="helper">Our AI site agent crawls your homepage, sitemap, and key public URLs (up to 7 pages) to detect gaps and opportunities.</div></div>' +
         '</div>';
 
       container.querySelectorAll("input, select").forEach(function (el) {
@@ -375,15 +404,15 @@
 
     function showProcessing(container) {
       var lines = [
-        "Analyzing your operations...",
-        "Scanning your website for context...",
-        "Scoring readiness across all pillars...",
-        "Generating prioritized recommendations...",
-        "Packaging your report..."
+        "Launching your live AI site agent...",
+        "Crawling homepage, sitemap, and key internal pages...",
+        "Mapping offers, CTAs, trust signals, and workflow friction...",
+        "Scoring readiness across all five pillars...",
+        "Generating a personalized implementation plan..."
       ];
       var idx = 0;
 
-      container.innerHTML = '<div class="processing"><div><div class="spinner"></div><p id="processing-line">' + lines[0] + '</p><small>This usually takes 10-20 seconds.</small></div></div>';
+      container.innerHTML = '<div class="processing"><div><div class="spinner"></div><p id="processing-line">' + lines[0] + '</p><small>This usually takes 15-35 seconds.</small></div></div>';
 
       var interval = window.setInterval(function () {
         var line = document.getElementById("processing-line");
@@ -592,11 +621,71 @@
       }).join("");
     }
 
+    function renderScanList(title, items) {
+      if (!items || !items.length) return "";
+      return '<div class="scan-col"><h4>' + escapeHtml(title) + '</h4><ul class="scan-list">' +
+        items.slice(0, 5).map(function (item) { return '<li>' + escapeHtml(item) + '</li>'; }).join("") +
+        '</ul></div>';
+    }
+
+    function siteScanHtml(report, payload) {
+      var summary = report.site_scan_summary || null;
+      var rawScan = payload.website_scan || null;
+
+      if (!summary && !rawScan) {
+        return '<section class="site-scan"><h2 class="step-title" style="font-size:1.35rem;margin-top:16px;">AI Site Agent Scan</h2><p class="muted">No website scan data available for this report.</p></section>';
+      }
+
+      var overview = (summary && summary.overview) ||
+        (rawScan ? ('Agent scan reviewed ' + Number(rawScan.pages_scanned || 0) + ' of ' + Number(rawScan.pages_attempted || 0) + ' pages from ' + escapeHtml(rawScan.root_url || "your site") + '.') : "Website scan completed.");
+
+      var pagesReviewed = [];
+      if (summary && Array.isArray(summary.pages_reviewed)) {
+        pagesReviewed = summary.pages_reviewed.map(function (page) {
+          var why = page && page.why_it_matters ? " - " + page.why_it_matters : "";
+          return (page && page.url ? page.url : "") + why;
+        });
+      } else if (rawScan && Array.isArray(rawScan.pages)) {
+        pagesReviewed = rawScan.pages.map(function (page) {
+          var title = page && page.title ? " - " + page.title : "";
+          return (page && page.url ? page.url : "") + title;
+        });
+      }
+
+      var strengths = (summary && summary.strengths) || [];
+      var gaps = (summary && summary.gaps) || [];
+      var quickWins = (summary && summary.quick_wins) || (rawScan && rawScan.opportunities) || [];
+      var accessIssues = (rawScan && Array.isArray(rawScan.fetch_errors)) ? rawScan.fetch_errors : [];
+
+      var tags = [];
+      if (rawScan && rawScan.detected_signals) {
+        var s = rawScan.detected_signals;
+        tags.push('Pages scanned: ' + Number(rawScan.pages_scanned || 0));
+        tags.push('Pricing visible: ' + (s.pricing_visible ? 'Yes' : 'No'));
+        tags.push('Booking path: ' + (s.booking_path_present ? 'Yes' : 'No'));
+        tags.push('Form detected: ' + (s.contact_form_present ? 'Yes' : 'No'));
+      }
+
+      return '<section class="site-scan">' +
+        '<h2 class="step-title" style="font-size:1.35rem;margin-top:16px;">AI Site Agent Scan</h2>' +
+        '<p class="muted">' + escapeHtml(overview) + '</p>' +
+        (tags.length ? '<div class="scan-tags">' + tags.map(function (tag) { return '<span class="tag">' + escapeHtml(tag) + '</span>'; }).join('') + '</div>' : '') +
+        '<div class="scan-grid">' +
+        renderScanList('Pages Reviewed', pagesReviewed) +
+        renderScanList('Detected Strengths', strengths) +
+        renderScanList('Detected Gaps', gaps) +
+        renderScanList('Immediate Quick Wins', quickWins) +
+        renderScanList('Access Issues', accessIssues) +
+        '</div>' +
+        '</section>';
+    }
+
     function renderResults(payload) {
       var report = payload.report || {};
       var companyName = payload.company_name || report.company_name || "Your Company";
       var score = Number(report.overall_score || 0);
       var grade = report.letter_grade || "N/A";
+      var gradeDesc = report.grade_label || grade;
       var expires = payload.expires_at || null;
       var guest = payload.submission_mode === "guest";
       var generated = payload.created_at ? new Date(payload.created_at).toLocaleString() : "";
@@ -605,13 +694,15 @@
         '<section class="card audit-main">' +
         (guest ? '<div class="guest-note guest-banner">Guest report expires in 24h.</div>' : "") +
         '<div class="results-header">' +
-        '<div><p class="step-tag">AI Ops Readiness Report</p><h1 class="step-title">' + escapeHtml(companyName) + '</h1><span class="badge-grade">Grade ' + escapeHtml(grade) + '</span></div>' +
-        '<div class="score-ring" style="--score:' + Math.max(0, Math.min(score, 100)) + '%"><span>' + score + '/100</span></div>' +
+        '<div><p class="step-tag">AI Ops Readiness Report</p><h1 class="step-title">' + escapeHtml(companyName) + '</h1><span class="badge-grade ' + severityClass(score) + '">' + escapeHtml(grade) + ' \u2014 ' + escapeHtml(gradeDesc) + '</span></div>' +
+        '<div class="score-ring" style="--score:' + Math.max(0, Math.min(score, 100)) + '%;--score-color:' + severityColor(score) + '"><span>' + score + '/100</span></div>' +
         '</div>' +
+        (report.executive_summary ? '<p class="executive-summary">' + escapeHtml(report.executive_summary) + '</p>' : '') +
         '<div class="callouts">' +
         '<article class="callout"><h3>Top Priority</h3><p>' + escapeHtml(report.top_priority || "No top priority returned.") + '</p></article>' +
         '<article class="callout"><h3>Competitive Risk</h3><p>' + escapeHtml(report.competitive_risk || "No risk note returned.") + '</p></article>' +
         '</div>' +
+        siteScanHtml(report, payload) +
         '<section class="pillars"><h2 class="step-title" style="font-size:1.35rem;margin-top:16px;">Pillar Breakdown</h2><div id="pillarRows"></div></section>' +
         '<section class="service-box"><h3>Recommended Service: ' + escapeHtml((report.recommended_service && report.recommended_service.tier) || "TBD") + '</h3><p>' + escapeHtml((report.recommended_service && report.recommended_service.why_fit) || "Service recommendation unavailable.") + '</p><p class="muted" style="margin-top:6px;">' + escapeHtml((report.recommended_service && report.recommended_service.price_range) || "") + ' ' + escapeHtml((report.recommended_service && report.recommended_service.timeline) || "") + '</p></section>' +
         '<section class="action-plan"><h2 class="step-title" style="font-size:1.35rem;">Action Plan</h2><div class="plan-columns"><div class="plan-col"><h3>Fix First</h3>' + recList(report.action_plan && report.action_plan.fix_first) + '</div><div class="plan-col"><h3>Fix Next</h3>' + recList(report.action_plan && report.action_plan.fix_next) + '</div><div class="plan-col"><h3>Leverage</h3>' + recList(report.action_plan && report.action_plan.leverage) + '</div></div></section>' +
@@ -623,10 +714,12 @@
       var rows = $("#pillarRows");
       var pillarList = report.pillars || [];
       rows.innerHTML = pillarList.map(function (item, idx) {
-        return '<article class="pillar-row' + (idx === 0 ? ' open' : '') + '">' +
+        var pillarScore = Number(item.score || 0);
+        var autoOpen = pillarScore < 56 || idx === 0;
+        return '<article class="pillar-row ' + severityClass(pillarScore) + (autoOpen ? ' open' : '') + '">' +
           '<button class="pillar-head" type="button" data-toggle>' +
-          '<div><p class="pillar-name">' + escapeHtml(item.name || item.pillar_id || "Pillar") + '</p><div class="pillar-meter"><span style="width:' + Number(item.score || 0) + '%"></span></div></div>' +
-          '<div class="pillar-score">' + Number(item.score || 0) + '/100</div>' +
+          '<div><p class="pillar-name">' + escapeHtml(item.name || item.pillar_id || "Pillar") + '</p><div class="pillar-meter"><span style="width:' + pillarScore + '%;background:' + severityColor(pillarScore) + '"></span></div></div>' +
+          '<div class="pillar-score" style="color:' + severityColor(pillarScore) + '">' + pillarScore + '/100</div>' +
           '</button>' +
           '<div class="pillar-body">' + escapeHtml(item.assessment || "Assessment unavailable") + '</div>' +
           '</article>';

@@ -32,7 +32,7 @@ serve(async (req) => {
 
   const { data, error } = await supabase
     .from("audit_reports")
-    .select("id,submission_id,report_token,report_json,expires_at,created_at")
+    .select("id,submission_id,report_token,report_json,model_meta_json,expires_at,created_at")
     .eq("report_token", token)
     .single();
 
@@ -66,5 +66,6 @@ serve(async (req) => {
     created_at: data.created_at,
     expires_at: expiresAt,
     report: data.report_json,
+    website_scan: (data as any).model_meta_json?.website_context_used || null,
   });
 });

@@ -7,13 +7,18 @@
   <meta name="description" content="Agentic AI systems for midmarket and growing companies. Replace manual workflows with working systems in 8 weeks.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bluepixelconsulting.com/growth">
+  <meta property="og:title" content="Growing Companies | Blue Pixel Consulting">
+  <meta property="og:description" content="Agentic AI systems for midmarket and growing companies. Replace manual workflows with working systems in 8 weeks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bluepixelconsulting.com/growth">
+  <meta property="og:image" content="https://bluepixelconsulting.com/logo-128.png">
   <link rel="icon" type="image/png" href="logo-128.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     window.BP_TRACKING = window.BP_TRACKING || {
-      ga4Id: "G-XXXXXXXXXX",
+      ga4Id: "G-VZ9F3RWYW3",
       adsId: "AW-17981602232",
       adsConversionLabel: "EGe_CPSwrYAcELjzpf5C"
     };
@@ -429,7 +434,51 @@
       .process-steps::before { display: none; }
     }
 
+    .nav-toggle { display: none; }
+
     @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        z-index: 101;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--gray-300);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+      .nav-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(6, 13, 27, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 80px 32px 32px;
+        gap: 24px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        border-left: 1px solid rgba(255,255,255,0.06);
+        z-index: 100;
+      }
+      .nav-right.open { right: 0; }
+      .nav-link { font-size: 1rem; }
+      .nav-cta { width: 100%; text-align: center; justify-content: center; }
+
       .hero-content { padding: 120px 0 76px; }
       .cards-3,
       .industries-grid,
@@ -451,11 +500,14 @@
           <img src="logo-128.png" alt="Blue Pixel Consulting logo" loading="eager" decoding="async">
           <span>Blue Pixel Consulting</span>
         </a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
         <div class="nav-right">
           <a href="about.html" class="nav-link">About</a>
           <a href="growth.html" class="nav-link active">Growing Companies</a>
           <a href="/audit" class="nav-link">FREE AI Ops Audit</a>
-          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="growth-nav-book-call">Book a Call</a>
+          <a href="https://calendly.com/casey-bluepixelconsulting/30min" class="btn btn-primary nav-cta calendly-link" data-cta="growth-nav-book-call">Book Your AI Readiness Call</a>
         </div>
       </div>
     </div>
@@ -821,6 +873,25 @@
           gtagReportConversion(link.href, link.getAttribute("data-cta") || "growth");
         });
       });
+
+    // Mobile nav toggle
+    var toggle = document.querySelector('.nav-toggle');
+    var navRight = document.querySelector('.nav-right');
+    if (toggle && navRight) {
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('active');
+        navRight.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', navRight.classList.contains('open'));
+      });
+      navRight.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          toggle.classList.remove('active');
+          navRight.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
     })();
   </script>
 </body>

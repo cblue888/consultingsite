@@ -12,13 +12,14 @@
   <meta property="og:description" content="Practical AI solutions for established businesses. No jargon, just results.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bluepixelconsulting.com">
+  <meta property="og:image" content="https://bluepixelconsulting.com/logo-128.png">
   <link rel="icon" type="image/png" href="logo-128.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     window.BP_TRACKING = window.BP_TRACKING || {
-      ga4Id: "G-XXXXXXXXXX",
+      ga4Id: "G-VZ9F3RWYW3",
       adsId: "AW-17981602232",
       adsConversionLabel: "EGe_CPSwrYAcELjzpf5C"
     };
@@ -1569,7 +1570,51 @@
       }
     }
 
+    .nav-toggle { display: none; }
+
     @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        z-index: 101;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--gray-300);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+      .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+      .nav-right {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(6, 13, 27, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 80px 32px 32px;
+        gap: 24px;
+        transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        border-left: 1px solid rgba(255,255,255,0.06);
+        z-index: 100;
+      }
+      .nav-right.open { right: 0; }
+      .nav-link { font-size: 1rem; }
+      .nav-cta { width: 100%; text-align: center; justify-content: center; }
+
       .hero-content {
         padding: 120px 0 80px;
       }
@@ -1668,6 +1713,35 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Blue Pixel Consulting",
+    "url": "https://bluepixelconsulting.com",
+    "logo": "https://bluepixelconsulting.com/logo-128.png",
+    "description": "AI operations consulting for established businesses. Practical AI solutions that reduce admin work and improve operational leverage.",
+    "founder": {
+      "@type": "Person",
+      "name": "Casey Blustein",
+      "jobTitle": "Best Boy"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "casey@bluepixelconsulting.com",
+      "contactType": "sales"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/casey-blustein/"
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Navigation -->
@@ -1677,6 +1751,9 @@
         <img src="logo-128.png" alt="Blue Pixel Consulting logo" width="36" height="36">
         <span>Blue Pixel</span>
       </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <div class="nav-right">
         <a href="about.html" class="nav-link">About</a>
         <a href="growth.html" class="nav-link">Growing Companies</a>
@@ -1915,11 +1992,11 @@
       <div class="testimonial-row row-left fade-up">
         <div class="testimonial-track">
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=12" alt="HVAC company owner avatar" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="Portrait of Chris Klich" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Jordan M.</h3>
-              <p class="testimonial-role">Owner, HVAC Services Group</p>
-              <p class="testimonial-quote">“Dispatch and quote follow-up used to eat our day. Now those workflows run automatically and our close rate improved within weeks.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1939,11 +2016,11 @@
             </div>
           </article>
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="Construction owner avatar" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="Portrait of Chris Klich" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Chris T.</h3>
-              <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -1987,11 +2064,11 @@
             </div>
           </article>
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Chris T.</h3>
-              <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2003,11 +2080,11 @@
             </div>
           </article>
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=57" alt="" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Alex P.</h3>
-              <p class="testimonial-role">Owner, Regional Trades Business</p>
-              <p class="testimonial-quote">“From intake to invoice, we removed repetitive admin work and gained back hours every week. The implementation was practical and fast.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
         </div>
@@ -2032,11 +2109,11 @@
             </div>
           </article>
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Chris T.</h3>
-              <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2080,11 +2157,11 @@
             </div>
           </article>
           <article class="testimonial-card">
-            <img class="testimonial-avatar" src="https://i.pravatar.cc/112?img=19" alt="" loading="lazy" decoding="async">
+            <img class="testimonial-avatar" src="/assets/testimonials/chris-klich.jpeg" alt="" loading="lazy" decoding="async">
             <div class="testimonial-meta">
-              <h3>Chris T.</h3>
-              <p class="testimonial-role">Owner, Commercial Construction</p>
-              <p class="testimonial-quote">“Change-order flow and project updates are no longer chaotic. PMs spend less time chasing status and more time running jobs.”</p>
+              <h3>Chris Klich</h3>
+              <p class="testimonial-role">CEO, Mycro Harvest</p>
+              <p class="testimonial-quote">“Casey helped our team move from casually experimenting with AI tools to actually embedding them into our workflows. Blue Pixel set up systems that help us synthesize technical research, document experiments, and share knowledge across the team much faster. The work saved our team hours each week and gave us a clearer view of how AI can support the scale-up of our mushroom production systems.”</p>
             </div>
           </article>
           <article class="testimonial-card">
@@ -2509,6 +2586,24 @@
           gtagReportConversion(link.href, link.getAttribute('data-cta') || 'book_assessment');
         });
       });
+    // Mobile nav toggle
+    var toggle = document.querySelector('.nav-toggle');
+    var navRight = document.querySelector('.nav-right');
+    if (toggle && navRight) {
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('active');
+        navRight.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', navRight.classList.contains('open'));
+      });
+      navRight.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          toggle.classList.remove('active');
+          navRight.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
     })();
   </script>
 </body>
